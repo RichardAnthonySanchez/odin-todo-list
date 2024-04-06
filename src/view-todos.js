@@ -8,7 +8,7 @@ export default function viewTodos(todos) {
         projectArr.push(projectOfTodo);
     }
     let uniqueProjects = _.uniq(projectArr);
-
+/*
     const list = document.createElement('ul');
     for (let parseEachProject = 0; parseEachProject < uniqueProjects.length; parseEachProject++) {
         let eachProjectContainer = document.createElement('li');
@@ -17,4 +17,5 @@ export default function viewTodos(todos) {
     }
     const body = document.querySelector('body');
     body.appendChild(list);
+    */
 } 
