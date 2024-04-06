@@ -1,108 +1,122 @@
 [
-    {
-      "title": "Buy Groceries",
-      "description": "Purchase milk, eggs, and bread from the local supermarket.",
-      "due_date": "2024-04-10",
-      "priority": "High",
-      "project": "Today"
-    },
-    {
-      "title": "Complete Monthly Report",
-      "description": "Finish compiling data and analysis for the monthly report.",
-      "due_date": "2024-04-15",
-      "priority": "High",
-      "project": "Work"
-    },
-    {
-      "title": "Clean Living Room",
-      "description": "Vacuum the living room and tidy up the furniture.",
-      "due_date": "2024-04-08",
-      "priority": "Medium",
-      "project": "Home"
-    },
-    {
-      "title": "Send Client Emails",
-      "description": "Reach out to clients regarding project updates and follow-ups.",
-      "due_date": "2024-04-12",
-      "priority": "High",
-      "project": "Work"
-    },
-    {
-      "title": "Schedule Dentist Appointment",
-      "description": "Call the dentist's office to book a check-up appointment.",
-      "due_date": "2024-04-20",
-      "priority": "Medium",
-      "project": "Personal"
-    },
-    {
-      "title": "Pay Utility Bills",
-      "description": "Settle electricity, water, and internet bills for the month.",
-      "due_date": "2024-04-15",
-      "priority": "High",
-      "project": "Home"
-    },
-    {
-      "title": "Research New Project Management Software",
-      "description": "Look into different project management tools for potential adoption.",
-      "due_date": "2024-04-18",
-      "priority": "Medium",
-      "project": "Work"
-    },
-    {
-      "title": "Plan Weekend Getaway",
-      "description": "Research destinations and accommodations for a weekend trip.",
-      "due_date": "2024-04-30",
-      "priority": "Low",
-      "project": "Personal"
-    },
-    {
-      "title": "Organize Workspace",
-      "description": "Declutter and organize desk space for improved productivity.",
-      "due_date": "2024-04-10",
-      "priority": "Medium",
-      "project": "Work"
-    },
-    {
-      "title": "Attend Team Meeting",
-      "description": "Prepare agenda and notes for the weekly team meeting.",
-      "due_date": "2024-04-09",
-      "priority": "High",
-      "project": "Work"
-    },
-    {
-      "title": "Call Mom for Birthday",
-      "description": "Wish mom a happy birthday and catch up on family news.",
-      "due_date": "2024-04-07",
-      "priority": "High",
-      "project": "Personal"
-    },
-    {
-      "title": "Exercise Routine",
-      "description": "Follow the daily workout routine for physical fitness.",
-      "due_date": "2024-04-30",
-      "priority": "Medium",
-      "project": "Health"
-    },
-    {
-      "title": "Read Chapter 5 of Book",
-      "description": "Continue reading the fifth chapter of the current book.",
-      "due_date": "2024-04-14",
-      "priority": "Low",
-      "project": "Personal"
-    },
-    {
-      "title": "Update Resume",
-      "description": "Revise and update resume with recent accomplishments and skills.",
-      "due_date": "2024-04-25",
-      "priority": "Medium",
-      "project": "Career"
-    },
-    {
-      "title": "Plan Birthday Party",
-      "description": "Organize a birthday celebration for a friend or family member.",
-      "due_date": "2024-04-30",
-      "priority": "High",
-      "project": "Personal"
-    }
-  ]
-  
+  {
+    "title": "Buy Groceries",
+    "description": "Purchase milk, eggs, and bread from the local supermarket.",
+    "due_date": "2024-04-10",
+    "priority": "High",
+    "project": "Today",
+    "completed": false
+  },
+  {
+    "title": "Complete Monthly Report",
+    "description": "Finish compiling data and analysis for the monthly report.",
+    "due_date": "2024-04-15",
+    "priority": "High",
+    "project": "Work",
+    "completed": false
+  },
+  {
+    "title": "Clean Living Room",
+    "description": "Vacuum the living room and tidy up the furniture.",
+    "due_date": "2024-04-08",
+    "priority": "Medium",
+    "project": "Home",
+    "completed": false
+  },
+  {
+    "title": "Send Client Emails",
+    "description": "Reach out to clients regarding project updates and follow-ups.",
+    "due_date": "2024-04-12",
+    "priority": "High",
+    "project": "Work",
+    "completed": false
+  },
+  {
+    "title": "Schedule Dentist Appointment",
+    "description": "Call the dentist's office to book a check-up appointment.",
+    "due_date": "2024-04-20",
+    "priority": "Medium",
+    "project": "Personal",
+    "completed": false
+  },
+  {
+    "title": "Pay Utility Bills",
+    "description": "Settle electricity, water, and internet bills for the month.",
+    "due_date": "2024-04-15",
+    "priority": "High",
+    "project": "Home",
+    "completed": false
+  },
+  {
+    "title": "Research New Project Management Software",
+    "description": "Look into different project management tools for potential adoption.",
+    "due_date": "2024-04-18",
+    "priority": "Medium",
+    "project": "Work",
+    "completed": false
+  },
+  {
+    "title": "Plan Weekend Getaway",
+    "description": "Research destinations and accommodations for a weekend trip.",
+    "due_date": "2024-04-30",
+    "priority": "Low",
+    "project": "Personal",
+    "completed": false
+  },
+  {
+    "title": "Organize Workspace",
+    "description": "Declutter and organize desk space for improved productivity.",
+    "due_date": "2024-04-10",
+    "priority": "Medium",
+    "project": "Work",
+    "completed": false
+  },
+  {
+    "title": "Attend Team Meeting",
+    "description": "Prepare agenda and notes for the weekly team meeting.",
+    "due_date": "2024-04-09",
+    "priority": "High",
+    "project": "Work",
+    "completed": false
+  },
+  {
+    "title": "Call Mom for Birthday",
+    "description": "Wish mom a happy birthday and catch up on family news.",
+    "due_date": "2024-04-07",
+    "priority": "High",
+    "project": "Personal",
+    "completed": false
+  },
+  {
+    "title": "Exercise Routine",
+    "description": "Follow the daily workout routine for physical fitness.",
+    "due_date": "2024-04-30",
+    "priority": "Medium",
+    "project": "Health",
+    "completed": false
+  },
+  {
+    "title": "Read Chapter 5 of Book",
+    "description": "Continue reading the fifth chapter of the current book.",
+    "due_date": "2024-04-14",
+    "priority": "Low",
+    "project": "Personal",
+    "completed": false
+  },
+  {
+    "title": "Update Resume",
+    "description": "Revise and update resume with recent accomplishments and skills.",
+    "due_date": "2024-04-25",
+    "priority": "Medium",
+    "project": "Career",
+    "completed": false
+  },
+  {
+    "title": "Plan Birthday Party",
+    "description": "Organize a birthday celebration for a friend or family member.",
+    "due_date": "2024-04-30",
+    "priority": "High",
+    "project": "Personal",
+    "completed": false
+  }
+]
