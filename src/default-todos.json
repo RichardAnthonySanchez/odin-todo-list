@@ -20,7 +20,7 @@
     "description": "Vacuum the living room and tidy up the furniture.",
     "due_date": "2024-04-08",
     "priority": "Medium",
-    "project": "Home",
+    "project": "Today",
     "completed": false
   },
   {
@@ -28,7 +28,7 @@
     "description": "Reach out to clients regarding project updates and follow-ups.",
     "due_date": "2024-04-12",
     "priority": "High",
-    "project": "Work",
+    "project": "Today",
     "completed": false
   },
   {

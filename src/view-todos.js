@@ -18,4 +18,16 @@ export default function viewTodos(todos) {
     const body = document.querySelector('body');
     body.appendChild(list);
     */
+
+    const activeTasksContainer = document.getElementById('active-tasks');
+
+    const filteredTodos = _.filter(todos, { 'project': 'Today'});
+    for (let eachFilteredTodo = 0; eachFilteredTodo < filteredTodos.length; eachFilteredTodo++) {
+        let task = filteredTodos[eachFilteredTodo];
+        let taskContainer = document.createElement('div');
+        taskContainer.setAttribute('class', 'task');
+        taskContainer.innerHTML = task.title;
+        activeTasksContainer.appendChild(taskContainer);
+    }
+        
 } 
