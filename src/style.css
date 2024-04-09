@@ -1,6 +1,8 @@
 @font-face {
     font-family: 'Josefin Slab Bold';
     src: url('./JosefinSlab-Bold.ttf') format('truetype');
+    font-family: 'Roboto';
+    src: url('./Roboto-Bold.ttf') format('truetype');
     font-weight: 600;
     font-style: normal;
   }
@@ -118,4 +120,17 @@ header {
 #content {
     background-color: var(--transparent);
     max-width: auto;
+    padding: 24px;
+    color: var(--font-color);
+}
+
+#project-title {
+    font-family: 'Roboto';
+    h1 {
+        font-size: 40px;
+    }
+    h3 {
+        font-size: 20px;
+        margin-top: -12px;
+    }
 }
