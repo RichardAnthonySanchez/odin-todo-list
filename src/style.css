@@ -12,12 +12,17 @@
     --font-color: #CBCBCB;
     --orange-color: #D07B69;
     --transparent: rgba(0, 0, 0, 0);
+    --purple-med: #8E5463;
 }
 
 html, body {
     height: 100%;
     margin: 0;
     padding: 0;
+}
+
+p {
+    font-family: 'Roboto';
 }
 
 #container {
@@ -133,4 +138,37 @@ header {
         font-size: 20px;
         margin-top: -12px;
     }
+}
+
+.task {
+    padding: 8px;
+    border-radius: 8px;
+    background-color: var(--purple-med);
+    user-select: text;
+
+    display: grid;
+    grid-template-columns: 44px 1fr;
+    grid-template-areas:
+        "checkbox description"
+        "checkbox info";
+    column-gap: 8px;
+    margin-top: 0.5rem;
+}
+
+.task-content {
+    color: var(--background-color);
+}
+
+.task-checkbox {
+    grid-area: checkbox;
+    justify-self: center;
+    height: 24px;
+    width: 24px;
+    margin-top: 6px;
+    border-radius: 50%;
+    border: 2px solid grey;
+    background-color: white;
+    appearance: none;
+    -webkit-appearance: none;
+    cursor: pointer;
 }
