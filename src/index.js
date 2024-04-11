@@ -2,11 +2,11 @@ import './style.css';
 import _ from 'lodash';
 import defaultTodos from './default-todos.json'
 import viewTodos from './view-todos'
-import viewProjectTitle from './view-project-title';
+import createProjectTitle from './model-project-title';
 
 function component() {
   viewTodos(defaultTodos);
-  viewProjectTitle();
+  createProjectTitle.getProjectTitle();
   }
   
   component();
