@@ -1,5 +1,4 @@
 import { format } from 'date-fns';
-import viewProjectTitle from './view-project-title';
 
 const createProjectTitle = (function() {
 
@@ -9,20 +8,20 @@ const createProjectTitle = (function() {
     }
 
     function createSubtitle () {    
-    const currentDate = new Date();
-    const formattdDate = format(currentDate, 'EEEE, d MMM yyyy');
-    const upperCaseDate = formattdDate.toLocaleUpperCase();
-    return upperCaseDate;
+        const currentDate = new Date();
+        const formattdDate = format(currentDate, 'EEEE, d MMM yyyy');
+        const upperCaseDate = formattdDate.toLocaleUpperCase();
+        return upperCaseDate;
     }
 
     function getProjectTitle() {
         let title = createTitle();
         let subTitle = createSubtitle();
-        viewProjectTitle(title, subTitle);
+        return { title, subTitle }
     }
 
         return {
-            getProjectTitle: getProjectTitle
+            getProjectTitle,
         }
 })();
 

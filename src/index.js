@@ -1,12 +1,12 @@
 import './style.css';
 import _ from 'lodash';
 import defaultTodos from './default-todos.json'
-import createProjectTitle from './model-project-title';
 import todosInterface from './interface-todos';
+import projectInterface from './interface-projects';
 
 function component() {
   todosInterface.displayCurrentTasks(defaultTodos);
-  createProjectTitle.getProjectTitle();
+  projectInterface.displayProjectTitle();
   }
   
   component();
