@@ -7,6 +7,7 @@ import projectInterface from './interface-projects';
 function component() {
   todosInterface.displayCurrentTasks(defaultTodos);
   projectInterface.displayProjectTitle();
+  todosInterface.displayCompletedTasks(defaultTodos)
   }
   
   component();

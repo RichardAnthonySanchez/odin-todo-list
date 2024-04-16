@@ -20,9 +20,29 @@ const todoViewer = (function(todos) {
             activeTasksContainer.appendChild(taskContainer);
         } 
     } 
+
+    function viewCompletedTodos(completedTasks) {
+        const completedTasksContainer = document.getElementById('completed-tasks');
+
+        for (let eachFilteredTodo = 0; eachFilteredTodo < completedTasks.length; eachFilteredTodo++) {
+            let task = completedTasks[eachFilteredTodo];
+            let taskContainer = document.createElement('div');
+            let checkBox = document.createElement('input');
+            checkBox.setAttribute('type', 'checkbox');
+            checkBox.setAttribute('class', 'task-checkbox');
+            let taskContent = document.createElement('p');
+            taskContent.setAttribute('class', 'task-content');
+            taskContainer.setAttribute('class', 'task task-complete');
+            taskContent.innerHTML = task.title;
+            taskContainer.appendChild(checkBox);
+            taskContainer.appendChild(taskContent);
+            completedTasksContainer.appendChild(taskContainer);
+        } 
+    }
     
     return {
         viewCurrentTodos,
+        viewCompletedTodos,
     }
     
 })()

@@ -8,8 +8,14 @@ const todosInterface = (function(todos) {
         todoViewer.viewCurrentTodos(currentTasks);
     }
 
+    function displayCompletedTasks(todos) {
+        let completedTasks = todoFilters.getCompletedTasks(todos);
+        todoViewer.viewCompletedTodos(completedTasks);
+    }
+
     return {
         displayCurrentTasks,
+        displayCompletedTasks,
     }
 })()
 

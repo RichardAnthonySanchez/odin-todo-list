@@ -62,6 +62,10 @@ header {
     padding: 24px;
 }
 
+h3 {
+    font-family: 'Roboto';
+}
+
 .title {
     display: flex;
     align-items: center;    

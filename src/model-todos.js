@@ -1,6 +1,6 @@
 import _ from 'lodash';
 
-const todoFilters = (function (todos) {
+const todoFilters = (function () {
 
     function filterUniqueProjects(todos) {    
         let projectArr = [];
@@ -23,9 +23,16 @@ const todoFilters = (function (todos) {
         return filteredTasks
     }
 
+    function getCompletedTasks(todos) {
+        let currentTasksResult = currentTasks(todos);
+        const completedTasks = _.filter(currentTasksResult, { 'completed': true});
+        return completedTasks;
+    }
+
     return {
         filterUniqueProjects,
         currentTasks,
+        getCompletedTasks,
     }
 
 })();
