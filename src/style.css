@@ -144,6 +144,49 @@ h3 {
     }
 }
 
+#add-task {
+    height: 60px;
+    padding: 8px;
+    border-radius: 8px;
+    background-color: var(--purple-med);
+    box-shadow: var(var(--background-color));
+
+    display: grid;
+    grid-template-columns: 44px 1fr;
+    gap: 8px;
+    margin-top: 0.5rem;
+}
+
+#add-task > * {
+    height: 100%;
+    background-color: transparent;
+}
+
+#add-task span {
+    font-size: 32px;
+    font-weight: 300;
+    color: var(--background-color);
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+#add-task-input {
+    font-size: 20px;
+    font-weight: 600;
+    color: var(--background-color);
+    border: var(--transparent);
+}
+
+#add-task-input::placeholder {
+    color: var(--background-color);
+}
+
+#add-task-input:focus {
+    border-color: var(--transparent); /* Set border color for focus state */
+    outline: none; /* Optionally remove the focus outline */
+}
+
 .task {
     padding: 8px;
     border-radius: 8px;
