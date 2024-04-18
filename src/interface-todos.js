@@ -5,7 +5,7 @@ const todosInterface = (function(todos) {
 
     function displayCurrentTasks(todos){
         let currentTasks = todoFilters.currentTasks(todos);
-        todoViewer.viewCurrentTodos(currentTasks);
+        todoViewer.viewCurrentTodos(currentTasks.filterOutCompletedTodos);
     }
 
     function displayCompletedTasks(todos) {

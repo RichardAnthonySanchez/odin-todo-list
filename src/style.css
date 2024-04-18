@@ -179,12 +179,12 @@ h3 {
 }
 
 #add-task-input::placeholder {
-    color: var(--background-color);
+    color: rgb(167, 167, 167);
 }
 
 #add-task-input:focus {
-    border-color: var(--transparent); /* Set border color for focus state */
-    outline: none; /* Optionally remove the focus outline */
+    border-color: var(--transparent);
+    outline: none; 
 }
 
 .task {

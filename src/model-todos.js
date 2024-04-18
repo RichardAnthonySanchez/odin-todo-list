@@ -14,18 +14,14 @@ const todoFilters = (function () {
     }
 
     function currentTasks(todos) {    
-        const filteredTodos = _.filter(todos, { 'project': 'Today'});
-        let filteredTasks = [];
-        for (let eachFilteredTodo = 0; eachFilteredTodo < filteredTodos.length; eachFilteredTodo++) {
-            let task = filteredTodos[eachFilteredTodo];
-            filteredTasks.push(task);
-        }
-        return filteredTasks
+        const filterCurrentTodos = _.filter(todos, { 'project': 'Today'});
+        const filterOutCompletedTodos = _.filter(filterCurrentTodos, todo => !todo.completed);
+        return { filterCurrentTodos, filterOutCompletedTodos }
     }
 
     function getCompletedTasks(todos) {
         let currentTasksResult = currentTasks(todos);
-        const completedTasks = _.filter(currentTasksResult, { 'completed': true});
+        const completedTasks = _.filter(currentTasksResult.filterCurrentTodos, { 'completed': true });
         return completedTasks;
     }
 
