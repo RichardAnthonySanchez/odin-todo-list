@@ -1,5 +1,6 @@
 import todoFilters from "./model-todos";
 import todoViewer from "./view-todos";
+import todosController from "./controller-todos";
 
 const todosInterface = (function(todos) {
 
@@ -13,9 +14,17 @@ const todosInterface = (function(todos) {
         todoViewer.viewCompletedTodos(completedTasks);
     }
 
+    function addTaskInterface(usersNewTaskTitle) {
+        todosController.addTask(usersNewTaskTitle);
+        let newTask = todoFilters.createTaskObject(usersNewTaskTitle);
+        console.log(newTask);
+        return newTask;
+    }
+
     return {
         displayCurrentTasks,
         displayCompletedTasks,
+        addTaskInterface,
     }
 })()
 

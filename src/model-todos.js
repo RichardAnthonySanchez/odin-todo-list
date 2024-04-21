@@ -25,10 +25,17 @@ const todoFilters = (function () {
         return completedTasks;
     }
 
+    function createTaskObject(taskTitle) {
+        return {
+            title: taskTitle,
+        };
+    }
+
     return {
         filterUniqueProjects,
         currentTasks,
         getCompletedTasks,
+        createTaskObject,
     }
 
 })();

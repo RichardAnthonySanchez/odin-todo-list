@@ -7,7 +7,15 @@ import projectInterface from './interface-projects';
 function component() {
   todosInterface.displayCurrentTasks(defaultTodos);
   projectInterface.displayProjectTitle();
-  todosInterface.displayCompletedTasks(defaultTodos)
-  }
-  
+  todosInterface.displayCompletedTasks(defaultTodos);
+
+  document.addEventListener('keydown', function(event) {
+    if (event.key === 'Enter' && event.target.id === 'add-task-input') {
+        const inputValue = event.target.value;
+        todosInterface.addTaskInterface(inputValue);
+    }
+});
+
+}
+
   component();
