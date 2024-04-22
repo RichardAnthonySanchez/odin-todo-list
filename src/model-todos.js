@@ -31,11 +31,29 @@ const todoFilters = (function () {
         };
     }
 
+    function addDefaultTodosToStorage(defaultTodos) {
+        localStorage.setItem('todos', JSON.stringify(defaultTodos));
+        console.log('todos stored successfully');
+    }
+
+    function checkForStoredTodos(defaultTodos) {
+        let storedTodos = localStorage.getItem('todos')
+
+        if (storedTodos !== null) {
+            console.log('Todos are already in local storage', storedTodos);
+        } else {
+            console.log('Todos are not present in local storage yet...');
+            addDefaultTodosToStorage(defaultTodos);
+        }
+    }
+
     return {
         filterUniqueProjects,
         currentTasks,
         getCompletedTasks,
         createTaskObject,
+        addDefaultTodosToStorage,
+        checkForStoredTodos,
     }
 
 })();
