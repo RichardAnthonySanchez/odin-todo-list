@@ -42,7 +42,6 @@ const todoFilters = (function () {
         if (storedTodos !== null) {
             console.log('Todos are already in local storage', storedTodos);
         } else {
-            console.log('Todos are not present in local storage yet...');
             addDefaultTodosToStorage(defaultTodos);
         }
     }
