@@ -17,11 +17,10 @@ const todosInterface = (function(todos) {
     function addTaskInterface(usersNewTaskTitle) {
         todosController.addTask(usersNewTaskTitle);
         let newTask = todoFilters.createTaskObject(usersNewTaskTitle);
-        console.log(newTask);
-        return newTask;
+        todoFilters.addTodo(newTask);
     }
 
-    function checkForStoredTodos(defaultTodos) {
+    function checkForStoredTodosInterface(defaultTodos) {
         todoFilters.checkForStoredTodos(defaultTodos);
     }
 
@@ -29,7 +28,7 @@ const todosInterface = (function(todos) {
         displayCurrentTasks,
         displayCompletedTasks,
         addTaskInterface,
-        checkForStoredTodos,
+        checkForStoredTodosInterface,
     }
 })()
 

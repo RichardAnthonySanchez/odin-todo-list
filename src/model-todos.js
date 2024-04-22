@@ -31,8 +31,13 @@ const todoFilters = (function () {
         };
     }
 
-    function addDefaultTodosToStorage(defaultTodos) {
-        localStorage.setItem('todos', JSON.stringify(defaultTodos));
+    function getTodos() {
+        const storedTodos = localStorage.getItem('todos');
+        return storedTodos ? JSON.parse(storedTodos) : [];
+    }
+
+    function saveTodos(todos) {
+        localStorage.setItem('todos', JSON.stringify(todos));
         console.log('todos stored successfully');
     }
 
@@ -42,8 +47,16 @@ const todoFilters = (function () {
         if (storedTodos !== null) {
             console.log('Todos are already in local storage', storedTodos);
         } else {
-            addDefaultTodosToStorage(defaultTodos);
+            saveTodos(defaultTodos);
         }
+    }
+
+    function addTodo(newTodo) {
+        const todos = getTodos();
+
+        todos.push(newTodo);
+
+        saveTodos(todos);
     }
 
     return {
@@ -51,8 +64,9 @@ const todoFilters = (function () {
         currentTasks,
         getCompletedTasks,
         createTaskObject,
-        addDefaultTodosToStorage,
+        saveTodos,
         checkForStoredTodos,
+        addTodo,
     }
 
 })();

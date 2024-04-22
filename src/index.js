@@ -8,7 +8,7 @@ function component() {
   todosInterface.displayCurrentTasks(defaultTodos);
   projectInterface.displayProjectTitle();
   todosInterface.displayCompletedTasks(defaultTodos);
-  todosInterface.checkForStoredTodos(defaultTodos);
+  todosInterface.checkForStoredTodosInterface(defaultTodos);
 
   document.addEventListener('keydown', function(event) {
     if (event.key === 'Enter' && event.target.id === 'add-task-input') {
