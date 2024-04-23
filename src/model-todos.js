@@ -35,6 +35,7 @@ const todoFilters = (function () {
     function createTaskObject(taskTitle) {
         return {
             title: taskTitle,
+            project: "Today",
         };
     }
 
