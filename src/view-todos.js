@@ -4,6 +4,7 @@ const todoViewer = (function(todos) {
 
     function viewCurrentTodos(currentTodos) {
         const activeTasksContainer = document.getElementById('active-tasks');
+        activeTasksContainer.innerHTML = '';
 
         for (let eachFilteredTodo = 0; eachFilteredTodo < currentTodos.length; eachFilteredTodo++) {
             let task = currentTodos[eachFilteredTodo];
@@ -39,20 +40,10 @@ const todoViewer = (function(todos) {
             completedTasksContainer.appendChild(taskContainer);
         } 
     }
-
-    function getAddTaskData() {
-        document.getElementById('add-task-input').addEventListener('keydown', function(event) {
-            if (event.key === 'Enter') {
-                const inputValue = event.target.value;
-                return inputValue;
-            }
-        })
-    }
     
     return {
         viewCurrentTodos,
         viewCompletedTodos,
-        getAddTaskData,
     }
     
 })()

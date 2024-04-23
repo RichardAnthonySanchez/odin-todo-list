@@ -18,6 +18,7 @@ const todosInterface = (function() {
         todosController.addTask(usersNewTaskTitle);
         let newTask = todoFilters.createTaskObject(usersNewTaskTitle);
         todoFilters.addTodo(newTask);
+        displayCurrentTasks();
     }
 
     function checkForStoredTodosInterface(defaultTodos) {
