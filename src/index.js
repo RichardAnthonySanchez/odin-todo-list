@@ -5,10 +5,10 @@ import todosInterface from './interface-todos';
 import projectInterface from './interface-projects';
 
 function component() {
-  todosInterface.displayCurrentTasks(defaultTodos);
-  projectInterface.displayProjectTitle();
-  todosInterface.displayCompletedTasks(defaultTodos);
   todosInterface.checkForStoredTodosInterface(defaultTodos);
+  todosInterface.displayCurrentTasks();
+  projectInterface.displayProjectTitle();
+  todosInterface.displayCompletedTasks();
 
   document.addEventListener('keydown', function(event) {
     if (event.key === 'Enter' && event.target.id === 'add-task-input') {

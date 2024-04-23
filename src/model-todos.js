@@ -2,6 +2,11 @@ import _ from 'lodash';
 
 const todoFilters = (function () {
 
+    function getTodos() {
+        const storedTodos = localStorage.getItem('todos');
+        return storedTodos ? JSON.parse(storedTodos) : [];
+    }
+
     function filterUniqueProjects(todos) {    
         let projectArr = [];
         for (let i = 0; i < todos.length; i++) {
@@ -13,13 +18,15 @@ const todoFilters = (function () {
         return uniqueProjects;
     }
 
-    function currentTasks(todos) {    
+    function currentTasks() {    
+        let todos = getTodos();
         const filterCurrentTodos = _.filter(todos, { 'project': 'Today'});
         const filterOutCompletedTodos = _.filter(filterCurrentTodos, todo => !todo.completed);
         return { filterCurrentTodos, filterOutCompletedTodos }
     }
 
-    function getCompletedTasks(todos) {
+    function getCompletedTasks() {
+        let todos = getTodos();
         let currentTasksResult = currentTasks(todos);
         const completedTasks = _.filter(currentTasksResult.filterCurrentTodos, { 'completed': true });
         return completedTasks;
@@ -29,11 +36,6 @@ const todoFilters = (function () {
         return {
             title: taskTitle,
         };
-    }
-
-    function getTodos() {
-        const storedTodos = localStorage.getItem('todos');
-        return storedTodos ? JSON.parse(storedTodos) : [];
     }
 
     function saveTodos(todos) {
