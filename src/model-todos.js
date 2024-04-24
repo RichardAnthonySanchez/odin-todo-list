@@ -39,6 +39,11 @@ const todoFilters = (function () {
         };
     }
 
+    function clearTodos() {
+        localStorage.removeItem('todos');
+        console.log('Todos cleared from local storage');
+    }
+
     function saveTodos(todos) {
         localStorage.setItem('todos', JSON.stringify(todos));
         console.log('todos stored successfully');
@@ -52,6 +57,11 @@ const todoFilters = (function () {
         } else {
             saveTodos(defaultTodos);
         }
+    }
+
+    function refreshDefaultTodos(defaultTodos) {
+        clearTodos();
+        checkForStoredTodos(defaultTodos);
     }
 
     function addTodo(newTodo) {
@@ -70,6 +80,7 @@ const todoFilters = (function () {
         saveTodos,
         checkForStoredTodos,
         addTodo,
+        refreshDefaultTodos,
     }
 
 })();

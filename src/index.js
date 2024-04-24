@@ -15,8 +15,15 @@ function component() {
         const inputValue = event.target.value;
         todosInterface.addTaskInterface(inputValue);
     }
-});
+  });
 
+  document.addEventListener('click', function(e) {
+      if (e.target.id === 'refresh-todos') {
+        todosInterface.refreshDefaultTodosInterface(defaultTodos)
+
+      }
+  });
+  
 }
 
   component();

@@ -25,11 +25,17 @@ const todosInterface = (function() {
         todoFilters.checkForStoredTodos(defaultTodos);
     }
 
+    function refreshDefaultTodosInterface(defaultTodos) {
+        todoFilters.refreshDefaultTodos(defaultTodos);
+        displayCurrentTasks();
+    }
+
     return {
         displayCurrentTasks,
         displayCompletedTasks,
         addTaskInterface,
         checkForStoredTodosInterface,
+        refreshDefaultTodosInterface,
     }
 })()
 
