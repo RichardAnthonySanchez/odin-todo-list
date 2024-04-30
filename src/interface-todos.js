@@ -30,12 +30,26 @@ const todosInterface = (function() {
         displayCurrentTasks();
     }
 
+    function switchTaskCompletionStatusInterface(todo) {
+        let updatedTodo = todoFilters.switchTaskCompletionStatus(todo);
+        todoFilters.updateTodo(updatedTodo);
+        displayCurrentTasks();
+        displayCompletedTasks();
+    }
+
+    function findSelectedTodoInterface(todoContent) {
+        let todoObject = todoFilters.findSelectedTodo(todoContent);
+        return todoObject;
+    }
+
     return {
         displayCurrentTasks,
         displayCompletedTasks,
         addTaskInterface,
         checkForStoredTodosInterface,
         refreshDefaultTodosInterface,
+        switchTaskCompletionStatusInterface,
+        findSelectedTodoInterface,
     }
 })()
 

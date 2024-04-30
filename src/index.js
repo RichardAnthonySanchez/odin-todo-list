@@ -10,19 +10,32 @@ function component() {
   projectInterface.displayProjectTitle();
   todosInterface.displayCompletedTasks();
 
-  document.addEventListener('keydown', function(event) {
-    if (event.key === 'Enter' && event.target.id === 'add-task-input') {
-        const inputValue = event.target.value;
+  document.addEventListener('keydown', function(e) {
+    if (e.key === 'Enter' && e.target.id === 'add-task-input') {
+        const inputValue = e.target.value;
         todosInterface.addTaskInterface(inputValue);
     }
   });
 
   document.addEventListener('click', function(e) {
-      if (e.target.id === 'refresh-todos') {
-        todosInterface.refreshDefaultTodosInterface(defaultTodos)
+    if (e.target.id === 'refresh-todos') {
+        todosInterface.refreshDefaultTodosInterface(defaultTodos);
+    } else if (e.target.classList.contains('task-checkbox')) {
+        let taskElement = e.target.parentElement;
+        while (taskElement && !taskElement.classList.contains('task')) {
+            taskElement = taskElement.parentElement;
+        }
 
-      }
-  });
+        if (taskElement) {
+            const todoContent = taskElement.querySelector('.task-content').textContent;
+            let todoObject = todosInterface.findSelectedTodoInterface(todoContent);
+            if (todoObject) {
+                todosInterface.switchTaskCompletionStatusInterface(todoObject);
+            }
+        }
+    }
+});
+
   
 }
 

@@ -72,6 +72,32 @@ const todoFilters = (function () {
         saveTodos(todos);
     }
 
+    function updateTodo(updatedTodo) {
+        let todos = getTodos();
+        const index = todos.findIndex(todo => todo.title === updatedTodo.title);
+        if (index !== -1) {
+            todos[index] = updatedTodo;
+            localStorage.setItem('todos', JSON.stringify(todos));
+        } else {
+            console.log('Todo not found');
+        }
+    }
+
+    function switchTaskCompletionStatus(todo) {
+        if (todo.completed) {
+            todo.completed = false;
+        } else {
+            todo.completed = true;
+        }
+        return todo;
+    }
+
+    function findSelectedTodo(todoContent) {
+        const todos = getTodos();
+        const todoObject = todos.find(todo => todo.title === todoContent);
+        return todoObject
+    }
+
     return {
         filterUniqueProjects,
         currentTasks,
@@ -81,6 +107,9 @@ const todoFilters = (function () {
         checkForStoredTodos,
         addTodo,
         refreshDefaultTodos,
+        switchTaskCompletionStatus,
+        findSelectedTodo,
+        updateTodo,
     }
 
 })();
