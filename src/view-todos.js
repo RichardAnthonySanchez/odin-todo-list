@@ -41,10 +41,15 @@ const todoViewer = (function(todos) {
             completedTasksContainer.appendChild(taskContainer);
         } 
     }
+
+    function viewSelectedTodoProperty(displayText) {
+        console.log(displayText);
+    }
     
     return {
         viewCurrentTodos,
         viewCompletedTodos,
+        viewSelectedTodoProperty,
     }
     
 })()

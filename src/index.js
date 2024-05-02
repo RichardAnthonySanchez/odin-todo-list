@@ -33,6 +33,8 @@ function component() {
                 todosInterface.switchTaskCompletionStatusInterface(todoObject);
             }
         }
+    } else if (e.target.classList.contains('task')) {
+        todosInterface.selectedTodoPropertyInterface();
     }
 });
 

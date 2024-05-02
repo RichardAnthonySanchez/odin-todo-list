@@ -4,8 +4,20 @@ const todosController = (function() {
         return usersNewTaskTitle;
     }
 
+    function selectedTodoProperty() {
+        let selectedTask = prompt('Do you want to, 1. edit the title of the task');
+        let text;
+        if (selectedTask === '1') {
+            text = 'user wants to edit task title';
+        } else {
+            text = 'invalid input';
+        }
+        return text;
+    }
+
     return {
-        addTask
+        addTask,
+        selectedTodoProperty,
     }
 
 })();

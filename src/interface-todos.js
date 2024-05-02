@@ -42,6 +42,11 @@ const todosInterface = (function() {
         return todoObject;
     }
 
+function selectedTodoPropertyInterface() {
+    let property = todosController.selectedTodoProperty();
+    todoViewer.viewSelectedTodoProperty(property);
+}
+
     return {
         displayCurrentTasks,
         displayCompletedTasks,
@@ -50,6 +55,7 @@ const todosInterface = (function() {
         refreshDefaultTodosInterface,
         switchTaskCompletionStatusInterface,
         findSelectedTodoInterface,
+        selectedTodoPropertyInterface,
     }
 })()
 
