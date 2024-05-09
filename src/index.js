@@ -21,22 +21,32 @@ function component() {
     if (e.target.id === 'refresh-todos') {
         todosInterface.refreshDefaultTodosInterface(defaultTodos);
     } else if (e.target.classList.contains('task-checkbox')) {
-        let taskElement = e.target.parentElement;
-        while (taskElement && !taskElement.classList.contains('task')) {
-            taskElement = taskElement.parentElement;
-        }
-
-        if (taskElement) {
-            const todoContent = taskElement.querySelector('.task-content').textContent;
-            let todoObject = todosInterface.findSelectedTodoInterface(todoContent);
-            if (todoObject) {
-                todosInterface.switchTaskCompletionStatusInterface(todoObject);
-            }
-        }
+        handleTaskCheckboxClick(e.target);
     } else if (e.target.classList.contains('task')) {
-        todosInterface.selectedTodoPropertyInterface();
+        handleTaskClick(e.target);
     }
 });
+
+function handleTaskCheckboxClick(checkbox) {
+    let taskElement = checkbox.parentElement;
+    while (taskElement && !taskElement.classList.contains('task')) {
+        taskElement = taskElement.parentElement;
+    }
+
+    if (taskElement) {
+        const todoContent = taskElement.querySelector('.task-content').textContent;
+        let todoObject = todosInterface.findSelectedTodoInterface(todoContent);
+        if (todoObject) {
+            todosInterface.switchTaskCompletionStatusInterface(todoObject);
+        }
+    }
+}
+
+function handleTaskClick(taskElement) {
+    const todoContent = taskElement.querySelector('.task-content').textContent;
+    let todoObject = todosInterface.findSelectedTodoInterface(todoContent);
+    todosInterface.selectedTodoPropertyInterface(todoObject);
+}
 
   
 }

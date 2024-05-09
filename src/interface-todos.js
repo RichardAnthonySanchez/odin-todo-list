@@ -42,10 +42,19 @@ const todosInterface = (function() {
         return todoObject;
     }
 
-function selectedTodoPropertyInterface() {
-    let property = todosController.selectedTodoProperty();
-    todoViewer.viewSelectedTodoProperty(property);
-}
+    function selectedTodoPropertyInterface(todo) {
+        let newPropertyValue = todosController.selectedTodoProperty();
+        let updatedTodo = todoFilters.updateTodoTitle(todo, newPropertyValue);
+        todoFilters.updateTodo(updatedTodo);
+        displayCurrentTasks();
+        displayCompletedTasks();
+        todoViewer.viewSelectedTodoProperty(newPropertyValue);
+    }
+
+    function editTodoTitleInterface() {
+        let newTitle = todosController.updateTodoTitle();
+        return newTitle
+    }
 
     return {
         displayCurrentTasks,
@@ -56,6 +65,7 @@ function selectedTodoPropertyInterface() {
         switchTaskCompletionStatusInterface,
         findSelectedTodoInterface,
         selectedTodoPropertyInterface,
+        editTodoTitleInterface,
     }
 })()
 

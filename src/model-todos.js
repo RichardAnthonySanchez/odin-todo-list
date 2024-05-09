@@ -74,14 +74,14 @@ const todoFilters = (function () {
 
     function updateTodo(updatedTodo) {
         let todos = getTodos();
-        const index = todos.findIndex(todo => todo.title === updatedTodo.title);
+        const index = todos.findIndex(todo => todo.id === updatedTodo.id);
         if (index !== -1) {
             todos[index] = updatedTodo;
             localStorage.setItem('todos', JSON.stringify(todos));
         } else {
             console.log('Todo not found');
         }
-    }
+    }    
 
     function switchTaskCompletionStatus(todo) {
         if (todo.completed) {
@@ -98,6 +98,11 @@ const todoFilters = (function () {
         return todoObject
     }
 
+    function updateTodoTitle(todo, newTodoTitle) {
+        todo.title = newTodoTitle;
+        return todo
+    }
+
     return {
         filterUniqueProjects,
         currentTasks,
@@ -110,6 +115,7 @@ const todoFilters = (function () {
         switchTaskCompletionStatus,
         findSelectedTodo,
         updateTodo,
+        updateTodoTitle,
     }
 
 })();

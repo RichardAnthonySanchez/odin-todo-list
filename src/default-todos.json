@@ -1,5 +1,6 @@
 [
   {
+    "id": "1",
     "title": "Buy Groceries",
     "description": "Purchase milk, eggs, and bread from the local supermarket.",
     "due_date": "2024-04-10",
@@ -8,6 +9,7 @@
     "completed": true
   },
   {
+    "id": "2",
     "title": "Complete Monthly Report",
     "description": "Finish compiling data and analysis for the monthly report.",
     "due_date": "2024-04-15",
@@ -16,6 +18,7 @@
     "completed": false
   },
   {
+    "id": "3",
     "title": "Clean Living Room",
     "description": "Vacuum the living room and tidy up the furniture.",
     "due_date": "2024-04-08",
@@ -24,6 +27,7 @@
     "completed": false
   },
   {
+    "id": "4",
     "title": "Send Client Emails",
     "description": "Reach out to clients regarding project updates and follow-ups.",
     "due_date": "2024-04-12",
@@ -32,6 +36,7 @@
     "completed": false
   },
   {
+    "id": "5",
     "title": "Schedule Dentist Appointment",
     "description": "Call the dentist's office to book a check-up appointment.",
     "due_date": "2024-04-20",
@@ -40,6 +45,7 @@
     "completed": false
   },
   {
+    "id": "6",
     "title": "Pay Utility Bills",
     "description": "Settle electricity, water, and internet bills for the month.",
     "due_date": "2024-04-15",
@@ -48,6 +54,7 @@
     "completed": false
   },
   {
+    "id": "7",
     "title": "Research New Project Management Software",
     "description": "Look into different project management tools for potential adoption.",
     "due_date": "2024-04-18",
@@ -56,6 +63,7 @@
     "completed": false
   },
   {
+    "id": "8",
     "title": "Plan Weekend Getaway",
     "description": "Research destinations and accommodations for a weekend trip.",
     "due_date": "2024-04-30",
@@ -64,6 +72,7 @@
     "completed": false
   },
   {
+    "id": "9",
     "title": "Organize Workspace",
     "description": "Declutter and organize desk space for improved productivity.",
     "due_date": "2024-04-10",
@@ -72,6 +81,7 @@
     "completed": false
   },
   {
+    "id": "10",
     "title": "Attend Team Meeting",
     "description": "Prepare agenda and notes for the weekly team meeting.",
     "due_date": "2024-04-09",
@@ -80,6 +90,7 @@
     "completed": false
   },
   {
+    "id": "11",
     "title": "Call Mom for Birthday",
     "description": "Wish mom a happy birthday and catch up on family news.",
     "due_date": "2024-04-07",
@@ -88,6 +99,7 @@
     "completed": false
   },
   {
+    "id": "12",
     "title": "Exercise Routine",
     "description": "Follow the daily workout routine for physical fitness.",
     "due_date": "2024-04-30",
@@ -96,6 +108,7 @@
     "completed": false
   },
   {
+    "id": "13",
     "title": "Read Chapter 5 of Book",
     "description": "Continue reading the fifth chapter of the current book.",
     "due_date": "2024-04-14",
@@ -104,6 +117,7 @@
     "completed": false
   },
   {
+    "id": "14",
     "title": "Update Resume",
     "description": "Revise and update resume with recent accomplishments and skills.",
     "due_date": "2024-04-25",
@@ -112,6 +126,7 @@
     "completed": false
   },
   {
+    "id": "15",
     "title": "Plan Birthday Party",
     "description": "Organize a birthday celebration for a friend or family member.",
     "due_date": "2024-04-30",
