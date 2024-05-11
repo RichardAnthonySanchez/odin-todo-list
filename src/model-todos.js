@@ -108,6 +108,11 @@ const todoFilters = (function () {
         return todo
     }
 
+    function updateTodoDescription(todo, newTodoDescription) {
+        todo.description = newTodoDescription
+        return todo
+    }
+
     return {
         filterUniqueProjects,
         currentTasks,
@@ -122,6 +127,7 @@ const todoFilters = (function () {
         updateTodo,
         updateTodoTitle,
         updateTodoPriority,
+        updateTodoDescription,
     }
 
 })();

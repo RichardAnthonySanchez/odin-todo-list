@@ -5,12 +5,14 @@ const todosController = (function() {
     }
 
     function selectedTodoProperty() {
-        let selectedProperty = prompt('Do you want to, 1. edit the title of the task, 2. edit the priority of the task');
+        let selectedProperty = prompt('Do you want to, 1. edit the title of the task, 2. edit the priority of the task 3. edit the description of the task');
         let propertyContent;
         if (selectedProperty == '1') {
             propertyContent = updateTodoTitle();
         } else if (selectedProperty == '2') {
             propertyContent = updateTodoPriority();
+        } else if (selectedProperty == '3') {
+            propertyContent = updateTodoDescription();
         } else {
             propertyContent = 'Invalid input from user'
         }
@@ -37,6 +39,11 @@ const todosController = (function() {
         }
 
         return newPriority
+    }
+
+    function updateTodoDescription() {
+        let newDescription = prompt('Type your desried todo description here');
+        return newDescription
     }
 
     return {

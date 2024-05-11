@@ -52,6 +52,8 @@ const todosInterface = (function() {
             updatedTodo = todoFilters.updateTodoTitle(todo, newPropertyValue);
         } else if (todoProperty == '2') {
             updatedTodo = todoFilters.updateTodoPriority(todo, newPropertyValue);
+        } else if (todoProperty == '3') {
+            updatedTodo = todoFilters.updateTodoDescription(todo, newPropertyValue);
         } else {
             console.log('selected todo property is invalid')
         }
