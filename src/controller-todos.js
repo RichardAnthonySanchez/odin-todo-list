@@ -5,14 +5,16 @@ const todosController = (function() {
     }
 
     function selectedTodoProperty() {
-        let selectedTask = prompt('Do you want to, 1. edit the title of the task');
-        let text;
-        if (selectedTask == '1') {
-            text = updateTodoTitle();
+        let selectedProperty = prompt('Do you want to, 1. edit the title of the task, 2. edit the priority of the task');
+        let propertyContent;
+        if (selectedProperty == '1') {
+            propertyContent = updateTodoTitle();
+        } else if (selectedProperty == '2') {
+            propertyContent = updateTodoPriority();
         } else {
-            text = 'Invalid input from user'
+            propertyContent = 'Invalid input from user'
         }
-        return text;
+        return { propertyContent, selectedProperty };
     }
 
     function updateTodoTitle() {
@@ -20,10 +22,26 @@ const todosController = (function() {
         return newTitle
     }
 
+    function updateTodoPriority() {
+        let priorityNumber = prompt('Select a new priority, 1. Low, 2. Medium, 3. High');
+        let newPriority;
+        
+        if (priorityNumber == '1') {
+            newPriority = 'Low'
+        } else if (priorityNumber == '2') {
+            newPriority = 'Medium'
+        } else if (priorityNumber == '3') {
+            newPriority = 'High'
+        } else {
+            console.log('Invalid priority number. Unable to select the new priority.')
+        }
+
+        return newPriority
+    }
+
     return {
         addTask,
         selectedTodoProperty,
-        updateTodoTitle,
     }
 
 })();

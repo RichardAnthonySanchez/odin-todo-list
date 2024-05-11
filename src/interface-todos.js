@@ -43,8 +43,19 @@ const todosInterface = (function() {
     }
 
     function selectedTodoPropertyInterface(todo) {
-        let newPropertyValue = todosController.selectedTodoProperty();
-        let updatedTodo = todoFilters.updateTodoTitle(todo, newPropertyValue);
+        let todoPropertyAndValue = todosController.selectedTodoProperty();
+        let todoProperty = todoPropertyAndValue.selectedProperty;
+        let newPropertyValue = todoPropertyAndValue.propertyContent;
+        let updatedTodo;
+
+        if (todoProperty == '1') {
+            updatedTodo = todoFilters.updateTodoTitle(todo, newPropertyValue);
+        } else if (todoProperty == '2') {
+            updatedTodo = todoFilters.updateTodoPriority(todo, newPropertyValue);
+        } else {
+            console.log('selected todo property is invalid')
+        }
+
         todoFilters.updateTodo(updatedTodo);
         displayCurrentTasks();
         displayCompletedTasks();

@@ -103,6 +103,11 @@ const todoFilters = (function () {
         return todo
     }
 
+    function updateTodoPriority(todo, newTodoPriority) {
+        todo.priority = newTodoPriority
+        return todo
+    }
+
     return {
         filterUniqueProjects,
         currentTasks,
@@ -116,6 +121,7 @@ const todoFilters = (function () {
         findSelectedTodo,
         updateTodo,
         updateTodoTitle,
+        updateTodoPriority,
     }
 
 })();
