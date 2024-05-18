@@ -6,8 +6,8 @@ import todosInterface from './interface-todos';
 import projectInterface from './interface-projects';
 
 function component() {
-  todosInterface.checkForStoredTodosInterface(defaultTodos);
   projectInterface.checkForStoredProjectsInterface(defaultProjects);
+  todosInterface.checkForStoredTodosInterface(defaultTodos);
   todosInterface.displayCurrentTasks();
   projectInterface.displayProjectTitle();
   todosInterface.displayCompletedTasks();

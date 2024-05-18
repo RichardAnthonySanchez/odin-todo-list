@@ -7,19 +7,22 @@ const todoFilters = (function () {
         return storedTodos ? JSON.parse(storedTodos) : [];
     }
 
-    function getProjects() {    
-        const storedProjects = localStorage.getItem('todos');
+    function getProjects() {
+        const storedProjects = localStorage.getItem('projects');
         let projects;
         if (storedProjects) {
-            projects = JSON.parse(storedProjects).projects
+            try {
+                projects = JSON.parse(storedProjects);
+            } catch (error) {
+                projects = [];
+            }
         } else {
             projects = [];
         }
-        return projects
+        return projects;
     }
-
+    
     function currentTasks() {   
-        /* 
         const todos = getTodos();
         const projects = getProjects();
         
@@ -32,7 +35,7 @@ const todoFilters = (function () {
         }
     
         // Retrieve todo IDs associated with the "Today" project
-        const todayTodoIds = todayProject;
+        const todayTodoIds = todayProject.todos;
     
         // Filter todos array to include only todos whose IDs are in the "Today" project's todo IDs
         const todayTodos = _.filter(todos, todo => {
@@ -41,22 +44,17 @@ const todoFilters = (function () {
     
         // Filter out completed todos from todayTodos
         const filterOutCompletedTodos = _.filter(todayTodos, todo => !todo.completed);
-    
         return { 
             filterCurrentTodos: todayTodos,
             filterOutCompletedTodos: filterOutCompletedTodos 
         };
-        */
+        
     }
     
-    
-
     function getCompletedTasks() {
         let currentTasksResult = currentTasks();
-        /*
         const completedTasks = _.filter(currentTasksResult.filterCurrentTodos, { 'completed': true });
         return completedTasks;
-        */
     }
 
     function createTaskObject(taskTitle) {
