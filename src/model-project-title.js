@@ -20,8 +20,24 @@ const createProjectTitle = (function() {
         return { title, subTitle }
     }
 
+    function saveProjects(projects) {
+        localStorage.setItem('projects', JSON.stringify(projects));
+        console.log('projects stored successfully');
+    }
+
+    function checkForStoredProjects(defaultProjects) {
+        let storedProjects = localStorage.getItem('projects')
+
+        if (storedProjects !== null) {
+            console.log('Projects are already in local storage', storedProjects);
+        } else {
+            saveProjects(defaultProjects);
+        }
+    }
+
         return {
             getProjectTitle,
+            checkForStoredProjects,
         }
 })();
 

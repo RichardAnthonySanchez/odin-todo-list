@@ -7,29 +7,56 @@ const todoFilters = (function () {
         return storedTodos ? JSON.parse(storedTodos) : [];
     }
 
-    function filterUniqueProjects(todos) {    
-        let projectArr = [];
-        for (let i = 0; i < todos.length; i++) {
-            let eachTodo = todos[i];
-            let projectOfTodo = eachTodo.project;
-            projectArr.push(projectOfTodo);
+    function getProjects() {    
+        const storedProjects = localStorage.getItem('todos');
+        let projects;
+        if (storedProjects) {
+            projects = JSON.parse(storedProjects).projects
+        } else {
+            projects = [];
         }
-        let uniqueProjects = _.uniq(projectArr);
-        return uniqueProjects;
+        return projects
     }
 
-    function currentTasks() {    
-        let todos = getTodos();
-        const filterCurrentTodos = _.filter(todos, { 'project': 'Today'});
-        const filterOutCompletedTodos = _.filter(filterCurrentTodos, todo => !todo.completed);
-        return { filterCurrentTodos, filterOutCompletedTodos }
+    function currentTasks() {   
+        /* 
+        const todos = getTodos();
+        const projects = getProjects();
+        
+        // Find the project named "Today"
+        const todayProject = _.find(projects, { 'name': 'Today' });
+    
+        if (!todayProject) {
+            console.error("Today project not found.");
+            return;
+        }
+    
+        // Retrieve todo IDs associated with the "Today" project
+        const todayTodoIds = todayProject;
+    
+        // Filter todos array to include only todos whose IDs are in the "Today" project's todo IDs
+        const todayTodos = _.filter(todos, todo => {
+            return todayTodoIds.includes(todo.id);
+        });
+    
+        // Filter out completed todos from todayTodos
+        const filterOutCompletedTodos = _.filter(todayTodos, todo => !todo.completed);
+    
+        return { 
+            filterCurrentTodos: todayTodos,
+            filterOutCompletedTodos: filterOutCompletedTodos 
+        };
+        */
     }
+    
+    
 
     function getCompletedTasks() {
-        let todos = getTodos();
-        let currentTasksResult = currentTasks(todos);
+        let currentTasksResult = currentTasks();
+        /*
         const completedTasks = _.filter(currentTasksResult.filterCurrentTodos, { 'completed': true });
         return completedTasks;
+        */
     }
 
     function createTaskObject(taskTitle) {
@@ -114,7 +141,7 @@ const todoFilters = (function () {
     }
 
     return {
-        filterUniqueProjects,
+        getProjects,
         currentTasks,
         getCompletedTasks,
         createTaskObject,

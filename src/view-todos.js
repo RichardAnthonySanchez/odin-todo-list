@@ -23,6 +23,7 @@ const todoViewer = (function(todos) {
     } 
 
     function viewCompletedTodos(completedTasks) {
+        /*
         const completedTasksContainer = document.getElementById('completed-tasks');
         completedTasksContainer.innerHTML = '';
 
@@ -40,6 +41,7 @@ const todoViewer = (function(todos) {
             taskContainer.appendChild(taskContent);
             completedTasksContainer.appendChild(taskContainer);
         } 
+        */
     }
 
     function viewSelectedTodoProperty(displayText) {

@@ -7,9 +7,14 @@ const projectInterface = (function() {
         const { title, subTitle } = createProjectTitle.getProjectTitle();
         viewProjectTitle(title, subTitle);
     }
+
+    function checkForStoredProjectsInterface(projects) {
+        createProjectTitle.checkForStoredProjects(projects);
+    }
     
     return {
         displayProjectTitle,
+        checkForStoredProjectsInterface,
     }
 
 })()

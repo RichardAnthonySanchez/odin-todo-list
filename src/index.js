@@ -1,11 +1,13 @@
 import './style.css';
 import _ from 'lodash';
 import defaultTodos from './default-todos.json'
+import defaultProjects from './default-projects.json'
 import todosInterface from './interface-todos';
 import projectInterface from './interface-projects';
 
 function component() {
   todosInterface.checkForStoredTodosInterface(defaultTodos);
+  projectInterface.checkForStoredProjectsInterface(defaultProjects);
   todosInterface.displayCurrentTasks();
   projectInterface.displayProjectTitle();
   todosInterface.displayCompletedTasks();
