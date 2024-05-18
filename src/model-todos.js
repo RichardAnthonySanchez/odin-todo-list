@@ -21,34 +21,45 @@ const todoFilters = (function () {
         }
         return projects;
     }
+
+    function getCurrentProject() {
+        const projects = getProjects();
+        const currentProject = _.find(projects, { 'name': 'Today' });
+            if (!currentProject) {
+            console.error("Today project not found.");
+            return;
+            }
+        return currentProject
+    } 
+
+    function getCurrentProjectIds(currentProject) {
+        const currentTodoIds = currentProject.todos;
+        return currentTodoIds
+    }
+
+    function filterCurrentTodos(currentTodoIds, todos) {
+        const currentTodos = _.filter(todos, todo => {
+            return currentTodoIds.includes(todo.id);
+        });
+        return currentTodos;
+    }
+
+    function removeCompletedTodosFromCurrentProject(currentTodos) {
+        const activeTodos = _.filter(currentTodos, todo => !todo.completed);
+        return activeTodos
+    }
     
     function currentTasks() {   
         const todos = getTodos();
-        const projects = getProjects();
+        let currentProject = getCurrentProject();
+        let currentTodoIds = getCurrentProjectIds(currentProject);
+        let currentTodos = filterCurrentTodos(currentTodoIds, todos);
+        let activeTodos = removeCompletedTodosFromCurrentProject(currentTodos)
         
-        // Find the project named "Today"
-        const todayProject = _.find(projects, { 'name': 'Today' });
-    
-        if (!todayProject) {
-            console.error("Today project not found.");
-            return;
-        }
-    
-        // Retrieve todo IDs associated with the "Today" project
-        const todayTodoIds = todayProject.todos;
-    
-        // Filter todos array to include only todos whose IDs are in the "Today" project's todo IDs
-        const todayTodos = _.filter(todos, todo => {
-            return todayTodoIds.includes(todo.id);
-        });
-    
-        // Filter out completed todos from todayTodos
-        const filterOutCompletedTodos = _.filter(todayTodos, todo => !todo.completed);
         return { 
-            filterCurrentTodos: todayTodos,
-            filterOutCompletedTodos: filterOutCompletedTodos 
+            filterCurrentTodos: currentTodos,
+            filterOutCompletedTodos: activeTodos 
         };
-        
     }
     
     function getCompletedTasks() {
