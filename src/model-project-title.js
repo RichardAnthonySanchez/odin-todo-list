@@ -2,12 +2,12 @@ import { format } from 'date-fns';
 
 const createProjectTitle = (function() {
 
-    function createTitle () {
+    function createTitle() {
         let titleContent = 'Today';
         return titleContent;
     }
 
-    function createSubtitle () {    
+    function createSubtitle() {    
         const currentDate = new Date();
         const formattdDate = format(currentDate, 'EEEE, d MMM yyyy');
         const upperCaseDate = formattdDate.toLocaleUpperCase();
@@ -35,9 +35,25 @@ const createProjectTitle = (function() {
         }
     }
 
+    function getProjects() {
+                const storedProjects = localStorage.getItem('projects');
+        let projects;
+        if (storedProjects) {
+            try {
+                projects = JSON.parse(storedProjects);
+            } catch (error) {
+                projects = [];
+            }
+        } else {
+            projects = [];
+        }
+        return projects;
+    }
+
         return {
             getProjectTitle,
             checkForStoredProjects,
+            getProjects,
         }
 })();
 

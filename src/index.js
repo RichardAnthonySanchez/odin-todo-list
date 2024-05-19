@@ -26,6 +26,8 @@ function component() {
         handleTaskCheckboxClick(e.target);
     } else if (e.target.classList.contains('task')) {
         handleTaskClick(e.target);
+    } else if (e.target.id === 'nav-open') {
+        projectInterface.getProjectsInterface();
     }
 });
 
