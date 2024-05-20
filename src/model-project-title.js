@@ -50,10 +50,26 @@ const createProjectTitle = (function() {
         return projects;
     }
 
+    function addProject(newProject) {
+        const projects = getProjects();
+
+        projects.push(newProject);
+
+        saveProjects(projects);
+    }
+
+    function createProjectObject(projectTitle) {
+        return {
+            name: projectTitle,
+        };
+    }
+
         return {
             getProjectTitle,
             checkForStoredProjects,
             getProjects,
+            addProject,
+            createProjectObject,
         }
 })();
 
