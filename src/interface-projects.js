@@ -16,18 +16,23 @@ const projectInterface = (function() {
     function getProjectsInterface() {
         let projects = createProjectTitle.getProjects();
         projectViewer.viewProjects(projects);
-
     }
 
     function projectManagerInterface() {
-        let projectSelectionData = projectsController.projectManager();
+        let projects = createProjectTitle.getProjects();
+        let projectSelectionData = projectsController.projectManager(projects);
         let projectActionIndex = projectSelectionData.projectActionIndex;
         let projectContent = projectSelectionData.projectContent;
+        let projectObject = projectSelectionData.projectObject;
         if (projectActionIndex === '1') {
-            let projectObject = createProjectTitle.createProjectObject(projectContent);
+            projectObject = createProjectTitle.createProjectObject(projectContent);
             createProjectTitle.addProject(projectObject);
             console.log('new project added!')
             getProjectsInterface();
+        } else if (projectActionIndex === '2') {
+            let updatedName = projectObject.name;
+            createProjectTitle.updateProjectName(projectObject, updatedName);
+            projectViewer.viewProjects(projects);
         } else {
             console.error('invalid input at project manager interface');
         }

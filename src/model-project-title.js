@@ -64,12 +64,18 @@ const createProjectTitle = (function() {
         };
     }
 
+    function updateProjectName(projectObject, updatedName) {
+        projectObject.name = updatedName
+        return projectObject;
+    }
+
         return {
             getProjectTitle,
             checkForStoredProjects,
             getProjects,
             addProject,
             createProjectObject,
+            updateProjectName,
         }
 })();
 
