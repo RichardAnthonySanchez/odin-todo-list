@@ -29,25 +29,25 @@ const projectsController = (function () {
         return project
     }
 
-    function projectSelector(projects) {
-
-        // Map the projects array to a string with id and name
+    function mapProjects(projects) {
         const projectList = _.map(projects, (project) => `${project.id}: ${project.name}`).join('\n');
-        console.log(projectList);
+        return projectList
+    }
 
-        // Prompt the user with the project list
-        const selectedId = prompt(`Please select a project by its id:\n${projectList}`);
-        
-        // Check if the id is valid
-        const selectedProject = _.find(projects, { id: selectedId });
+    function validateId(requestedId, projects) {
+        const selectedProject = _.find(projects, { id: requestedId });
         if (!selectedProject) {
-            console.log('Invalid selection. Please try again.');
+            console.error('Invalid selection. Please try again.');
             return null;
         }
+        return selectedProject
+    }
 
-        // the id input is returning invalid. possibly not accepting a string input
+    function projectSelector(projects) {
+        const projectList = mapProjects(projects);
+        const requestedId = prompt(`Please select a project by its id:\n${projectList}`);
+        const selectedProject = validateId(requestedId, projects);
         
-        // Return the selected project
         return selectedProject;
     }
 
