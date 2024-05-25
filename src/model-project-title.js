@@ -69,6 +69,16 @@ const createProjectTitle = (function() {
         return projectObject;
     }
 
+    function clearProjects() {
+        localStorage.removeItem('projects');
+        console.log('Projects cleared from local storage');
+    }
+
+    function refreshDefaultProjects(defaultProjects) {
+        clearProjects()
+        checkForStoredProjects(defaultProjects);
+    }
+
         return {
             getProjectTitle,
             checkForStoredProjects,
@@ -76,6 +86,7 @@ const createProjectTitle = (function() {
             addProject,
             createProjectObject,
             updateProjectName,
+            refreshDefaultProjects,
         }
 })();
 

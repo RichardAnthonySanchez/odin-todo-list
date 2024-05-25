@@ -37,12 +37,17 @@ const projectInterface = (function() {
             console.error('invalid input at project manager interface');
         }
     }
+
+    function refreshDefaultProjectsInterface(defaultProjects) {
+        createProjectTitle.refreshDefaultProjects(defaultProjects);
+    }
     
     return {
         displayProjectTitle,
         checkForStoredProjectsInterface,
         getProjectsInterface,
         projectManagerInterface,
+        refreshDefaultProjectsInterface,
     }
 
 })()

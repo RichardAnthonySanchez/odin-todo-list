@@ -3,7 +3,7 @@ import _ from "lodash";
 const projectsController = (function () {
 
     function projectManager(projects) {
-        let projectActionIndex = prompt('Do you want to, 1. add a project 2. edit the name of a project');
+        let projectActionIndex = prompt('Do you want to, 1. add a project 2. edit the name of a project 3. display the number of todos in each project');
         let projectContent;
         let projectObject;
 
@@ -12,6 +12,10 @@ const projectsController = (function () {
         } else if (projectActionIndex === '2') {
             let selectedProject = projectSelector(projects);
             projectObject = editProjectName(selectedProject);
+        } else if (projectActionIndex === '3') {
+            const projectList = mapProjects(projects);
+            //make each project have index and todos property when created
+            alert(projectList);
         } else {
             console.error('input is invalid');
         }

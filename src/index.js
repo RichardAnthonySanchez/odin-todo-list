@@ -22,6 +22,7 @@ function component() {
   document.addEventListener('click', function(e) {
     if (e.target.id === 'refresh-todos') {
         todosInterface.refreshDefaultTodosInterface(defaultTodos);
+        projectInterface.refreshDefaultProjectsInterface(defaultProjects);
     } else if (e.target.classList.contains('task-checkbox')) {
         handleTaskCheckboxClick(e.target);
     } else if (e.target.classList.contains('task')) {
