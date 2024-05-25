@@ -54,7 +54,7 @@ const todoFilters = (function () {
         let currentProject = getCurrentProject();
         let currentTodoIds = getCurrentProjectIds(currentProject);
         let currentTodos = filterCurrentTodos(currentTodoIds, todos);
-        let activeTodos = removeCompletedTodosFromCurrentProject(currentTodos)
+        let activeTodos = removeCompletedTodosFromCurrentProject(currentTodos);
         
         return { 
             filterCurrentTodos: currentTodos,
@@ -71,7 +71,6 @@ const todoFilters = (function () {
     function createTaskObject(taskTitle) {
         return {
             title: taskTitle,
-            project: "Today",
         };
     }
 

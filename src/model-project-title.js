@@ -58,9 +58,11 @@ const createProjectTitle = (function() {
         saveProjects(projects);
     }
 
-    function createProjectObject(projectTitle) {
+    function createProjectObject(projectTitle, projects) {
         return {
             name: projectTitle,
+            id: projects.length + 1,
+            todos: [],
         };
     }
 

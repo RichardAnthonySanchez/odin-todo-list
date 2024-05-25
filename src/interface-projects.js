@@ -25,7 +25,7 @@ const projectInterface = (function() {
         let projectContent = projectSelectionData.projectContent;
         let projectObject = projectSelectionData.projectObject;
         if (projectActionIndex === '1') {
-            projectObject = createProjectTitle.createProjectObject(projectContent);
+            projectObject = createProjectTitle.createProjectObject(projectContent, projects);
             createProjectTitle.addProject(projectObject);
             console.log('new project added!')
             getProjectsInterface();

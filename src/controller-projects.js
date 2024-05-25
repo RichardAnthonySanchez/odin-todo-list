@@ -14,7 +14,6 @@ const projectsController = (function () {
             projectObject = editProjectName(selectedProject);
         } else if (projectActionIndex === '3') {
             const projectList = mapProjects(projects);
-            //make each project have index and todos property when created
             alert(projectList);
         } else {
             console.error('input is invalid');
@@ -34,7 +33,7 @@ const projectsController = (function () {
     }
 
     function mapProjects(projects) {
-        const projectList = _.map(projects, (project) => `${project.id}: ${project.name}`).join('\n');
+        const projectList = _.map(projects, (project) => `${project.id}: ${project.name} (${project.todos.length})`).join('\n');
         return projectList
     }
 
