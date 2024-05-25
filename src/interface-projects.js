@@ -33,6 +33,12 @@ const projectInterface = (function() {
             let updatedName = projectObject.name;
             createProjectTitle.updateProjectName(projectObject, updatedName);
             projectViewer.viewProjects(projects);
+        } else if (projectActionIndex === '3') {
+            projectViewer.viewProjects(projects);
+        } else if (projectActionIndex === '4') {
+            const selectedProjectId = projectObject.id
+            createProjectTitle.removeProject(selectedProjectId, projects);
+            projectViewer.viewProjects(projects);
         } else {
             console.error('invalid input at project manager interface');
         }

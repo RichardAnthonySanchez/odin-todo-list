@@ -61,7 +61,7 @@ const createProjectTitle = (function() {
     function createProjectObject(projectTitle, projects) {
         return {
             name: projectTitle,
-            id: projects.length + 1,
+            id: `${projects.length + 1}`,
             todos: [],
         };
     }
@@ -81,6 +81,17 @@ const createProjectTitle = (function() {
         checkForStoredProjects(defaultProjects);
     }
 
+    function removeProject(selectedProjectId, projects) {
+        console.log('removeProject method is reading ' + selectedProjectId + ' as the project Id and ' + projects + ' as the full projects')
+        const index = projects.findIndex(project => project.id === selectedProjectId);
+        if (index !== -1) {
+            projects.splice(index, 1);
+            saveProjects(projects);
+        } else {
+            console.log('Project not found');
+        }
+    }
+
         return {
             getProjectTitle,
             checkForStoredProjects,
@@ -89,6 +100,7 @@ const createProjectTitle = (function() {
             createProjectObject,
             updateProjectName,
             refreshDefaultProjects,
+            removeProject,
         }
 })();
 
