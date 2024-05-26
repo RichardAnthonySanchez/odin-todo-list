@@ -54,6 +54,8 @@ const todosInterface = (function() {
             updatedTodo = todoFilters.updateTodoPriority(todo, newPropertyValue);
         } else if (todoProperty == '3') {
             updatedTodo = todoFilters.updateTodoDescription(todo, newPropertyValue);
+        } else if (todoProperty == '4') {
+                updatedTodo = todoFilters.updateTodoDueDate(todo, newPropertyValue);
         } else {
             console.log('selected todo property is invalid')
         }

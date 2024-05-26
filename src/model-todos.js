@@ -154,6 +154,11 @@ const todoFilters = (function () {
         return todo
     }
 
+    function updateTodoDueDate(todo, newTodoDueDate) {
+        todo.due_date = newTodoDueDate;
+        return todo;
+    }
+
     return {
         getProjects,
         currentTasks,
@@ -169,6 +174,7 @@ const todoFilters = (function () {
         updateTodoTitle,
         updateTodoPriority,
         updateTodoDescription,
+        updateTodoDueDate,
     }
 
 })();

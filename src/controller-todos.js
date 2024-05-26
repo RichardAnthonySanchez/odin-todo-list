@@ -5,7 +5,7 @@ const todosController = (function() {
     }
 
     function selectedTodoProperty() {
-        let selectedProperty = prompt('Do you want to, 1. edit the title of the task, 2. edit the priority of the task 3. edit the description of the task');
+        let selectedProperty = prompt('Do you want to, 1. edit the title of the task, 2. edit the priority of the task 3. edit the description of the task 4. edit the due date of a task');
         let propertyContent;
         if (selectedProperty == '1') {
             propertyContent = updateTodoTitle();
@@ -13,6 +13,8 @@ const todosController = (function() {
             propertyContent = updateTodoPriority();
         } else if (selectedProperty == '3') {
             propertyContent = updateTodoDescription();
+        } else if (selectedProperty == '4') {
+            propertyContent = updateTodoDueDate();
         } else {
             propertyContent = 'Invalid input from user'
         }
@@ -44,6 +46,22 @@ const todosController = (function() {
     function updateTodoDescription() {
         let newDescription = prompt('Type your desried todo description here');
         return newDescription
+    }
+
+    function updateTodoDueDate() {
+        let dueDateIndex = prompt('Select the due date for this todo, 1. tomorrow 2. next week 3. next month');
+        let dueDateContent;
+
+        if (dueDateIndex === '1') {
+            dueDateContent = 'This project is due tomorrow';
+        } else if (dueDateIndex === '2') {
+            dueDateContent = 'This project is due next week';
+        } else if (dueDateIndex === '3') {
+            dueDateContent = 'This project is due next month';
+        } else {
+            console.error('Invalid input. Due date not modified');
+        }
+        return dueDateContent;
     }
 
     return {
