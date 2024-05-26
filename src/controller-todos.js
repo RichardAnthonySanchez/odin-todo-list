@@ -1,3 +1,5 @@
+import { addDays, addWeeks, addMonths, format } from 'date-fns';
+
 const todosController = (function() {
     
     function addTask(usersNewTaskTitle) {
@@ -48,22 +50,26 @@ const todosController = (function() {
         return newDescription
     }
 
+
     function updateTodoDueDate() {
         let dueDateIndex = prompt('Select the due date for this todo, 1. tomorrow 2. next week 3. next month');
-        let dueDateContent;
-
+        let dueDate;
+    
         if (dueDateIndex === '1') {
-            dueDateContent = 'This project is due tomorrow';
+            dueDate = addDays(new Date(), 1);
         } else if (dueDateIndex === '2') {
-            dueDateContent = 'This project is due next week';
+            dueDate = addWeeks(new Date(), 1);
         } else if (dueDateIndex === '3') {
-            dueDateContent = 'This project is due next month';
+            dueDate = addMonths(new Date(), 1);
         } else {
             console.error('Invalid input. Due date not modified');
+            return null;
         }
-        return dueDateContent;
+    
+        const formattedDueDate = format(dueDate, 'EEEE, d MMM yyyy');
+        return `${formattedDueDate}`;
     }
-
+    
     return {
         addTask,
         selectedTodoProperty,
