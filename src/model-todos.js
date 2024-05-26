@@ -69,8 +69,14 @@ const todoFilters = (function () {
     }
 
     function createTaskObject(taskTitle) {
+        const todos = getTodos();
         return {
             title: taskTitle,
+            id: `${todos.length + 1}`,
+            description: "",
+            due_date: "",
+            priority: "",
+            completed: false
         };
     }
 
