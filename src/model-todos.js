@@ -1,6 +1,17 @@
 import _ from 'lodash';
+import InterfaceState from './interface-state';
 
 const todoFilters = (function () {
+
+    function getState() {
+        let state = InterfaceState.getStateInterface();
+        return state;
+    }
+
+    function getCurrentProjectName() {
+        let state = getState();
+        return state.selectedProject;
+    }
 
     function getTodos() {
         const storedTodos = localStorage.getItem('todos');
@@ -24,12 +35,13 @@ const todoFilters = (function () {
 
     function getCurrentProject() {
         const projects = getProjects();
-        const currentProject = _.find(projects, { 'name': 'Today' });
-            if (!currentProject) {
-            console.error("Today project not found.");
+        let currentProjectName = getCurrentProjectName();
+        const currentProjectObject = _.find(projects, { 'name': currentProjectName });
+            if (!currentProjectObject) {
+            console.error("Project not found.");
             return;
             }
-        return currentProject
+        return currentProjectObject
     } 
 
     function getCurrentProjectIds(currentProject) {
@@ -79,6 +91,8 @@ const todoFilters = (function () {
             completed: false
         };
     }
+
+    //add todo's index to selected project's todos property
 
     function clearTodos() {
         localStorage.removeItem('todos');
