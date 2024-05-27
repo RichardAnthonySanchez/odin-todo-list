@@ -2,6 +2,7 @@ const projectViewer = (function () {
 
     function viewProjectTitle(title, sub) {
         const projectTitle = document.getElementById('project-title');
+        projectTitle.innerHTML = '';
 
         const titleContent = document.createElement('h1');
         titleContent.setAttribute('id', 'project-title-1');

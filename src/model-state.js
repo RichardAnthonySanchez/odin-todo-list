@@ -30,6 +30,8 @@ const StateManager = (function() {
             }
         },
 
+        subscribers,
+
     }
 })();
 

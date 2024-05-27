@@ -3,7 +3,7 @@ import _ from "lodash";
 const projectsController = (function () {
 
     function projectManager(projects) {
-        let projectActionIndex = prompt('Do you want to, 1. add a project 2. edit the name of a project 3. display the number of todos in each project 4. remove project');
+        let projectActionIndex = prompt('Do you want to, 1. add a project 2. edit the name of a project 3. display the number of todos in each project 4. remove project 5. visit a project and its todos');
         let projectContent;
         let projectObject;
 
@@ -20,7 +20,7 @@ const projectsController = (function () {
             projectObject = selectedProject;
         } else if (projectActionIndex === '5') {
             let selectedProject = projectSelector(projects);
-            //use selected project to change the state and update the view
+            projectObject = selectedProject;
         } else {
             console.error('input is invalid');
         }

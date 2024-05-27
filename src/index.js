@@ -5,6 +5,7 @@ import defaultProjects from './default-projects.json'
 import todosInterface from './interface-todos';
 import projectInterface from './interface-projects';
 import InterfaceState from './interface-state';
+import StateManager from './model-state';
 
 function component() {
 
@@ -19,6 +20,14 @@ function component() {
 
     todosInterface.displayCurrentTasks();
     todosInterface.displayCompletedTasks();
+
+    StateManager.subscribe(todosInterface.displayCurrentTasks);
+    StateManager.subscribe(todosInterface.displayCompletedTasks);
+    StateManager.subscribe(() => {
+        let state = InterfaceState.getStateInterface();
+        let selectedProject = state.selectedProject;
+        projectInterface.displayProjectTitle(selectedProject);
+    });
 
     document.addEventListener('keydown', function(e) {
         if (e.key === 'Enter' && e.target.id === 'add-task-input') {

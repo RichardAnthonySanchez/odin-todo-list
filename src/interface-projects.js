@@ -1,6 +1,7 @@
 import projectViewer from './view-project-title';
 import createProjectTitle from './model-project-title';
 import projectsController from './controller-projects';
+import InterfaceState from './interface-state';
 
 const projectInterface = (function() {
 
@@ -39,6 +40,10 @@ const projectInterface = (function() {
             const selectedProjectId = projectObject.id
             createProjectTitle.removeProject(selectedProjectId, projects);
             projectViewer.viewProjects(projects);
+        } else if (projectActionIndex === '5') {
+            const selectedProjectName = projectObject.name
+            InterfaceState.setStateInterface({ selectedProject: selectedProjectName });
+            //set up a call back to refresh the page to our subscribers
         } else {
             console.error('invalid input at project manager interface');
         }
