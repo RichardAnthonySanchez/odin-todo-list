@@ -18,6 +18,9 @@ const projectsController = (function () {
         } else if (projectActionIndex === '4') {
             let selectedProject = projectSelector(projects);
             projectObject = selectedProject;
+        } else if (projectActionIndex === '5') {
+            let selectedProject = projectSelector(projects);
+            //use selected project to change the state and update the view
         } else {
             console.error('input is invalid');
         }

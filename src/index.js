@@ -7,11 +7,17 @@ import projectInterface from './interface-projects';
 import InterfaceState from './interface-state';
 
 function component() {
+
     InterfaceState.setStateInterface({ selectedProject: 'Today' });
+    let state = InterfaceState.getStateInterface();
+    let selectedProject = state.selectedProject;
+
     projectInterface.checkForStoredProjectsInterface(defaultProjects);
     todosInterface.checkForStoredTodosInterface(defaultTodos);
+
+    projectInterface.displayProjectTitle(selectedProject);
+
     todosInterface.displayCurrentTasks();
-    projectInterface.displayProjectTitle();
     todosInterface.displayCompletedTasks();
 
     document.addEventListener('keydown', function(e) {

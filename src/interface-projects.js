@@ -4,8 +4,8 @@ import projectsController from './controller-projects';
 
 const projectInterface = (function() {
 
-    function displayProjectTitle(){
-        const { title, subTitle } = createProjectTitle.getProjectTitle();
+    function displayProjectTitle(selectedProject) {
+        const { title, subTitle } = createProjectTitle.getProjectTitle(selectedProject);
         projectViewer.viewProjectTitle(title, subTitle);
     }
 
