@@ -45,7 +45,10 @@ function component() {
         } else if (e.target.classList.contains('task')) {
             handleTaskClick(e.target);
         } else if (e.target.id === 'nav-open') {
-            projectInterface.projectManagerInterface();
+            //projectInterface.projectManagerInterface();
+            nav.classList.add('active');
+        } else if (e.target.id === 'nav-close' || (!nav.contains(e.target) && nav.classList.contains('active'))) {
+            nav.classList.remove('active');
         }
     });
 

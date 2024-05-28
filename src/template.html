@@ -39,8 +39,29 @@
                 <input type="text" id="add-task-input" placeholder="Add a task">
             </div>
         </div>
-        <!-- this button below breaks the style on add task-->
         <button id="refresh-todos">refresh todos to default</button>
     </div>
+    <dialog class="modal" id="nav">
+        <div>
+            <div class="nav-header">
+                <span id="nav-close" class="material-symbols-rounded">menu</span>
+            </div>
+            <nav class="nav-links">
+                <div class="default-projects"></div>
+                <hr>
+                <div class="custom-projects-scroll">
+                    <div class="custom-projects"></div>
+                </div> 
+            </nav>
+            <div id="add-project">
+                <span class="material-symbols-rounded">add</span>
+                <input
+                    id="add-project-input"
+                    placeholder="Add a project"
+                    type="text"
+                >
+            </div>
+        </div>
+    </dialog>
 </body>
 </html>
