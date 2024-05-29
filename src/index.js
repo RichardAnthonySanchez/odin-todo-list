@@ -46,6 +46,7 @@ function component() {
             handleTaskClick(e.target);
         } else if (e.target.id === 'nav-open') {
             //projectInterface.projectManagerInterface();
+            projectInterface.getProjectsInterface();
             nav.classList.add('active');
         } else if (e.target.id === 'nav-close' || (!nav.contains(e.target) && nav.classList.contains('active'))) {
             nav.classList.remove('active');

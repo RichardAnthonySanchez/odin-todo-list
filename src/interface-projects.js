@@ -43,7 +43,6 @@ const projectInterface = (function() {
         } else if (projectActionIndex === '5') {
             const selectedProjectName = projectObject.name
             InterfaceState.setStateInterface({ selectedProject: selectedProjectName });
-            //set up a call back to refresh the page to our subscribers
         } else {
             console.error('invalid input at project manager interface');
         }

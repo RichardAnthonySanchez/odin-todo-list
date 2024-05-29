@@ -248,6 +248,55 @@ h3 {
     background-color: var(--background-color);
 }
 */
+
+.nav-item {
+    padding-left: 32px;
+    padding-right: 16px;
+    border-radius: 8px;
+
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+
+    > * {
+        display: flex;
+        align-items: center;
+        justify-content: space-between;
+        gap: 16px;
+        pointer-events: none;
+    }
+    .project-task-count {
+        height: 32px;
+        width: 32px;
+
+        border-radius: 50%;
+        color: white;
+        background-color: var(--body-bg-gradient-top);
+        font-size: 1.17em;
+        font-weight: 400;
+
+        display: flex;
+        align-items: center;
+        justify-content: center;
+    }
+    .project-delete {
+        display: none;
+        pointer-events: auto;
+    }
+}
+.nav-item.active {
+    padding-left: 16px;
+    background-color: var(--modal-option-hover);
+}
+.nav-item:hover {
+    background-color: var(--modal-option-hover);
+
+    .project-delete {
+        display: block;
+    }
+}
+
+
 #nav:modal {
     max-height: 100vh;
     max-width: 100vh;
