@@ -27,14 +27,8 @@ const projectViewer = (function () {
             const navHeaderContainer = createNavHeaderContainer();  
             const headerContent = createHeaderContent(projectName);
             const menuIcon = createMenuIcon();
-
-            //create a nav-item-right container for each project
-            const navCounterContainer = document.createElement('span');
-            navCounterContainer.setAttribute('class', 'nav-item-right');
-            //it contains a, newly created, span element with the class of project-task-count and innerHTML set to the taskcount variable
-            const taskCountElement = document.createElement('span');
-            taskCountElement.setAttribute('class', 'project-task-count');
-            taskCountElement.innerHTML = projectTaskCount;
+            const navCounterContainer = createNavCounterContainer();
+            const taskCountElement = createTaskCountElement(projectTaskCount);
             
 
             appendProjectElementsToNav (
@@ -78,6 +72,19 @@ const projectViewer = (function () {
         menuIcon.setAttribute('class', 'material-symbols-rounded');
         menuIcon.innerHTML = 'menu';
         return menuIcon
+    }
+
+    function createNavCounterContainer() {
+        const navCounterContainer = document.createElement('span');
+        navCounterContainer.setAttribute('class', 'nav-item-right');
+        return navCounterContainer;
+    }
+
+    function createTaskCountElement(projectTaskCount) {
+        const taskCountElement = document.createElement('span');
+        taskCountElement.setAttribute('class', 'project-task-count');
+        taskCountElement.innerHTML = projectTaskCount;
+        return taskCountElement;
     }
 
     function appendProjectElementsToNav(navHeaderContainer, navContainer, customProjectsContainer, menuIcon, headerContent, navCounterContainer, taskCountElement) {
