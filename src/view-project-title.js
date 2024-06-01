@@ -20,18 +20,31 @@ const projectViewer = (function () {
 
         for (let eachProject = 0; eachProject < projects.length; eachProject++) {
             let projectName = projects[eachProject].name
+            let projectTaskCount = projects[eachProject].todos.length;
+            projectTaskCount = projectTaskCount.toString();
             
             const navContainer = createNavContainer();
             const navHeaderContainer = createNavHeaderContainer();  
             const headerContent = createHeaderContent(projectName);
             const menuIcon = createMenuIcon();
 
+            //create a nav-item-right container for each project
+            const navCounterContainer = document.createElement('span');
+            navCounterContainer.setAttribute('class', 'nav-item-right');
+            //it contains a, newly created, span element with the class of project-task-count and innerHTML set to the taskcount variable
+            const taskCountElement = document.createElement('span');
+            taskCountElement.setAttribute('class', 'project-task-count');
+            taskCountElement.innerHTML = projectTaskCount;
+            
+
             appendProjectElementsToNav (
                  navHeaderContainer,
                  navContainer, 
                  customProjectsContainer, 
                  menuIcon, 
-                 headerContent
+                 headerContent,
+                 navCounterContainer,
+                 taskCountElement
                 )
         }
     }
@@ -67,10 +80,12 @@ const projectViewer = (function () {
         return menuIcon
     }
 
-    function appendProjectElementsToNav(navHeaderContainer, navContainer, customProjectsContainer, menuIcon, headerContent) {
+    function appendProjectElementsToNav(navHeaderContainer, navContainer, customProjectsContainer, menuIcon, headerContent, navCounterContainer, taskCountElement) {
         navHeaderContainer.appendChild(menuIcon);
         navHeaderContainer.appendChild(headerContent);
+        navCounterContainer.appendChild(taskCountElement);
         navContainer.appendChild(navHeaderContainer);
+        navContainer.appendChild(navCounterContainer);
         customProjectsContainer.appendChild(navContainer);
     }
 
