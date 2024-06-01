@@ -29,6 +29,8 @@ const projectViewer = (function () {
             const menuIcon = createMenuIcon();
             const navCounterContainer = createNavCounterContainer();
             const taskCountElement = createTaskCountElement(projectTaskCount);
+            const deleteIcon = createDeleteIconElement();
+            
             
 
             appendProjectElementsToNav (
@@ -38,7 +40,8 @@ const projectViewer = (function () {
                  menuIcon, 
                  headerContent,
                  navCounterContainer,
-                 taskCountElement
+                 taskCountElement,
+                 deleteIcon
                 )
         }
     }
@@ -87,10 +90,18 @@ const projectViewer = (function () {
         return taskCountElement;
     }
 
-    function appendProjectElementsToNav(navHeaderContainer, navContainer, customProjectsContainer, menuIcon, headerContent, navCounterContainer, taskCountElement) {
+    function createDeleteIconElement() {
+        const deleteIcon = document.createElement('span');
+        deleteIcon.setAttribute('class', 'project-delete material-symbols-rounded');
+        deleteIcon.innerHTML = 'delete';
+        return deleteIcon;
+    }
+
+    function appendProjectElementsToNav(navHeaderContainer, navContainer, customProjectsContainer, menuIcon, headerContent, navCounterContainer, taskCountElement, deleteIcon) {
         navHeaderContainer.appendChild(menuIcon);
         navHeaderContainer.appendChild(headerContent);
         navCounterContainer.appendChild(taskCountElement);
+        navCounterContainer.appendChild(deleteIcon);
         navContainer.appendChild(navHeaderContainer);
         navContainer.appendChild(navCounterContainer);
         customProjectsContainer.appendChild(navContainer);
