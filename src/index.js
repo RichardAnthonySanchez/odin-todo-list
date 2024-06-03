@@ -50,6 +50,10 @@ function component() {
             nav.classList.add('active');
         } else if (e.target.id === 'nav-close' || (!nav.contains(e.target) && nav.classList.contains('active'))) {
             nav.classList.remove('active');
+        } else if (e.target.classList.contains('nav-item')) {
+            const projectElement = e.target.closest('.nav-item');
+            const projectId = projectElement.getAttribute('data-project-id');
+            projectInterface.getNewProjectState(projectId);
         }
     });
 

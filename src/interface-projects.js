@@ -48,6 +48,12 @@ const projectInterface = (function() {
         }
     }
 
+    function getNewProjectState(projectId) {
+        let projectObject = createProjectTitle.getProjectFromId(projectId);
+        const selectedProjectName = projectObject.name; 
+        InterfaceState.setStateInterface({ selectedProject: selectedProjectName });
+    }
+
     function refreshDefaultProjectsInterface(defaultProjects) {
         createProjectTitle.refreshDefaultProjects(defaultProjects);
     }
@@ -58,6 +64,7 @@ const projectInterface = (function() {
         getProjectsInterface,
         projectManagerInterface,
         refreshDefaultProjectsInterface,
+        getNewProjectState,
     }
 
 })()

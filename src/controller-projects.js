@@ -2,8 +2,8 @@ import _ from "lodash";
 
 const projectsController = (function () {
 
-    function projectManager(projects) {
-        let projectActionIndex = prompt('Do you want to, 1. add a project 2. edit the name of a project 3. display the number of todos in each project 4. remove project 5. visit a project and its todos');
+    function projectManager(projects, projectActionIndex) {
+        //let projectActionIndex = prompt('Do you want to, 1. add a project 2. edit the name of a project 3. display the number of todos in each project 4. remove project 5. visit a project and its todos');
         let projectContent;
         let projectObject;
 

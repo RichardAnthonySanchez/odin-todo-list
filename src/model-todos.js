@@ -9,6 +9,7 @@ const todoFilters = (function () {
     }
 
     function getCurrentProjectName() {
+        //the state is processing the name of the project and will cause issues if two projects have the same name
         let state = getState();
         return state.selectedProject;
     }

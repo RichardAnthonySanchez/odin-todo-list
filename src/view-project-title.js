@@ -8,7 +8,7 @@ const projectViewer = (function () {
         titleContent.setAttribute('id', 'project-title-1');
         titleContent.innerHTML = title;
         projectTitle.appendChild(titleContent);
-    
+
         const subTitle = document.createElement('h3');
         subTitle.setAttribute('id', 'project-title-2');
         subTitle.innerHTML = sub;
@@ -22,27 +22,26 @@ const projectViewer = (function () {
             let projectName = projects[eachProject].name
             let projectTaskCount = projects[eachProject].todos.length;
             projectTaskCount = projectTaskCount.toString();
-            
-            const navContainer = createNavContainer();
-            const navHeaderContainer = createNavHeaderContainer();  
+            let projectId = projects[eachProject].id;
+
+            const navContainer = createNavContainer(projectId);
+            const navHeaderContainer = createNavHeaderContainer();
             const headerContent = createHeaderContent(projectName);
             const menuIcon = createMenuIcon();
             const navCounterContainer = createNavCounterContainer();
             const taskCountElement = createTaskCountElement(projectTaskCount);
             const deleteIcon = createDeleteIconElement();
-            
-            
 
-            appendProjectElementsToNav (
-                 navHeaderContainer,
-                 navContainer, 
-                 customProjectsContainer, 
-                 menuIcon, 
-                 headerContent,
-                 navCounterContainer,
-                 taskCountElement,
-                 deleteIcon
-                )
+            appendProjectElementsToNav(
+                navHeaderContainer,
+                navContainer,
+                customProjectsContainer,
+                menuIcon,
+                headerContent,
+                navCounterContainer,
+                taskCountElement,
+                deleteIcon
+            )
         }
     }
 
@@ -52,9 +51,10 @@ const projectViewer = (function () {
         return customProjectsContainer;
     }
 
-    function createNavContainer() {
+    function createNavContainer(projectId) {
         let navContainer = document.createElement('span');
         navContainer.setAttribute('class', 'nav-item');
+        navContainer.setAttribute('data-project-id', projectId);
         return navContainer
     }
 

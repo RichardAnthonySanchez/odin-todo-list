@@ -44,7 +44,7 @@ const createProjectTitle = (function() {
     }
 
     function getProjects() {
-                const storedProjects = localStorage.getItem('projects');
+        const storedProjects = localStorage.getItem('projects');
         let projects;
         if (storedProjects) {
             try {
@@ -100,6 +100,12 @@ const createProjectTitle = (function() {
         }
     }
 
+    function getProjectFromId(projectId) {
+        const projects = getProjects();
+        const projectObject = _.find(projects, { id: projectId });
+        return projectObject
+    }
+
         return {
             getProjectTitle,
             checkForStoredProjects,
@@ -109,6 +115,7 @@ const createProjectTitle = (function() {
             updateProjectName,
             refreshDefaultProjects,
             removeProject,
+            getProjectFromId,
         }
 })();
 
