@@ -9,7 +9,7 @@ import StateManager from './model-state';
 
 function component() {
 
-    InterfaceState.setStateInterface({ selectedProject: 'Today' });
+    InterfaceState.setStateInterface({ selectedProject: '1' });
     let state = InterfaceState.getStateInterface();
     let selectedProject = state.selectedProject;
 

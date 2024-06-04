@@ -22,7 +22,9 @@ const createProjectTitle = (function() {
         return subtitleContent;
     }
 
-    function getProjectTitle(selectedProject) {
+    function getProjectTitle(selectedProjectId) {
+        const projectObject =  getProjectFromId(selectedProjectId);
+        const selectedProject = projectObject.name;
         let title = createTitle(selectedProject);
         let subTitle = createSubtitle(selectedProject);
         return { title, subTitle }

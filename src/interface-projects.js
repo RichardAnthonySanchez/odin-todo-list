@@ -49,9 +49,9 @@ const projectInterface = (function() {
     }
 
     function getNewProjectState(projectId) {
-        let projectObject = createProjectTitle.getProjectFromId(projectId);
-        const selectedProjectName = projectObject.name; 
-        InterfaceState.setStateInterface({ selectedProject: selectedProjectName });
+        //let projectObject = createProjectTitle.getProjectFromId(projectId);
+        //const selectedProjectName = projectObject.name; 
+        InterfaceState.setStateInterface({ selectedProject: projectId });
     }
 
     function refreshDefaultProjectsInterface(defaultProjects) {

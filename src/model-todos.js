@@ -8,10 +8,19 @@ const todoFilters = (function () {
         return state;
     }
 
-    function getCurrentProjectName() {
-        //the state is processing the name of the project and will cause issues if two projects have the same name
+    function getCurrentProjectName() {        
+        const projects = getProjects();
         let state = getState();
-        return state.selectedProject;
+
+        //parse the state's selected project for the project index
+        let selectedProjectIndex = state.selectedProject;
+        
+        //use the index to find the name
+        let currentProjectObject = _.find(projects, { 'id': selectedProjectIndex });
+        console.log(JSON.stringify(currentProjectObject));
+        let currentProjectName = currentProjectObject.name;
+
+        return currentProjectName;
     }
 
     function getTodos() {
