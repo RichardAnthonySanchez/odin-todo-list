@@ -19,6 +19,13 @@ const projectInterface = (function() {
         projectViewer.viewProjects(projects);
     }
 
+    function createNewProject(newProjectName) {
+        const projects = createProjectTitle.getProjects();        const projectObject = createProjectTitle.createProjectObject(newProjectName, projects);
+        createProjectTitle.addProject(projectObject);
+        console.log('new project added!')
+        getProjectsInterface();
+    }
+
     function projectManagerInterface() {
         let projects = createProjectTitle.getProjects();
         let projectSelectionData = projectsController.projectManager(projects);
@@ -65,6 +72,7 @@ const projectInterface = (function() {
         projectManagerInterface,
         refreshDefaultProjectsInterface,
         getNewProjectState,
+        createNewProject,
     }
 
 })()

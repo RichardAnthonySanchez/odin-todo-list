@@ -33,6 +33,9 @@ function component() {
         if (e.key === 'Enter' && e.target.id === 'add-task-input') {
             const inputValue = e.target.value;
             todosInterface.addTaskInterface(inputValue);
+        } else if (e.key === 'Enter' && e.target.id === 'add-project-input'){
+            const inputValue = e.target.value;
+            projectInterface.createNewProject(inputValue);
         }
     });
 
