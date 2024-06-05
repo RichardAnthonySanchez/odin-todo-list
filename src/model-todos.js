@@ -8,19 +8,23 @@ const todoFilters = (function () {
         return state;
     }
 
-    function getCurrentProjectName() {        
+    function getCurrentProjectName() {  
         const projects = getProjects();
-        let state = getState();
-
-        //parse the state's selected project for the project index
-        let selectedProjectIndex = state.selectedProject;
-        
-        //use the index to find the name
-        let currentProjectObject = _.find(projects, { 'id': selectedProjectIndex });
-        console.log(JSON.stringify(currentProjectObject));
+        let selectedProjectIndex = getStateIndex(projects);
+        let currentProjectObject = getProjectFromId(selectedProjectIndex, projects);
         let currentProjectName = currentProjectObject.name;
-
         return currentProjectName;
+    }
+
+    function getStateIndex(projects) {
+        let state = getState();
+        let selectedProjectIndex = state.selectedProject;
+        return selectedProjectIndex;
+    }
+
+    function getProjectFromId(selectedProjectIndex, projects) {
+        let currentProjectObject = _.find(projects, { 'id': selectedProjectIndex });
+        return currentProjectObject;
     }
 
     function getTodos() {
