@@ -20,10 +20,17 @@ const projectInterface = (function() {
     }
 
     function createNewProject(newProjectName) {
-        const projects = createProjectTitle.getProjects();        const projectObject = createProjectTitle.createProjectObject(newProjectName, projects);
+        const projects = createProjectTitle.getProjects();        
+        const projectObject = createProjectTitle.createProjectObject(newProjectName, projects);
         createProjectTitle.addProject(projectObject);
         console.log('new project added!')
         getProjectsInterface();
+    }
+
+    function deleteProject(selectedProjectId) {
+        const projects = createProjectTitle.getProjects();        
+        createProjectTitle.removeProject(selectedProjectId, projects);
+        projectViewer.viewProjects(projects);
     }
 
     function projectManagerInterface() {
@@ -73,6 +80,7 @@ const projectInterface = (function() {
         refreshDefaultProjectsInterface,
         getNewProjectState,
         createNewProject,
+        deleteProject,
     }
 
 })()

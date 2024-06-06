@@ -57,6 +57,10 @@ function component() {
             const projectElement = e.target.closest('.nav-item');
             const projectId = projectElement.getAttribute('data-project-id');
             projectInterface.getNewProjectState(projectId);
+        } else if (e.target.classList.contains('project-delete')) {
+            const projectElement = e.target.closest('.nav-item');
+            const projectId = projectElement.getAttribute('data-project-id');
+            projectInterface.deleteProject(projectId);
         }
     });
 
