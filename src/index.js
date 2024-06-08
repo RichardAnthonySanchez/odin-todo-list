@@ -29,17 +29,22 @@ function component() {
         projectInterface.displayProjectTitle(selectedProject);
     });
 
-    document.addEventListener('keydown', function(e) {
+    document.addEventListener('keydown', function (e) {
         if (e.key === 'Enter' && e.target.id === 'add-task-input') {
             const inputValue = e.target.value;
             todosInterface.addTaskInterface(inputValue);
-        } else if (e.key === 'Enter' && e.target.id === 'add-project-input'){
+        } else if (e.key === 'Enter' && e.target.id === 'add-project-input') {
             const inputValue = e.target.value;
             projectInterface.createNewProject(inputValue);
+        } else if (e.key === 'Enter' && e.target.id === 'project-title-1'){
+            e.preventDefault();
+            let inputValue = e.target.innerText;
+            projectInterface.updateProjectNameInterface(inputValue);
+            e.target.blur();
         }
     });
 
-    document.addEventListener('click', function(e) {
+    document.addEventListener('click', function (e) {
         if (e.target.id === 'refresh-todos') {
             todosInterface.refreshDefaultTodosInterface(defaultTodos);
             projectInterface.refreshDefaultProjectsInterface(defaultProjects);
@@ -87,4 +92,4 @@ function component() {
 
 }
 
-  component();
+component();

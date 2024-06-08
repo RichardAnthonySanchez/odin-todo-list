@@ -6,7 +6,10 @@ const projectViewer = (function () {
 
         const titleContent = document.createElement('h1');
         titleContent.setAttribute('id', 'project-title-1');
+        titleContent.setAttribute('class', 'title-editable');
         titleContent.innerHTML = title;
+        titleContent.contentEditable = 'true';
+        titleContent.spellcheck = false;
         projectTitle.appendChild(titleContent);
 
         const subTitle = document.createElement('h3');

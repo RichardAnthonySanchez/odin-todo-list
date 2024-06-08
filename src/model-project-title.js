@@ -75,10 +75,21 @@ const createProjectTitle = (function() {
             todos: [],
         };
     }
-
+    //change the name of this method to something createModifiedProject for accuracy
     function updateProjectName(projectObject, updatedName) {
         projectObject.name = updatedName
         return projectObject;
+    }
+
+    function findIndexFromProject(projectObject, projects) {
+        const selectedProjectId = projectObject.id;
+        const index = projects.findIndex(project => project.id === selectedProjectId);
+        return index
+    }
+
+    function replaceProject(index, projectObject, projects) {
+        projects[index] = projectObject;
+        saveProjects(projects);
     }
 
     function clearProjects() {
@@ -118,6 +129,8 @@ const createProjectTitle = (function() {
             refreshDefaultProjects,
             removeProject,
             getProjectFromId,
+            findIndexFromProject,
+            replaceProject,
         }
 })();
 

@@ -33,6 +33,15 @@ const projectInterface = (function() {
         projectViewer.viewProjects(projects);
     }
 
+    function updateProjectNameInterface(updatedName){
+        const projects = createProjectTitle.getProjects();        
+        const state = InterfaceState.getStateInterface();
+        let projectObject = createProjectTitle.getProjectFromId(state.selectedProject);
+        projectObject = createProjectTitle.updateProjectName(projectObject, updatedName);
+        const index = createProjectTitle.findIndexFromProject(projectObject, projects);
+        createProjectTitle.replaceProject(index, projectObject, projects);
+    }
+
     function projectManagerInterface() {
         let projects = createProjectTitle.getProjects();
         let projectSelectionData = projectsController.projectManager(projects);
@@ -62,9 +71,7 @@ const projectInterface = (function() {
         }
     }
 
-    function getNewProjectState(projectId) {
-        //let projectObject = createProjectTitle.getProjectFromId(projectId);
-        //const selectedProjectName = projectObject.name; 
+    function getNewProjectState(projectId) { 
         InterfaceState.setStateInterface({ selectedProject: projectId });
     }
 
@@ -81,6 +88,7 @@ const projectInterface = (function() {
         getNewProjectState,
         createNewProject,
         deleteProject,
+        updateProjectNameInterface,
     }
 
 })()
