@@ -42,6 +42,15 @@ const projectInterface = (function() {
         createProjectTitle.replaceProject(index, projectObject, projects);
     }
 
+    function updateProjectTodosInterface(newTodoId) {
+        const projects = createProjectTitle.getProjects();        
+        const state = InterfaceState.getStateInterface();
+        let projectObject = createProjectTitle.getProjectFromId(state.selectedProject);
+        projectObject.todos.push(newTodoId);
+        const index = createProjectTitle.findIndexFromProject(projectObject, projects);
+        createProjectTitle.replaceProject(index, projectObject, projects);
+    }
+
     function projectManagerInterface() {
         let projects = createProjectTitle.getProjects();
         let projectSelectionData = projectsController.projectManager(projects);
@@ -89,6 +98,7 @@ const projectInterface = (function() {
         createNewProject,
         deleteProject,
         updateProjectNameInterface,
+        updateProjectTodosInterface,
     }
 
 })()
