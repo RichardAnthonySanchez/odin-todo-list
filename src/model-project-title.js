@@ -75,8 +75,8 @@ const createProjectTitle = (function() {
             todos: [],
         };
     }
-    //change the name of this method to something createModifiedProject for accuracy
-    function updateProjectName(projectObject, updatedName) {
+    
+    function modfiyProjectObjectByName(projectObject, updatedName) {
         projectObject.name = updatedName
         return projectObject;
     }
@@ -125,7 +125,7 @@ const createProjectTitle = (function() {
             getProjects,
             addProject,
             createProjectObject,
-            updateProjectName,
+            modfiyProjectObjectByName,
             refreshDefaultProjects,
             removeProject,
             getProjectFromId,

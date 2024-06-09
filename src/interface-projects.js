@@ -37,7 +37,7 @@ const projectInterface = (function() {
         const projects = createProjectTitle.getProjects();        
         const state = InterfaceState.getStateInterface();
         let projectObject = createProjectTitle.getProjectFromId(state.selectedProject);
-        projectObject = createProjectTitle.updateProjectName(projectObject, updatedName);
+        projectObject = createProjectTitle.modfiyProjectObjectByName(projectObject, updatedName);
         const index = createProjectTitle.findIndexFromProject(projectObject, projects);
         createProjectTitle.replaceProject(index, projectObject, projects);
     }
@@ -55,7 +55,7 @@ const projectInterface = (function() {
             getProjectsInterface();
         } else if (projectActionIndex === '2') {
             let updatedName = projectObject.name;
-            createProjectTitle.updateProjectName(projectObject, updatedName);
+            createProjectTitle.modfiyProjectObjectByName(projectObject, updatedName);
             projectViewer.viewProjects(projects);
         } else if (projectActionIndex === '3') {
             projectViewer.viewProjects(projects);
