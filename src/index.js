@@ -55,7 +55,6 @@ function component() {
         } else if (e.target.classList.contains('task')) {
             handleTaskClick(e.target);
         } else if (e.target.id === 'nav-open') {
-            //projectInterface.projectManagerInterface();
             projectInterface.getProjectsInterface();
             nav.classList.add('active');
         } else if (e.target.id === 'nav-close' || (!nav.contains(e.target) && nav.classList.contains('active'))) {
@@ -89,8 +88,18 @@ function component() {
     function handleTaskClick(taskElement) {
         const todoContent = taskElement.querySelector('.task-content').textContent;
         let todoObject = todosInterface.findSelectedTodoInterface(todoContent);
-        todosInterface.selectedTodoPropertyInterface(todoObject);
+        const taskModal = document.getElementById('task');
+        taskModal.classList.add('active');
     }
+
+    function closeModal() {
+        const taskModal = document.getElementById('task');
+        taskModal.classList.remove('active');
+    }
+
+    document.getElementById('task-close').addEventListener('click', function() {
+        closeModal();
+    });
 
 }
 

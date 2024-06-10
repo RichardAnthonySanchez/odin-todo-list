@@ -63,5 +63,69 @@
             </div>
         </div>
     </dialog>
+    <dialog class="modal" id="task">
+        <div>
+            <div class="task-header">
+                <span id="task-close" class="material-symbols-rounded">close</span>
+            </div>
+            <div class="task-content-scroll">
+                <div class="task-content">
+                    <div class="title">
+                        <input 
+                            id="task-checkbox"
+                            type="checkbox"
+                        >
+                        <h3 id="task-title" 
+                            class="task-editable" 
+                            contenteditable="true" 
+                            spellcheck="false"
+                        ></h3>
+                    </div>
+                    <div class="options">
+                        <div class="my-day">
+                            <div id="add-my-day">
+                                <span class="material-symbols-rounded">clear_day</span>
+                                <span></span>
+                            </div>
+                            <span id="remove-my-day" class="material-symbols-rounded">close</span>
+                        </div>
+                        <div class="important">
+                            <div id="add-important">
+                                <span class="material-symbols-rounded">priority_high</span>
+                                <span></span>
+                            </div>
+                            <span id="remove-important" class="material-symbols-rounded">close</span>
+                        </div>
+                        <div class="due-date">
+                            <div id="add-due">
+                                <span class="material-symbols-rounded">calendar_month</span>
+                                <span></span>
+                            </div>
+                            <span id="remove-due" class="material-symbols-rounded">close</span>
+                            <div id="due-menu" class="hidden">
+                                <div class="menu-option today"></div>
+                                <div class="menu-option tomorrow"></div>
+                                <div class="menu-option pick"></div>
+                            </div>
+                            <div id="date-picker" class="hidden"></div>
+                        </div>
+                    </div>
+                    <div class="note">
+                        <div
+                            id="task-note"
+                            class="task-editable"
+                            contenteditable="true" 
+                            spellcheck="false"
+                            placeholder="Add a note"
+                        ></div>
+                    </div>
+                </div>
+            </div>
+            <div class="task-footer">
+                <span id="task-creation"></span>
+                <span id="task-delete" class="material-symbols-rounded">delete</span>
+            </div>
+        </div>
+    </dialog>
 </body>
 </html>
