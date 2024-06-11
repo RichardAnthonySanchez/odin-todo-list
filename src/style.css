@@ -383,6 +383,7 @@ h3 {
 #task-title {
     font-size: 20px;
     overflow: auto;
+    color: var(--font-color);
 }
 
 #task-title.task-complete {

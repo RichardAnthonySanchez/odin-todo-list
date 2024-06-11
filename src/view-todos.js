@@ -45,11 +45,22 @@ const todoViewer = (function(todos) {
     function viewSelectedTodoProperty(displayText) {
         console.log(displayText);
     }
+
+    function viewSelectedTodoTitle(todoTitle) {
+        const titleContainer = document.querySelector('.todo-title')
+
+        const titleElement = document.getElementById('task-title')
+        titleElement.innerHTML = '';
+        titleElement.innerHTML = todoTitle;
+
+        titleContainer.appendChild(titleElement);
+    }
     
     return {
         viewCurrentTodos,
         viewCompletedTodos,
         viewSelectedTodoProperty,
+        viewSelectedTodoTitle,
     }
     
 })()

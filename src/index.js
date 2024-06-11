@@ -88,6 +88,8 @@ function component() {
     function handleTaskClick(taskElement) {
         const todoContent = taskElement.querySelector('.task-content').textContent;
         let todoObject = todosInterface.findSelectedTodoInterface(todoContent);
+        const todoTitle = todoObject.title;
+        todosInterface.displaySelectedTitleInterface(todoTitle);
         const taskModal = document.getElementById('task');
         taskModal.classList.add('active');
     }

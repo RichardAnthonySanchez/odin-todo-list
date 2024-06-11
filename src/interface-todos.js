@@ -69,9 +69,13 @@ const todosInterface = (function() {
         todoViewer.viewSelectedTodoProperty(newPropertyValue);
     }
 
-    function editTodoTitleInterface() {
-        let newTitle = todosController.updateTodoTitle();
-        return newTitle
+    function getTodoTitleInterface(todoObject) {
+        const title = todoObject.title;
+        return title;
+    }
+
+    function displaySelectedTitleInterface(todoTitle) {
+        todoViewer.viewSelectedTodoTitle(todoTitle)
     }
 
     return {
@@ -83,7 +87,9 @@ const todosInterface = (function() {
         switchTaskCompletionStatusInterface,
         findSelectedTodoInterface,
         selectedTodoPropertyInterface,
-        editTodoTitleInterface,
+        //editTodoTitleInterface,
+        getTodoTitleInterface,
+        displaySelectedTitleInterface,
     }
 })()
 
