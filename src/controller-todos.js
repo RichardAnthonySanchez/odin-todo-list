@@ -6,8 +6,8 @@ const todosController = (function() {
         return usersNewTaskTitle;
     }
 
-    function selectedTodoProperty() {
-        let selectedProperty = prompt('Do you want to, 1. edit the title of the task, 2. edit the priority of the task 3. edit the description of the task 4. edit the due date of a task');
+    function selectedTodoProperty(selectedProperty) {
+        //let selectedProperty = prompt('Do you want to, 1. edit the title of the task, 2. edit the priority of the task 3. edit the description of the task 4. edit the due date of a task');
         let propertyContent;
         if (selectedProperty == '1') {
             propertyContent = updateTodoTitle();

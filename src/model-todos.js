@@ -26,6 +26,11 @@ const todoFilters = (function () {
         let currentProjectObject = _.find(projects, { 'id': selectedProjectIndex });
         return currentProjectObject;
     }
+    
+    function getTodoFromId(selectedTodoIndex, todos) {
+        let currentTodoObject = _.find(todos, { 'id': selectedTodoIndex });
+        return currentTodoObject;
+    }
 
     function getTodos() {
         const storedTodos = localStorage.getItem('todos');
@@ -203,6 +208,8 @@ const todoFilters = (function () {
         updateTodoPriority,
         updateTodoDescription,
         updateTodoDueDate,
+        getTodoFromId,
+        getTodos,
     }
 
 })();

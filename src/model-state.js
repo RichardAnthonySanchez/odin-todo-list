@@ -1,6 +1,6 @@
 const StateManager = (function() {
 
-    let state = JSON.parse(localStorage.getItem('appState')) || { selectedProject: null, projects: [] };
+    let state = JSON.parse(localStorage.getItem('appState')) || { selectedProject: null, selectedTodo: null, projects: [] };
 
     let subscribers = [];
 

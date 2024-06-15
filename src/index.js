@@ -43,6 +43,15 @@ function component() {
             let inputValue = e.target.innerText;
             projectInterface.updateProjectNameInterface(inputValue);
             e.target.blur();
+        } else if (e.key === 'Enter' && e.target.id === 'task-note') {
+            e.preventDefault();
+            let inputValue = e.target.innerText;
+            const state = InterfaceState.getStateInterface();
+            const selectedTodoId = state.selectedTodo;
+            const selectedTodo = todosInterface.getTodoFromIdInterface(selectedTodoId);
+            const updatedTodo = todosInterface.updateTodoDescription(selectedTodo, inputValue);
+            updateTodo
+            e.target.blur();
         }
     });
 
@@ -88,8 +97,11 @@ function component() {
     function handleTaskClick(taskElement) {
         const todoContent = taskElement.querySelector('.task-content').textContent;
         let todoObject = todosInterface.findSelectedTodoInterface(todoContent);
+        const state = InterfaceState.getStateInterface();
+        InterfaceState.setStateInterface({ selectedTodo: todoObject.id });
         const todoTitle = todoObject.title;
         todosInterface.displaySelectedTitleInterface(todoTitle);
+        todosInterface.displaySelectedDescriptionInterface(todoObject.description); 
         const taskModal = document.getElementById('task');
         taskModal.classList.add('active');
     }
@@ -97,6 +109,8 @@ function component() {
     function closeModal() {
         const taskModal = document.getElementById('task');
         taskModal.classList.remove('active');
+        const state = InterfaceState.getStateInterface();
+        InterfaceState.setStateInterface({ selectedTodo: null });
     }
 
     document.getElementById('task-close').addEventListener('click', function() {

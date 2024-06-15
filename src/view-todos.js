@@ -55,12 +55,23 @@ const todoViewer = (function(todos) {
 
         titleContainer.appendChild(titleElement);
     }
+
+    function viewSelectedTodoDescription(todoDescription) {
+        const noteContainer = document.querySelector('.note');
+
+        const descriptionElement = document.getElementById('task-note');
+        descriptionElement.innerHTML = '';
+        descriptionElement.innerHTML = todoDescription;
+
+        noteContainer.appendChild(descriptionElement);
+    }
     
     return {
         viewCurrentTodos,
         viewCompletedTodos,
         viewSelectedTodoProperty,
         viewSelectedTodoTitle,
+        viewSelectedTodoDescription,
     }
     
 })()

@@ -69,6 +69,18 @@ const todosInterface = (function() {
         todoViewer.viewSelectedTodoProperty(newPropertyValue);
     }
 
+    function updateTodoDescription(todo, newPropertyValue) {
+        const updatedTodo = todoFilters.updateTodoDescription(todo, newPropertyValue);
+        todoFilters.updateTodo(updatedTodo);
+        todoViewer.viewSelectedTodoProperty(newPropertyValue);
+    }
+
+    function getTodoFromIdInterface(selectedTodoIndex) {
+        const todos = todoFilters.getTodos();
+        const todoObject = todoFilters.getTodoFromId(selectedTodoIndex, todos);
+        return  todoObject;
+    }
+
     function getTodoTitleInterface(todoObject) {
         const title = todoObject.title;
         return title;
@@ -76,6 +88,10 @@ const todosInterface = (function() {
 
     function displaySelectedTitleInterface(todoTitle) {
         todoViewer.viewSelectedTodoTitle(todoTitle)
+    }
+
+    function displaySelectedDescriptionInterface(todoDescription) {
+        todoViewer.viewSelectedTodoDescription(todoDescription);
     }
 
     return {
@@ -87,9 +103,11 @@ const todosInterface = (function() {
         switchTaskCompletionStatusInterface,
         findSelectedTodoInterface,
         selectedTodoPropertyInterface,
-        //editTodoTitleInterface,
         getTodoTitleInterface,
         displaySelectedTitleInterface,
+        getTodoFromIdInterface,
+        updateTodoDescription,
+        displaySelectedDescriptionInterface,
     }
 })()
 
