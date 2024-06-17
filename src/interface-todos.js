@@ -94,6 +94,10 @@ const todosInterface = (function() {
         todoViewer.viewSelectedTodoDescription(todoDescription);
     }
 
+    function displaySelectedPriorityInterface(todoPriority) {
+        todoViewer.viewSelectedTodoPriority(todoPriority)
+    }
+
     return {
         displayCurrentTasks,
         displayCompletedTasks,
@@ -108,6 +112,7 @@ const todosInterface = (function() {
         getTodoFromIdInterface,
         updateTodoDescription,
         displaySelectedDescriptionInterface,
+        displaySelectedPriorityInterface,
     }
 })()
 

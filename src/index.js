@@ -100,8 +100,12 @@ function component() {
         const state = InterfaceState.getStateInterface();
         InterfaceState.setStateInterface({ selectedTodo: todoObject.id });
         const todoTitle = todoObject.title;
+
         todosInterface.displaySelectedTitleInterface(todoTitle);
-        todosInterface.displaySelectedDescriptionInterface(todoObject.description); 
+        todosInterface.displaySelectedDescriptionInterface(todoObject.description);
+        todosInterface.displaySelectedPriorityInterface(todoObject.priority);
+        //if clicked, display other priorty options 
+
         const taskModal = document.getElementById('task');
         taskModal.classList.add('active');
     }

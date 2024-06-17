@@ -65,6 +65,16 @@ const todoViewer = (function(todos) {
 
         noteContainer.appendChild(descriptionElement);
     }
+
+    function viewSelectedTodoPriority(todoPriority) {
+        const addImportantContainer = document.getElementById('add-important')
+
+        const priorityContentElement = document.getElementById('important-content');
+        priorityContentElement.innerHTML = '';
+        priorityContentElement.innerHTML = todoPriority;
+
+        addImportantContainer.appendChild(priorityContentElement);
+    }
     
     return {
         viewCurrentTodos,
@@ -72,6 +82,7 @@ const todoViewer = (function(todos) {
         viewSelectedTodoProperty,
         viewSelectedTodoTitle,
         viewSelectedTodoDescription,
+        viewSelectedTodoPriority,
     }
     
 })()
