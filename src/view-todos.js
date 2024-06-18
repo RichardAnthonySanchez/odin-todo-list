@@ -75,6 +75,38 @@ const todoViewer = (function(todos) {
 
         addImportantContainer.appendChild(priorityContentElement);
     }
+
+    function viewTodoPriorityOptions() {
+        let importantMenuContainer = document.getElementById('important-menu');
+        
+        if (importantMenuContainer.classList) {
+            importantMenuContainer.classList = '';
+        } else {
+            importantMenuContainer.classList = 'hidden';
+        }
+
+        const lowContainer = document.querySelector('.menu-option.low');
+        const mediumContainer = document.querySelector('.menu-option.medium');
+        const highContainer = document.querySelector('.menu-option.high');
+
+        const lowContent = document.createElement('span');
+        lowContent.innerHTML = 'low';
+        lowContainer.appendChild(lowContent);
+
+        const mediumContent = document.createElement('span');
+        mediumContent.innerHTML = 'medium';
+        mediumContainer.appendChild(mediumContent);
+
+
+        const highContent = document.createElement('span');
+        highContent.innerHTML = 'high';
+        highContainer.appendChild(highContent);
+
+
+        importantMenuContainer.appendChild(lowContainer);
+        importantMenuContainer.appendChild(mediumContainer);
+        importantMenuContainer.appendChild(highContainer);
+    }
     
     return {
         viewCurrentTodos,
@@ -83,6 +115,7 @@ const todoViewer = (function(todos) {
         viewSelectedTodoTitle,
         viewSelectedTodoDescription,
         viewSelectedTodoPriority,
+        viewTodoPriorityOptions,
     }
     
 })()

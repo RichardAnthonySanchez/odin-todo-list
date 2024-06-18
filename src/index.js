@@ -76,6 +76,9 @@ function component() {
             const projectElement = e.target.closest('.nav-item');
             const projectId = projectElement.getAttribute('data-project-id');
             projectInterface.deleteProject(projectId);
+        } else if (e.target.id === 'important-content') {
+            // view priority options for todo
+            todosInterface.viewTodoPriorityOptionsInterface();
         }
     });
 
@@ -104,8 +107,9 @@ function component() {
         todosInterface.displaySelectedTitleInterface(todoTitle);
         todosInterface.displaySelectedDescriptionInterface(todoObject.description);
         todosInterface.displaySelectedPriorityInterface(todoObject.priority);
-        //if clicked, display other priorty options 
+        //if clicked, display other priorty options (wrote the method for this in a conditional above)
 
+        //if a new priority is clicked, update the object
         const taskModal = document.getElementById('task');
         taskModal.classList.add('active');
     }
