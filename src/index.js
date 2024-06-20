@@ -77,12 +77,23 @@ function component() {
             const projectId = projectElement.getAttribute('data-project-id');
             projectInterface.deleteProject(projectId);
         } else if (e.target.id === 'important-content') {
-            // view priority options for todo
             todosInterface.viewTodoPriorityOptionsInterface();
         } else if (e.target.matches('.menu-option.low')) {
-            const newPriorityValue = 'low';
-            todosInterface.changeTodoPropertyInterface(newPriorityValue); //fix this method by testing the different steps for expected behavior
-        }
+            const newPriorityValue = 'Low';
+            todosInterface.changeTodoPropertyInterface(newPriorityValue);
+            todosInterface.displaySelectedPriorityInterface(newPriorityValue);
+            todosInterface.viewTodoPriorityOptionsInterface();
+        } else if (e.target.matches('.menu-option.medium')) {
+            const newPriorityValue = 'Medium';
+            todosInterface.changeTodoPropertyInterface(newPriorityValue);
+            todosInterface.displaySelectedPriorityInterface(newPriorityValue);
+            todosInterface.viewTodoPriorityOptionsInterface();
+        } else if (e.target.matches('.menu-option.high')) {
+            const newPriorityValue = 'High';
+            todosInterface.changeTodoPropertyInterface(newPriorityValue);
+            todosInterface.displaySelectedPriorityInterface(newPriorityValue);
+            todosInterface.viewTodoPriorityOptionsInterface();
+        } 
     });
 
     function handleTaskCheckboxClick(checkbox) {
@@ -110,9 +121,7 @@ function component() {
         todosInterface.displaySelectedTitleInterface(todoTitle);
         todosInterface.displaySelectedDescriptionInterface(todoObject.description);
         todosInterface.displaySelectedPriorityInterface(todoObject.priority);
-        //if clicked, display other priorty options (wrote the method for this in a conditional above)
 
-        //if a new priority is clicked, update the object
         const taskModal = document.getElementById('task');
         taskModal.classList.add('active');
     }
