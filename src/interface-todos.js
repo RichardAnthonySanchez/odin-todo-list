@@ -102,6 +102,19 @@ const todosInterface = (function() {
         todoViewer.viewTodoPriorityOptions();
     }
 
+    function changeTodoPropertyInterface(newPriorityValue) {
+        const state = todoFilters.getState();
+        const selectedTodoIndex = state.selectedTodo;
+        const todos = todoFilters.getTodos();
+        const todoObject = todoFilters.getTodoFromId(selectedTodoIndex, todos);
+        const updatedTodo = todoFilters.updateTodoPriority(todoObject, newPriorityValue);
+
+        todoFilters.updateTodo(updatedTodo);
+        
+        displayCurrentTasks();
+        displayCompletedTasks();
+    }
+
     return {
         displayCurrentTasks,
         displayCompletedTasks,
@@ -118,6 +131,7 @@ const todosInterface = (function() {
         displaySelectedDescriptionInterface,
         displaySelectedPriorityInterface,
         viewTodoPriorityOptionsInterface,
+        changeTodoPropertyInterface,
     }
 })()
 

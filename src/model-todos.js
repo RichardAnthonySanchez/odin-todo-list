@@ -210,6 +210,7 @@ const todoFilters = (function () {
         updateTodoDueDate,
         getTodoFromId,
         getTodos,
+        getState,
     }
 
 })();

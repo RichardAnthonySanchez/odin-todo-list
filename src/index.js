@@ -79,6 +79,9 @@ function component() {
         } else if (e.target.id === 'important-content') {
             // view priority options for todo
             todosInterface.viewTodoPriorityOptionsInterface();
+        } else if (e.target.matches('.menu-option.low')) {
+            const newPriorityValue = 'low';
+            todosInterface.changeTodoPropertyInterface(newPriorityValue); //fix this method by testing the different steps for expected behavior
         }
     });
 

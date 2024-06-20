@@ -79,10 +79,10 @@ const todoViewer = (function(todos) {
     function viewTodoPriorityOptions() {
         let importantMenuContainer = document.getElementById('important-menu');
         
-        if (importantMenuContainer.classList) {
-            importantMenuContainer.classList = '';
+        if (importantMenuContainer.classList.contains('hidden')) {
+            importantMenuContainer.classList.remove('hidden');
         } else {
-            importantMenuContainer.classList = 'hidden';
+            importantMenuContainer.classList.add('hidden');
         }
 
         const lowContainer = document.querySelector('.menu-option.low');
