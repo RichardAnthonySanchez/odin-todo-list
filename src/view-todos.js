@@ -76,7 +76,24 @@ const todoViewer = (function(todos) {
         addImportantContainer.appendChild(priorityContentElement);
     }
 
+    function viewSelectedTodoDueDate(todoDueDate) {
+        if (todoDueDate === null) {
+            todoDueDate = 'add a due date';
+        } else {
+            // keep due date the same
+        }
+
+        const addDueContainer = document.getElementById('add-due');
+
+        const dueDateElement = document.getElementById('due-content');
+        dueDateElement.innerHTML = '';
+        dueDateElement.innerHTML = todoDueDate;
+
+        addDueContainer.appendChild(dueDateElement);
+    }
+
     function viewTodoPriorityOptions() {
+        // there's a bug here where the text content displays multiple times  the user continues to change the priority
         let importantMenuContainer = document.getElementById('important-menu');
         
         if (importantMenuContainer.classList.contains('hidden')) {
@@ -116,6 +133,7 @@ const todoViewer = (function(todos) {
         viewSelectedTodoDescription,
         viewSelectedTodoPriority,
         viewTodoPriorityOptions,
+        viewSelectedTodoDueDate,
     }
     
 })()

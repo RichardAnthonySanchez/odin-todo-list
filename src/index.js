@@ -120,6 +120,7 @@ function component() {
         todosInterface.displaySelectedTitleInterface(todoTitle);
         todosInterface.displaySelectedDescriptionInterface(todoObject.description);
         todosInterface.displaySelectedPriorityInterface(todoObject.priority);
+        todosInterface.displaySelectedDueDateInterface(todoObject.due_date);
 
         const taskModal = document.getElementById('task');
         taskModal.classList.add('active');
