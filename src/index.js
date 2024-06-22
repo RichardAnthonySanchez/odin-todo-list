@@ -95,8 +95,15 @@ function component() {
         } else if (e.target.id === 'due-content') {
             todosInterface.viewDueDateOptionsInterface();
         } else if (e.target.matches('.menu-option.tomorrow')) {
-            console.log('clicked tomorrow')
             const dueDateIndex = '1'
+            todosInterface.changeTodoDueDateInterface(dueDateIndex);
+            todosInterface.viewDueDateOptionsInterface();
+        } else if (e.target.matches('.menu-option.week')) {
+            const dueDateIndex = '2'
+            todosInterface.changeTodoDueDateInterface(dueDateIndex);
+            todosInterface.viewDueDateOptionsInterface();
+        } else if (e.target.matches('.menu-option.month')) {
+            const dueDateIndex = '3'
             todosInterface.changeTodoDueDateInterface(dueDateIndex);
             todosInterface.viewDueDateOptionsInterface();
         }
