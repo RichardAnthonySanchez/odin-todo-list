@@ -106,6 +106,10 @@ const todosInterface = (function() {
         todoViewer.viewTodoPriorityOptions();
     }
 
+    function viewDueDateOptionsInterface() {
+        todoViewer.viewDueDateOptions();
+    }
+
     function changeTodoPropertyInterface(newPriorityValue) {
         const state = todoFilters.getState();
         const selectedTodoIndex = state.selectedTodo;
@@ -136,7 +140,8 @@ const todosInterface = (function() {
         displaySelectedPriorityInterface,
         viewTodoPriorityOptionsInterface,
         changeTodoPropertyInterface,
-        displaySelectedDueDateInterface
+        displaySelectedDueDateInterface,
+        viewDueDateOptionsInterface
     }
 })()
 

@@ -38,7 +38,7 @@ function component() {
         } else if (e.key === 'Enter' && e.target.id === 'add-project-input') {
             const inputValue = e.target.value;
             projectInterface.createNewProject(inputValue);
-        } else if (e.key === 'Enter' && e.target.id === 'project-title-1'){
+        } else if (e.key === 'Enter' && e.target.id === 'project-title-1') {
             e.preventDefault();
             let inputValue = e.target.innerText;
             projectInterface.updateProjectNameInterface(inputValue);
@@ -92,7 +92,9 @@ function component() {
             todosInterface.changeTodoPropertyInterface(newPriorityValue);
             todosInterface.displaySelectedPriorityInterface(newPriorityValue);
             todosInterface.viewTodoPriorityOptionsInterface();
-        } 
+        } else if (e.target.id === 'due-content') {
+            todosInterface.viewDueDateOptionsInterface();
+        }
     });
 
     function handleTaskCheckboxClick(checkbox) {
@@ -133,7 +135,7 @@ function component() {
         InterfaceState.setStateInterface({ selectedTodo: null });
     }
 
-    document.getElementById('task-close').addEventListener('click', function() {
+    document.getElementById('task-close').addEventListener('click', function () {
         closeModal();
     });
 

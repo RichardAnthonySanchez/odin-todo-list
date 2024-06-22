@@ -124,6 +124,39 @@ const todoViewer = (function(todos) {
         importantMenuContainer.appendChild(mediumContainer);
         importantMenuContainer.appendChild(highContainer);
     }
+
+    function viewDueDateOptions() {
+        // same duplicate problem
+        // we might have to make a element selector and have a conditional check before creating span elements
+        const dueMenuContainer = document.getElementById('due-menu');
+
+        if (dueMenuContainer.classList.contains('hidden')) {
+            dueMenuContainer.classList.remove('hidden');
+        } else {
+            dueMenuContainer.classList.add('hidden');
+        }
+
+        const tomorrowContainer = document.querySelector('.menu-option.tomorrow');
+        const weekContainer = document.querySelector('.menu-option.week');
+        const monthContainer = document.querySelector('.menu-option.month');
+
+        const tomorrowContent = document.createElement('span');
+        tomorrowContent.innerHTML = 'Tomorrow';
+        tomorrowContainer.appendChild(tomorrowContent);
+
+        const weekContent = document.createElement('span');
+        weekContent.innerHTML = 'Next Week';
+        weekContainer.appendChild(weekContent);
+
+
+        const monthContent = document.createElement('span');
+        monthContent.innerHTML = 'Next Month';
+        monthContainer.appendChild(monthContent);
+
+        dueMenuContainer.appendChild(tomorrowContainer);
+        dueMenuContainer.appendChild(weekContainer);
+        dueMenuContainer.appendChild(monthContainer);
+    }
     
     return {
         viewCurrentTodos,
@@ -134,6 +167,7 @@ const todoViewer = (function(todos) {
         viewSelectedTodoPriority,
         viewTodoPriorityOptions,
         viewSelectedTodoDueDate,
+        viewDueDateOptions,
     }
     
 })()
