@@ -49,8 +49,7 @@ function component() {
             const state = InterfaceState.getStateInterface();
             const selectedTodoId = state.selectedTodo;
             const selectedTodo = todosInterface.getTodoFromIdInterface(selectedTodoId);
-            const updatedTodo = todosInterface.updateTodoDescription(selectedTodo, inputValue);
-            updateTodo
+            todosInterface.updateTodoDescription(selectedTodo, inputValue);
             e.target.blur();
         }
     });
