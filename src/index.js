@@ -94,6 +94,11 @@ function component() {
             todosInterface.viewTodoPriorityOptionsInterface();
         } else if (e.target.id === 'due-content') {
             todosInterface.viewDueDateOptionsInterface();
+        } else if (e.target.matches('.menu-option.tomorrow')) {
+            console.log('clicked tomorrow')
+            const dueDateIndex = '1'
+            todosInterface.changeTodoDueDateInterface(dueDateIndex);
+            todosInterface.viewDueDateOptionsInterface();
         }
     });
 

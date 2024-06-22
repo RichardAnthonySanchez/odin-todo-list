@@ -110,7 +110,7 @@ const todosInterface = (function() {
         todoViewer.viewDueDateOptions();
     }
 
-    function changeTodoPropertyInterface(newPriorityValue) {
+    function changeTodoPropertyInterface(newPriorityValue) { // this method should  be named priority not property
         const state = todoFilters.getState();
         const selectedTodoIndex = state.selectedTodo;
         const todos = todoFilters.getTodos();
@@ -121,6 +121,12 @@ const todosInterface = (function() {
         
         displayCurrentTasks();
         displayCompletedTasks();
+    }
+
+    function changeTodoDueDateInterface(dueDateIndex) {
+        const formattedDueDate = todosController.updateTodoDueDate(dueDateIndex);
+        todoFilters.updateSelectedTodoDueDate(formattedDueDate);
+        displaySelectedDueDateInterface(formattedDueDate);
     }
 
     return {
@@ -141,7 +147,8 @@ const todosInterface = (function() {
         viewTodoPriorityOptionsInterface,
         changeTodoPropertyInterface,
         displaySelectedDueDateInterface,
-        viewDueDateOptionsInterface
+        viewDueDateOptionsInterface,
+        changeTodoDueDateInterface
     }
 })()
 

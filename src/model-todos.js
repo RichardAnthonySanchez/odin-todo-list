@@ -192,6 +192,15 @@ const todoFilters = (function () {
         return todo;
     }
 
+    function updateSelectedTodoDueDate(formattedDueDate) {
+        const todos = getTodos();
+        const state = getState();
+        const todoId = state.selectedTodo;
+        const todo = getTodoFromId(todoId, todos);
+        const updatedTodo = updateTodoDueDate (todo, formattedDueDate);
+        updateTodo(updatedTodo);
+    }
+
     return {
         getProjects,
         currentTasks,
@@ -211,6 +220,7 @@ const todoFilters = (function () {
         getTodoFromId,
         getTodos,
         getState,
+        updateSelectedTodoDueDate,
     }
 
 })();

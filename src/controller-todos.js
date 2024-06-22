@@ -51,8 +51,7 @@ const todosController = (function() {
     }
 
 
-    function updateTodoDueDate() {
-        let dueDateIndex = prompt('Select the due date for this todo, 1. tomorrow 2. next week 3. next month');
+    function updateTodoDueDate(dueDateIndex) {
         let dueDate;
     
         if (dueDateIndex === '1') {
@@ -73,6 +72,7 @@ const todosController = (function() {
     return {
         addTask,
         selectedTodoProperty,
+        updateTodoDueDate,
     }
 
 })();
