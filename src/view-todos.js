@@ -92,6 +92,21 @@ const todoViewer = (function(todos) {
         addDueContainer.appendChild(dueDateElement);
     }
 
+    function viewSelectedTodosProject(todosProject) {
+        // if there is a project display it
+        const myDayContainer = document.getElementById('my-project');
+        const projectContentElement = document.getElementById('project-content');
+       
+        if (todosProject) {
+            projectContentElement.innerHTML = '';
+            projectContentElement.innerHTML = todosProject;
+        } else {
+            // else have default text like 'add todo to a project'
+            projectContentElement.innerHTML = ''
+            projectContentElement.innerHTML = 'add this todo to a project'
+        }
+    }
+
     function viewTodoPriorityOptions() {
         // there's a bug here where the text content displays multiple times  the user continues to change the priority
         let importantMenuContainer = document.getElementById('important-menu');
@@ -168,6 +183,7 @@ const todoViewer = (function(todos) {
         viewTodoPriorityOptions,
         viewSelectedTodoDueDate,
         viewDueDateOptions,
+        viewSelectedTodosProject,
     }
     
 })()

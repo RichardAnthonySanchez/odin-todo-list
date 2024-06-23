@@ -51,6 +51,11 @@ const projectInterface = (function() {
         createProjectTitle.replaceProject(index, projectObject, projects);
     }
 
+    function getProjectFromIdInterface(id) {
+        const projectObject = createProjectTitle.getProjectFromId(id);
+        return projectObject
+    }
+
     function projectManagerInterface() {
         let projects = createProjectTitle.getProjects();
         let projectSelectionData = projectsController.projectManager(projects);
@@ -99,6 +104,7 @@ const projectInterface = (function() {
         deleteProject,
         updateProjectNameInterface,
         updateProjectTodosInterface,
+        getProjectFromIdInterface,
     }
 
 })()

@@ -130,11 +130,14 @@ function component() {
         const state = InterfaceState.getStateInterface();
         InterfaceState.setStateInterface({ selectedTodo: todoObject.id });
         const todoTitle = todoObject.title;
+        const selectedProjectId = state.selectedProject;
+        const selectedProject = projectInterface.getProjectFromIdInterface(selectedProjectId);
 
         todosInterface.displaySelectedTitleInterface(todoTitle);
         todosInterface.displaySelectedDescriptionInterface(todoObject.description);
         todosInterface.displaySelectedPriorityInterface(todoObject.priority);
         todosInterface.displaySelectedDueDateInterface(todoObject.due_date);
+        todosInterface.displaySelectedTodosProjectInterface(selectedProject.name);
 
         const taskModal = document.getElementById('task');
         taskModal.classList.add('active');
