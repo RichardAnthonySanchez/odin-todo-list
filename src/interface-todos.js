@@ -86,6 +86,11 @@ const todosInterface = (function() {
         return title;
     }
 
+    function viewSelectableProjectsInterface() {
+        const projects = projectInterface.getProjectsInterface();
+        todoViewer.viewSelectableProjects(projects);
+    }
+
     function displaySelectedTitleInterface(todoTitle) {
         todoViewer.viewSelectedTodoTitle(todoTitle)
     }
@@ -154,6 +159,7 @@ const todosInterface = (function() {
         viewDueDateOptionsInterface,
         changeTodoDueDateInterface,
         displaySelectedTodosProjectInterface,
+        viewSelectableProjectsInterface,
     }
 })()
 

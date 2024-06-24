@@ -545,3 +545,20 @@ h3 {
 #due-menu.hidden {
     display: none;
 }
+
+#project-menu {
+    position: absolute;
+    top: 60px;
+    left: calc(377px / 2);
+    transform: translateX(-50%);
+    
+    height: max-content;
+    width: 280px;
+    color: var(--font-color);
+    background-color: var(--background-color);
+    box-shadow: 0 4px 8px 0 rgba(0, 0, 0, 0.4), 0 6px 20px 0 rgba(0, 0, 0, 0.4);
+}
+
+#project-menu.hidden {
+    display: none;
+}

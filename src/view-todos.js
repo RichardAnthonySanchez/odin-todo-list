@@ -172,6 +172,29 @@ const todoViewer = (function(todos) {
         dueMenuContainer.appendChild(weekContainer);
         dueMenuContainer.appendChild(monthContainer);
     }
+
+    function viewSelectableProjects(projects) {
+        const projectMenuContainer = document.getElementById('project-menu');
+    
+        if (projectMenuContainer.classList.contains('hidden')) {
+            projectMenuContainer.classList.remove('hidden');
+        } else {
+            projectMenuContainer.classList.add('hidden');
+        }
+    
+        for (let eachProject = 0; eachProject < projects.length; eachProject++) {
+            let menuOptionContainer = document.createElement('div')
+            menuOptionContainer.setAttribute('class', 'menu-option');
+
+            let projectSpanElement = document.createElement('span');
+            let currentProjectName = projects[eachProject].name;
+    
+            projectSpanElement.innerHTML = currentProjectName;
+            menuOptionContainer.appendChild(projectSpanElement);
+            projectMenuContainer.appendChild(menuOptionContainer);
+        }
+    }
+    
     
     return {
         viewCurrentTodos,
@@ -184,6 +207,7 @@ const todoViewer = (function(todos) {
         viewSelectedTodoDueDate,
         viewDueDateOptions,
         viewSelectedTodosProject,
+        viewSelectableProjects,
     }
     
 })()

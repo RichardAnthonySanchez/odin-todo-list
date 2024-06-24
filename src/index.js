@@ -106,7 +106,10 @@ function component() {
             const dueDateIndex = '3'
             todosInterface.changeTodoDueDateInterface(dueDateIndex);
             todosInterface.viewDueDateOptionsInterface();
+        } else if (e.target.matches('.my-project')) {
+            todosInterface.viewSelectableProjectsInterface();
         }
+
     });
 
     function handleTaskCheckboxClick(checkbox) {

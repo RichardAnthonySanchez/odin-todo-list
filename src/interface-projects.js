@@ -17,6 +17,7 @@ const projectInterface = (function() {
     function getProjectsInterface() {
         let projects = createProjectTitle.getProjects();
         projectViewer.viewProjects(projects);
+        return projects;
     }
 
     function createNewProject(newProjectName) {
