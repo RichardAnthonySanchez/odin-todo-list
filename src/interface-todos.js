@@ -2,6 +2,7 @@ import todoFilters from "./model-todos";
 import todoViewer from "./view-todos";
 import todosController from "./controller-todos";
 import projectInterface from "./interface-projects";
+import createProjectTitle from "./model-project-title";
 
 const todosInterface = (function() {
 
@@ -138,6 +139,17 @@ const todosInterface = (function() {
         displaySelectedDueDateInterface(formattedDueDate);
     }
 
+    function changeTodoProjectInterface() {
+        const state = todoFilters.getState();
+        const selectedTodo = state.selectedTodo;
+        const selectedProject = state.selectedProject;
+        // remove the selected todo index from the project array
+        createProjectTitle.removeTodoFromProject(selectedTodo, selectedProject);
+        // add the selected todo from the selected project
+        // view the current and completed tasks 
+        // view the selected todo project content in the modal
+    }
+
     return {
         displayCurrentTasks,
         displayCompletedTasks,
@@ -160,6 +172,7 @@ const todosInterface = (function() {
         changeTodoDueDateInterface,
         displaySelectedTodosProjectInterface,
         viewSelectableProjectsInterface,
+        changeTodoProjectInterface,
     }
 })()
 

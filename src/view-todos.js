@@ -184,10 +184,13 @@ const todoViewer = (function(todos) {
     
         for (let eachProject = 0; eachProject < projects.length; eachProject++) {
             let menuOptionContainer = document.createElement('div')
-            menuOptionContainer.setAttribute('class', 'menu-option');
+            menuOptionContainer.setAttribute('class', 'menu-option' + ' project');
+
 
             let projectSpanElement = document.createElement('span');
             let currentProjectName = projects[eachProject].name;
+            projectSpanElement.setAttribute('class', currentProjectName);
+
     
             projectSpanElement.innerHTML = currentProjectName;
             menuOptionContainer.appendChild(projectSpanElement);

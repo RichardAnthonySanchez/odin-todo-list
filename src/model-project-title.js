@@ -1,4 +1,5 @@
 import { format } from 'date-fns';
+import _ from 'lodash';
 
 const createProjectTitle = (function() {
 
@@ -119,6 +120,17 @@ const createProjectTitle = (function() {
         return projectObject
     }
 
+    function removeTodoFromProject(todoId, selectedProjectId) {
+        const selectedProject = getProjectFromId(selectedProjectId);
+        let statesProjectsTodos = selectedProject.todos;
+        console.log('Original todos:', statesProjectsTodos);
+    
+        _.remove(statesProjectsTodos, (id) => id === todoId);
+    
+        console.log('Modified todos:', statesProjectsTodos);
+        return statesProjectsTodos;
+    }
+
         return {
             getProjectTitle,
             checkForStoredProjects,
@@ -131,6 +143,7 @@ const createProjectTitle = (function() {
             getProjectFromId,
             findIndexFromProject,
             replaceProject,
+            removeTodoFromProject,
         }
 })();
 

@@ -108,6 +108,9 @@ function component() {
             todosInterface.viewDueDateOptionsInterface();
         } else if (e.target.matches('.my-project')) {
             todosInterface.viewSelectableProjectsInterface();
+        } else if (e.target.matches('.menu-option.project')) {
+            // change my state todo to belong to the selected project
+            todosInterface.changeTodoProjectInterface();
         }
 
     });
