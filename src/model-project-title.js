@@ -120,6 +120,12 @@ const createProjectTitle = (function() {
         return projectObject
     }
 
+    function getProjectFromName(projectName) {
+        const projects = getProjects();
+        const projectObject = _.find(projects, { name: projectName });
+        return projectObject
+    }
+
     function removeTodoFromProject(todoId, selectedProjectId) {
         const selectedProject = getProjectFromId(selectedProjectId);
         let statesProjectsTodos = selectedProject.todos;
@@ -129,6 +135,11 @@ const createProjectTitle = (function() {
     
         console.log('Modified todos:', statesProjectsTodos);
         return statesProjectsTodos;
+    }
+
+    function addTodoToProject(todoId, projectName) {
+        const selectedProject = getProjectFromName(projectName);
+        selectedProject.todos.push(todoId);
     }
 
         return {
@@ -144,6 +155,7 @@ const createProjectTitle = (function() {
             findIndexFromProject,
             replaceProject,
             removeTodoFromProject,
+            addTodoToProject,
         }
 })();
 

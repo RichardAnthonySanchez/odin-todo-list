@@ -109,8 +109,15 @@ function component() {
         } else if (e.target.matches('.my-project')) {
             todosInterface.viewSelectableProjectsInterface();
         } else if (e.target.matches('.menu-option.project')) {
+            const projectElement = e.target.querySelector('span');
+            const projectName = projectElement.className;
+            console.log('you selected ' + projectName)
+
+            
             // change my state todo to belong to the selected project
-            todosInterface.changeTodoProjectInterface();
+            todosInterface.changeTodoProjectInterface(projectName);
+
+
         }
 
     });

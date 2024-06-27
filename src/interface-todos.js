@@ -139,13 +139,15 @@ const todosInterface = (function() {
         displaySelectedDueDateInterface(formattedDueDate);
     }
 
-    function changeTodoProjectInterface() {
+    function changeTodoProjectInterface(newProjectName) {
         const state = todoFilters.getState();
         const selectedTodo = state.selectedTodo;
         const selectedProject = state.selectedProject;
         // remove the selected todo index from the project array
         createProjectTitle.removeTodoFromProject(selectedTodo, selectedProject);
-        // add the selected todo from the selected project
+        // add the selected todo to the selected project
+        createProjectTitle.addTodoToProject(selectedTodo, newProjectName);
+        // save the new version of the project
         // view the current and completed tasks 
         // view the selected todo project content in the modal
     }
