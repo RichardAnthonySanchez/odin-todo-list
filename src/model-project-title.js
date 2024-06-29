@@ -69,6 +69,15 @@ const createProjectTitle = (function() {
         saveProjects(projects);
     }
 
+    function updateProject(updatedProject) {
+        let projects = getProjects();
+        const index = projects.findIndex(project => project.id === updatedProject.id);
+        if (index !== -1) {
+            projects[index] = updatedProject;
+        }
+        return projects;
+    }
+
     function createProjectObject(projectTitle, projects) {
         return {
             name: projectTitle,
@@ -129,17 +138,17 @@ const createProjectTitle = (function() {
     function removeTodoFromProject(todoId, selectedProjectId) {
         const selectedProject = getProjectFromId(selectedProjectId);
         let statesProjectsTodos = selectedProject.todos;
-        console.log('Original todos:', statesProjectsTodos);
     
         _.remove(statesProjectsTodos, (id) => id === todoId);
-    
-        console.log('Modified todos:', statesProjectsTodos);
-        return statesProjectsTodos;
+        selectedProject.todos = statesProjectsTodos;
+        
+        return selectedProject;
     }
 
     function addTodoToProject(todoId, projectName) {
         const selectedProject = getProjectFromName(projectName);
         selectedProject.todos.push(todoId);
+        return selectedProject
     }
 
         return {
@@ -156,6 +165,8 @@ const createProjectTitle = (function() {
             replaceProject,
             removeTodoFromProject,
             addTodoToProject,
+            updateProject,
+            saveProjects,
         }
 })();
 

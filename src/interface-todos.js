@@ -143,13 +143,22 @@ const todosInterface = (function() {
         const state = todoFilters.getState();
         const selectedTodo = state.selectedTodo;
         const selectedProject = state.selectedProject;
+
         // remove the selected todo index from the project array
-        createProjectTitle.removeTodoFromProject(selectedTodo, selectedProject);
+        const splicedProject = createProjectTitle.removeTodoFromProject(selectedTodo, selectedProject); //debug every thing under this within the method
+        const projects = createProjectTitle.updateProject(splicedProject); //this is making a dupe project object
+        createProjectTitle.saveProjects(projects);
+        
+        
         // add the selected todo to the selected project
-        createProjectTitle.addTodoToProject(selectedTodo, newProjectName);
-        // save the new version of the project
+        const updatedProject = createProjectTitle.addTodoToProject(selectedTodo, newProjectName);
+        const updatedProjects = createProjectTitle.updateProject(updatedProject); //this is making a dupe project object
+        createProjectTitle.saveProjects(updatedProjects);
+
         // view the current and completed tasks 
-        // view the selected todo project content in the modal
+        displayCurrentTasks();
+        displayCompletedTasks();
+        displaySelectedTodosProjectInterface(updatedProject.name);
     }
 
     return {
