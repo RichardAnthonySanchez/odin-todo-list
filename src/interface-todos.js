@@ -1,4 +1,4 @@
-import todoFilters from "./model-todos";
+import todoFilters from "./models/model-todos";
 import todoViewer from "./view-todos";
 import todosController from "./controller-todos";
 import projectInterface from "./interface-projects";
