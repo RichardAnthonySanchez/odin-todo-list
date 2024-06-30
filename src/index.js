@@ -5,7 +5,7 @@ import defaultProjects from './default-projects.json'
 import todosInterface from './interface-todos';
 import projectInterface from './interface-projects';
 import InterfaceState from './interface-state';
-import StateManager from './model-state';
+import StateManager from './models/model-state'; //why are we processing the state without the interface?
 
 function component() {
 
