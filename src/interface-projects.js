@@ -1,4 +1,4 @@
-import projectViewer from './view-project-title';
+import projectViewer from './views/view-projects';
 import createProjectTitle from './models/model-projects';
 import projectsController from './controllers/controller-projects'
 import InterfaceState from './interface-state';
