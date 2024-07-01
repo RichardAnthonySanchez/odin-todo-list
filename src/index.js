@@ -1,7 +1,7 @@
 import './style.css';
 import _ from 'lodash';
-import defaultTodos from './default-todos.json'
-import defaultProjects from './default-projects.json'
+import defaultTodos from './data/default-todos.json'
+import defaultProjects from './data/default-projects.json'
 import todosInterface from './interfaces/interface-todos';
 import projectInterface from './interfaces/interface-projects';
 import InterfaceState from './interfaces/interface-state';
