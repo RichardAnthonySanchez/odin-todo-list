@@ -1,4 +1,4 @@
-import StateManager from "./models/model-state";
+import StateManager from "../models/model-state";
 
 const InterfaceState = (function() {
 

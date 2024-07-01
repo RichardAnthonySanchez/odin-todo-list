@@ -1,5 +1,5 @@
 import _ from 'lodash';
-import InterfaceState from '../interface-state'; // i think we can process state information in the todos interface NOT here
+import InterfaceState from '../interfaces/interface-state'; // i think we can process state information in the todos interface NOT here
 
 const todoFilters = (function () {
 

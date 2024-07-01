@@ -1,8 +1,8 @@
-import todoFilters from "./models/model-todos";
-import todoViewer from "./view-todos";
-import todosController from "./controllers/controller-todos";
+import todoFilters from "../models/model-todos";
+import todoViewer from "../views/view-todos";
+import todosController from "../controllers/controller-todos";
 import projectInterface from "./interface-projects";
-import createProjectTitle from "./models/model-projects";
+import createProjectTitle from "../models/model-projects";
 
 const todosInterface = (function() {
 

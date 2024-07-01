@@ -1,6 +1,6 @@
-import projectViewer from './views/view-projects';
-import createProjectTitle from './models/model-projects';
-import projectsController from './controllers/controller-projects'
+import projectViewer from '../views/view-projects';
+import createProjectTitle from '../models/model-projects';
+import projectsController from '../controllers/controller-projects'
 import InterfaceState from './interface-state';
 
 const projectInterface = (function() {

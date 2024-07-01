@@ -2,9 +2,9 @@ import './style.css';
 import _ from 'lodash';
 import defaultTodos from './default-todos.json'
 import defaultProjects from './default-projects.json'
-import todosInterface from './interface-todos';
-import projectInterface from './interface-projects';
-import InterfaceState from './interface-state';
+import todosInterface from './interfaces/interface-todos';
+import projectInterface from './interfaces/interface-projects';
+import InterfaceState from './interfaces/interface-state';
 import StateManager from './models/model-state'; //why are we processing the state without the interface?
 
 function component() {
