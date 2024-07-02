@@ -1,13 +1,13 @@
-import projectViewer from '../views/view-projects';
 import projectsController from '../controllers/controller-projects'
 import InterfaceState from './interface-state';
 import ProjectsModel from '../models/model-projects';
+import ProjectsView from '../views/view-projects';
 
 const projectInterface = (function() {
 
     function displayProjectTitle(selectedProject) {
         const { title, subTitle } = ProjectsModel.getProjectTitle(selectedProject);
-        projectViewer.viewProjectTitle(title, subTitle);
+        ProjectsView.viewProjectTitle(title, subTitle);
     }
 
     function checkForStoredProjectsInterface(projects) {
@@ -16,7 +16,7 @@ const projectInterface = (function() {
 
     function getProjectsInterface() {
         let projects = ProjectsModel.getProjects();
-        projectViewer.viewProjects(projects);
+        ProjectsView.viewProjects(projects);
         return projects;
     }
 
@@ -31,7 +31,7 @@ const projectInterface = (function() {
     function deleteProject(selectedProjectId) {
         const projects = ProjectsModel.getProjects();        
         ProjectsModel.removeProject(selectedProjectId, projects);
-        projectViewer.viewProjects(projects);
+        ProjectsView.viewProjects(projects);
     }
 
     function updateProjectNameInterface(updatedName){
@@ -71,13 +71,13 @@ const projectInterface = (function() {
         } else if (projectActionIndex === '2') {
             let updatedName = projectObject.name;
             ProjectsModel.modfiyProjectObjectByName(projectObject, updatedName);
-            projectViewer.viewProjects(projects);
+            ProjectsView.viewProjects(projects);
         } else if (projectActionIndex === '3') {
-            projectViewer.viewProjects(projects);
+            ProjectsView.viewProjects(projects);
         } else if (projectActionIndex === '4') {
             const selectedProjectId = projectObject.id
             ProjectsModel.removeProject(selectedProjectId, projects);
-            projectViewer.viewProjects(projects);
+            ProjectsView.viewProjects(projects);
         } else if (projectActionIndex === '5') {
             const selectedProjectName = projectObject.name
             InterfaceState.setStateInterface({ selectedProject: selectedProjectName });

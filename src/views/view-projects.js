@@ -1,4 +1,4 @@
-const projectViewer = (function () {
+const ProjectsView = (function () {
 
     function viewProjectTitle(title, sub) {
         const projectTitle = document.getElementById('project-title');
@@ -117,4 +117,4 @@ const projectViewer = (function () {
 
 })();
 
-export default projectViewer;
+export default ProjectsView;
