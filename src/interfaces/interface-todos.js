@@ -1,48 +1,48 @@
-import todoFilters from "../models/model-todos";
 import todoViewer from "../views/view-todos";
 import todosController from "../controllers/controller-todos";
 import projectInterface from "./interface-projects";
 import createProjectTitle from "../models/model-projects";
+import TodosModel from "../models/model-todos";
 
 const todosInterface = (function() {
 
     function displayCurrentTasks(){
-        let currentTasks = todoFilters.currentTasks();
+        let currentTasks = TodosModel.currentTasks();
         todoViewer.viewCurrentTodos(currentTasks.filterOutCompletedTodos);
     }
 
     function displayCompletedTasks() {
-        let completedTasks = todoFilters.getCompletedTasks();
+        let completedTasks = TodosModel.getCompletedTasks();
         todoViewer.viewCompletedTodos(completedTasks);
     }
 
     function addTaskInterface(usersNewTaskTitle) {
         todosController.addTask(usersNewTaskTitle);
-        let newTask = todoFilters.createTaskObject(usersNewTaskTitle);
-        todoFilters.addTodo(newTask);
+        let newTask = TodosModel.createTaskObject(usersNewTaskTitle);
+        TodosModel.addTodo(newTask);
         const newTasksId = newTask.id;
         projectInterface.updateProjectTodosInterface(newTasksId);
         displayCurrentTasks();
     }
 
     function checkForStoredTodosInterface(defaultTodos) {
-        todoFilters.checkForStoredTodos(defaultTodos);
+        TodosModel.checkForStoredTodos(defaultTodos);
     }
 
     function refreshDefaultTodosInterface(defaultTodos) {
-        todoFilters.refreshDefaultTodos(defaultTodos);
+        TodosModel.refreshDefaultTodos(defaultTodos);
         displayCurrentTasks();
     }
 
     function switchTaskCompletionStatusInterface(todo) {
-        let updatedTodo = todoFilters.switchTaskCompletionStatus(todo);
-        todoFilters.updateTodo(updatedTodo);
+        let updatedTodo = TodosModel.switchTaskCompletionStatus(todo);
+        TodosModel.updateTodo(updatedTodo);
         displayCurrentTasks();
         displayCompletedTasks();
     }
 
     function findSelectedTodoInterface(todoContent) {
-        let todoObject = todoFilters.findSelectedTodo(todoContent);
+        let todoObject = TodosModel.findSelectedTodo(todoContent);
         return todoObject;
     }
 
@@ -53,32 +53,32 @@ const todosInterface = (function() {
         let updatedTodo;
 
         if (todoProperty == '1') {
-            updatedTodo = todoFilters.updateTodoTitle(todo, newPropertyValue);
+            updatedTodo = TodosModel.updateTodoTitle(todo, newPropertyValue);
         } else if (todoProperty == '2') {
-            updatedTodo = todoFilters.updateTodoPriority(todo, newPropertyValue);
+            updatedTodo = TodosModel.updateTodoPriority(todo, newPropertyValue);
         } else if (todoProperty == '3') {
-            updatedTodo = todoFilters.updateTodoDescription(todo, newPropertyValue);
+            updatedTodo = TodosModel.updateTodoDescription(todo, newPropertyValue);
         } else if (todoProperty == '4') {
-                updatedTodo = todoFilters.updateTodoDueDate(todo, newPropertyValue);
+                updatedTodo = TodosModel.updateTodoDueDate(todo, newPropertyValue);
         } else {
             console.log('selected todo property is invalid')
         }
 
-        todoFilters.updateTodo(updatedTodo);
+        TodosModel.updateTodo(updatedTodo);
         displayCurrentTasks();
         displayCompletedTasks();
         todoViewer.viewSelectedTodoProperty(newPropertyValue);
     }
 
     function updateTodoDescription(todo, newPropertyValue) {
-        const updatedTodo = todoFilters.updateTodoDescription(todo, newPropertyValue);
-        todoFilters.updateTodo(updatedTodo);
+        const updatedTodo = TodosModel.updateTodoDescription(todo, newPropertyValue);
+        TodosModel.updateTodo(updatedTodo);
         todoViewer.viewSelectedTodoProperty(newPropertyValue);
     }
 
     function getTodoFromIdInterface(selectedTodoIndex) {
-        const todos = todoFilters.getTodos();
-        const todoObject = todoFilters.getTodoFromId(selectedTodoIndex, todos);
+        const todos = TodosModel.getTodos();
+        const todoObject = TodosModel.getTodoFromId(selectedTodoIndex, todos);
         return  todoObject;
     }
 
@@ -121,13 +121,13 @@ const todosInterface = (function() {
     }
 
     function changeTodoPropertyInterface(newPriorityValue) { // this method should  be named priority not property
-        const state = todoFilters.getState();
+        const state = TodosModel.getState();
         const selectedTodoIndex = state.selectedTodo;
-        const todos = todoFilters.getTodos();
-        const todoObject = todoFilters.getTodoFromId(selectedTodoIndex, todos);
-        const updatedTodo = todoFilters.updateTodoPriority(todoObject, newPriorityValue);
+        const todos = TodosModel.getTodos();
+        const todoObject = TodosModel.getTodoFromId(selectedTodoIndex, todos);
+        const updatedTodo = TodosModel.updateTodoPriority(todoObject, newPriorityValue);
 
-        todoFilters.updateTodo(updatedTodo);
+        TodosModel.updateTodo(updatedTodo);
         
         displayCurrentTasks();
         displayCompletedTasks();
@@ -135,12 +135,12 @@ const todosInterface = (function() {
 
     function changeTodoDueDateInterface(dueDateIndex) {
         const formattedDueDate = todosController.updateTodoDueDate(dueDateIndex);
-        todoFilters.updateSelectedTodoDueDate(formattedDueDate);
+        TodosModel.updateSelectedTodoDueDate(formattedDueDate);
         displaySelectedDueDateInterface(formattedDueDate);
     }
 
     function changeTodoProjectInterface(newProjectName) {
-        const state = todoFilters.getState();
+        const state = TodosModel.getState();
         const selectedTodo = state.selectedTodo;
         const selectedProject = state.selectedProject;
 

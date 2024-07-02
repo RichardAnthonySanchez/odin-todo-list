@@ -1,7 +1,7 @@
 import _ from 'lodash';
 import InterfaceState from '../interfaces/interface-state'; // i think we can process state information in the todos interface NOT here
 
-const todoFilters = (function () {
+const TodosModel = (function () {
 
     function getState() {
         let state = InterfaceState.getStateInterface();
@@ -225,4 +225,4 @@ const todoFilters = (function () {
 
 })();
 
-export default todoFilters;
+export default TodosModel;
