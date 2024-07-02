@@ -1,82 +1,82 @@
 import projectViewer from '../views/view-projects';
-import createProjectTitle from '../models/model-projects';
 import projectsController from '../controllers/controller-projects'
 import InterfaceState from './interface-state';
+import ProjectsModel from '../models/model-projects';
 
 const projectInterface = (function() {
 
     function displayProjectTitle(selectedProject) {
-        const { title, subTitle } = createProjectTitle.getProjectTitle(selectedProject);
+        const { title, subTitle } = ProjectsModel.getProjectTitle(selectedProject);
         projectViewer.viewProjectTitle(title, subTitle);
     }
 
     function checkForStoredProjectsInterface(projects) {
-        createProjectTitle.checkForStoredProjects(projects);
+        ProjectsModel.checkForStoredProjects(projects);
     }
 
     function getProjectsInterface() {
-        let projects = createProjectTitle.getProjects();
+        let projects = ProjectsModel.getProjects();
         projectViewer.viewProjects(projects);
         return projects;
     }
 
     function createNewProject(newProjectName) {
-        const projects = createProjectTitle.getProjects();        
-        const projectObject = createProjectTitle.createProjectObject(newProjectName, projects);
-        createProjectTitle.addProject(projectObject);
+        const projects = ProjectsModel.getProjects();        
+        const projectObject = ProjectsModel.createProjectObject(newProjectName, projects);
+        ProjectsModel.addProject(projectObject);
         console.log('new project added!')
         getProjectsInterface();
     }
 
     function deleteProject(selectedProjectId) {
-        const projects = createProjectTitle.getProjects();        
-        createProjectTitle.removeProject(selectedProjectId, projects);
+        const projects = ProjectsModel.getProjects();        
+        ProjectsModel.removeProject(selectedProjectId, projects);
         projectViewer.viewProjects(projects);
     }
 
     function updateProjectNameInterface(updatedName){
-        const projects = createProjectTitle.getProjects();        
+        const projects = ProjectsModel.getProjects();        
         const state = InterfaceState.getStateInterface();
-        let projectObject = createProjectTitle.getProjectFromId(state.selectedProject);
-        projectObject = createProjectTitle.modfiyProjectObjectByName(projectObject, updatedName);
-        const index = createProjectTitle.findIndexFromProject(projectObject, projects);
-        createProjectTitle.replaceProject(index, projectObject, projects);
+        let projectObject = ProjectsModel.getProjectFromId(state.selectedProject);
+        projectObject = ProjectsModel.modfiyProjectObjectByName(projectObject, updatedName);
+        const index = ProjectsModel.findIndexFromProject(projectObject, projects);
+        ProjectsModel.replaceProject(index, projectObject, projects);
     }
 
     function updateProjectTodosInterface(newTodoId) {
-        const projects = createProjectTitle.getProjects();        
+        const projects = ProjectsModel.getProjects();        
         const state = InterfaceState.getStateInterface();
-        let projectObject = createProjectTitle.getProjectFromId(state.selectedProject);
+        let projectObject = ProjectsModel.getProjectFromId(state.selectedProject);
         projectObject.todos.push(newTodoId);
-        const index = createProjectTitle.findIndexFromProject(projectObject, projects);
-        createProjectTitle.replaceProject(index, projectObject, projects);
+        const index = ProjectsModel.findIndexFromProject(projectObject, projects);
+        ProjectsModel.replaceProject(index, projectObject, projects);
     }
 
     function getProjectFromIdInterface(id) {
-        const projectObject = createProjectTitle.getProjectFromId(id);
+        const projectObject = ProjectsModel.getProjectFromId(id);
         return projectObject
     }
 
     function projectManagerInterface() {
-        let projects = createProjectTitle.getProjects();
+        let projects = ProjectsModel.getProjects();
         let projectSelectionData = projectsController.projectManager(projects);
         let projectActionIndex = projectSelectionData.projectActionIndex;
         let projectContent = projectSelectionData.projectContent;
         let projectObject = projectSelectionData.projectObject;
         if (projectActionIndex === '1') {
-            projectObject = createProjectTitle.createProjectObject(projectContent, projects);
-            createProjectTitle.addProject(projectObject);
+            projectObject = ProjectsModel.createProjectObject(projectContent, projects);
+            ProjectsModel.addProject(projectObject);
             console.log('new project added!')
             getProjectsInterface();
         } else if (projectActionIndex === '2') {
             let updatedName = projectObject.name;
-            createProjectTitle.modfiyProjectObjectByName(projectObject, updatedName);
+            ProjectsModel.modfiyProjectObjectByName(projectObject, updatedName);
             projectViewer.viewProjects(projects);
         } else if (projectActionIndex === '3') {
             projectViewer.viewProjects(projects);
         } else if (projectActionIndex === '4') {
             const selectedProjectId = projectObject.id
-            createProjectTitle.removeProject(selectedProjectId, projects);
+            ProjectsModel.removeProject(selectedProjectId, projects);
             projectViewer.viewProjects(projects);
         } else if (projectActionIndex === '5') {
             const selectedProjectName = projectObject.name
@@ -91,7 +91,7 @@ const projectInterface = (function() {
     }
 
     function refreshDefaultProjectsInterface(defaultProjects) {
-        createProjectTitle.refreshDefaultProjects(defaultProjects);
+        ProjectsModel.refreshDefaultProjects(defaultProjects);
     }
     
     return {

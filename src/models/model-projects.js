@@ -1,7 +1,7 @@
 import { format } from 'date-fns';
 import _ from 'lodash';
 
-const createProjectTitle = (function() {
+const ProjectsModel = (function() {
 
     function createTitle(selectedProject) {
         let titleContent = selectedProject;
@@ -170,4 +170,4 @@ const createProjectTitle = (function() {
         }
 })();
 
-export default createProjectTitle;
+export default ProjectsModel;
