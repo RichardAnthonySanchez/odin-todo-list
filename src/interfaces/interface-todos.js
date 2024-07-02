@@ -1,8 +1,8 @@
-import todosController from "../controllers/controller-todos";
 import projectInterface from "./interface-projects";
 import createProjectTitle from "../models/model-projects";
 import TodosModel from "../models/model-todos";
 import TodosView from "../views/view-todos";
+import TodosController from "../controllers/controller-todos";
 
 const todosInterface = (function() {
 
@@ -17,7 +17,7 @@ const todosInterface = (function() {
     }
 
     function addTaskInterface(usersNewTaskTitle) {
-        todosController.addTask(usersNewTaskTitle);
+        TodosController.addTask(usersNewTaskTitle);
         let newTask = TodosModel.createTaskObject(usersNewTaskTitle);
         TodosModel.addTodo(newTask);
         const newTasksId = newTask.id;
@@ -47,7 +47,7 @@ const todosInterface = (function() {
     }
 
     function selectedTodoPropertyInterface(todo) {
-        let todoPropertyAndValue = todosController.selectedTodoProperty();
+        let todoPropertyAndValue = TodosController.selectedTodoProperty();
         let todoProperty = todoPropertyAndValue.selectedProperty;
         let newPropertyValue = todoPropertyAndValue.propertyContent;
         let updatedTodo;
@@ -134,7 +134,7 @@ const todosInterface = (function() {
     }
 
     function changeTodoDueDateInterface(dueDateIndex) {
-        const formattedDueDate = todosController.updateTodoDueDate(dueDateIndex);
+        const formattedDueDate = TodosController.updateTodoDueDate(dueDateIndex);
         TodosModel.updateSelectedTodoDueDate(formattedDueDate);
         displaySelectedDueDateInterface(formattedDueDate);
     }

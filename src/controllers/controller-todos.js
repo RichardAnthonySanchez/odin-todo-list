@@ -1,6 +1,6 @@
 import { addDays, addWeeks, addMonths, format } from 'date-fns';
 
-const todosController = (function() {
+const TodosController = (function() {
     
     function addTask(usersNewTaskTitle) {
         return usersNewTaskTitle;
@@ -77,4 +77,4 @@ const todosController = (function() {
 
 })();
 
-export default todosController;
+export default TodosController;
