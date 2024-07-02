@@ -1,7 +1,7 @@
-import projectsController from '../controllers/controller-projects'
 import InterfaceState from './interface-state';
 import ProjectsModel from '../models/model-projects';
 import ProjectsView from '../views/view-projects';
+import ProjectsController from '../controllers/controller-projects';
 
 const projectInterface = (function() {
 
@@ -59,7 +59,7 @@ const projectInterface = (function() {
 
     function projectManagerInterface() {
         let projects = ProjectsModel.getProjects();
-        let projectSelectionData = projectsController.projectManager(projects);
+        let projectSelectionData = ProjectsController.projectManager(projects);
         let projectActionIndex = projectSelectionData.projectActionIndex;
         let projectContent = projectSelectionData.projectContent;
         let projectObject = projectSelectionData.projectObject;
