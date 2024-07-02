@@ -1,19 +1,19 @@
-import todoViewer from "../views/view-todos";
 import todosController from "../controllers/controller-todos";
 import projectInterface from "./interface-projects";
 import createProjectTitle from "../models/model-projects";
 import TodosModel from "../models/model-todos";
+import TodosView from "../views/view-todos";
 
 const todosInterface = (function() {
 
     function displayCurrentTasks(){
         let currentTasks = TodosModel.currentTasks();
-        todoViewer.viewCurrentTodos(currentTasks.filterOutCompletedTodos);
+        TodosView.viewCurrentTodos(currentTasks.filterOutCompletedTodos);
     }
 
     function displayCompletedTasks() {
         let completedTasks = TodosModel.getCompletedTasks();
-        todoViewer.viewCompletedTodos(completedTasks);
+        TodosView.viewCompletedTodos(completedTasks);
     }
 
     function addTaskInterface(usersNewTaskTitle) {
@@ -67,13 +67,13 @@ const todosInterface = (function() {
         TodosModel.updateTodo(updatedTodo);
         displayCurrentTasks();
         displayCompletedTasks();
-        todoViewer.viewSelectedTodoProperty(newPropertyValue);
+        TodosView.viewSelectedTodoProperty(newPropertyValue);
     }
 
     function updateTodoDescription(todo, newPropertyValue) {
         const updatedTodo = TodosModel.updateTodoDescription(todo, newPropertyValue);
         TodosModel.updateTodo(updatedTodo);
-        todoViewer.viewSelectedTodoProperty(newPropertyValue);
+        TodosView.viewSelectedTodoProperty(newPropertyValue);
     }
 
     function getTodoFromIdInterface(selectedTodoIndex) {
@@ -89,35 +89,35 @@ const todosInterface = (function() {
 
     function viewSelectableProjectsInterface() {
         const projects = projectInterface.getProjectsInterface();
-        todoViewer.viewSelectableProjects(projects);
+        TodosView.viewSelectableProjects(projects);
     }
 
     function displaySelectedTitleInterface(todoTitle) {
-        todoViewer.viewSelectedTodoTitle(todoTitle)
+        TodosView.viewSelectedTodoTitle(todoTitle)
     }
 
     function displaySelectedDescriptionInterface(todoDescription) {
-        todoViewer.viewSelectedTodoDescription(todoDescription);
+        TodosView.viewSelectedTodoDescription(todoDescription);
     }
 
     function displaySelectedPriorityInterface(todoPriority) {
-        todoViewer.viewSelectedTodoPriority(todoPriority)
+        TodosView.viewSelectedTodoPriority(todoPriority)
     }
 
     function displaySelectedDueDateInterface(todoDueDate) {
-        todoViewer.viewSelectedTodoDueDate(todoDueDate);
+        TodosView.viewSelectedTodoDueDate(todoDueDate);
     }
 
     function displaySelectedTodosProjectInterface(todoProject) {
-        todoViewer.viewSelectedTodosProject(todoProject)
+        TodosView.viewSelectedTodosProject(todoProject)
     }
 
     function viewTodoPriorityOptionsInterface() {
-        todoViewer.viewTodoPriorityOptions();
+        TodosView.viewTodoPriorityOptions();
     }
 
     function viewDueDateOptionsInterface() {
-        todoViewer.viewDueDateOptions();
+        TodosView.viewDueDateOptions();
     }
 
     function changeTodoPropertyInterface(newPriorityValue) { // this method should  be named priority not property

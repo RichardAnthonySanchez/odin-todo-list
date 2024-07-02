@@ -1,6 +1,6 @@
 import _ from 'lodash';
 
-const todoViewer = (function(todos) {
+const TodosView = (function(todos) {
 
     function viewCurrentTodos(currentTodos) {
         const activeTasksContainer = document.getElementById('active-tasks');
@@ -215,4 +215,4 @@ const todoViewer = (function(todos) {
     
 })()
 
-export default todoViewer;
+export default TodosView;
