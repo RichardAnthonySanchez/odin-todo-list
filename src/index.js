@@ -5,7 +5,7 @@ import defaultProjects from './data/default-projects.json'
 import todosInterface from './interfaces/interface-todos';
 import projectInterface from './interfaces/interface-projects';
 import InterfaceState from './interfaces/interface-state';
-import StateManager from './models/model-state'; //why are we processing the state without the interface?
+import StateModel from './models/model-state';
 
 function component() {
 
@@ -21,9 +21,9 @@ function component() {
     todosInterface.displayCurrentTasks();
     todosInterface.displayCompletedTasks();
 
-    StateManager.subscribe(todosInterface.displayCurrentTasks);
-    StateManager.subscribe(todosInterface.displayCompletedTasks);
-    StateManager.subscribe(() => {
+    StateModel.subscribe(todosInterface.displayCurrentTasks);
+    StateModel.subscribe(todosInterface.displayCompletedTasks);
+    StateModel.subscribe(() => {
         let state = InterfaceState.getStateInterface();
         let selectedProject = state.selectedProject;
         projectInterface.displayProjectTitle(selectedProject);

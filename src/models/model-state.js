@@ -1,4 +1,4 @@
-const StateManager = (function() {
+const StateModel = (function() {
 
     let state = JSON.parse(localStorage.getItem('appState')) || { selectedProject: null, selectedTodo: null, projects: [] };
 
@@ -35,4 +35,4 @@ const StateManager = (function() {
     }
 })();
 
-export default StateManager;
+export default StateModel;
