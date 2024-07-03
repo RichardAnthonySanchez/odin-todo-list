@@ -4,13 +4,13 @@ import defaultTodos from './data/default-todos.json'
 import defaultProjects from './data/default-projects.json'
 import todosInterface from './interfaces/interface-todos';
 import ProjectsInterface from './interfaces/interface-projects';
-import InterfaceState from './interfaces/interface-state';
+import StateInterface from './interfaces/interface-state';
 import StateModel from './models/model-state';
 
 function component() {
 
-    InterfaceState.setStateInterface({ selectedProject: '1' });
-    let state = InterfaceState.getStateInterface();
+    StateInterface.setStateInterface({ selectedProject: '1' });
+    let state = StateInterface.getStateInterface();
     let selectedProject = state.selectedProject;
 
     ProjectsInterface.checkForStoredProjectsInterface(defaultProjects);
@@ -24,7 +24,7 @@ function component() {
     StateModel.subscribe(todosInterface.displayCurrentTasks);
     StateModel.subscribe(todosInterface.displayCompletedTasks);
     StateModel.subscribe(() => {
-        let state = InterfaceState.getStateInterface();
+        let state = StateInterface.getStateInterface();
         let selectedProject = state.selectedProject;
         ProjectsInterface.displayProjectTitle(selectedProject);
     });
@@ -46,7 +46,7 @@ function component() {
         } else if (e.key === 'Enter' && e.target.id === 'task-note') {
             e.preventDefault();
             let inputValue = e.target.innerText;
-            const state = InterfaceState.getStateInterface();
+            const state = StateInterface.getStateInterface();
             const selectedTodoId = state.selectedTodo;
             const selectedTodo = todosInterface.getTodoFromIdInterface(selectedTodoId);
             todosInterface.updateTodoDescription(selectedTodo, inputValue);
@@ -134,8 +134,8 @@ function component() {
     function handleTaskClick(taskElement) {
         const todoContent = taskElement.querySelector('.task-content').textContent;
         let todoObject = todosInterface.findSelectedTodoInterface(todoContent);
-        const state = InterfaceState.getStateInterface();
-        InterfaceState.setStateInterface({ selectedTodo: todoObject.id });
+        const state = StateInterface.getStateInterface();
+        StateInterface.setStateInterface({ selectedTodo: todoObject.id });
         const todoTitle = todoObject.title;
         const selectedProjectId = state.selectedProject;
         const selectedProject = ProjectsInterface.getProjectFromIdInterface(selectedProjectId);
@@ -153,8 +153,8 @@ function component() {
     function closeModal() {
         const taskModal = document.getElementById('task');
         taskModal.classList.remove('active');
-        const state = InterfaceState.getStateInterface();
-        InterfaceState.setStateInterface({ selectedTodo: null });
+        const state = StateInterface.getStateInterface();
+        StateInterface.setStateInterface({ selectedTodo: null });
     }
 
     document.getElementById('task-close').addEventListener('click', function () {

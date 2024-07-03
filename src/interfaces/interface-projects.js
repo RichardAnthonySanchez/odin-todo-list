@@ -1,4 +1,4 @@
-import InterfaceState from './interface-state';
+import StateInterface from './interface-state';
 import ProjectsModel from '../models/model-projects';
 import ProjectsView from '../views/view-projects';
 import ProjectsController from '../controllers/controller-projects';
@@ -36,7 +36,7 @@ const ProjectsInterface = (function() {
 
     function updateProjectNameInterface(updatedName){
         const projects = ProjectsModel.getProjects();        
-        const state = InterfaceState.getStateInterface();
+        const state = StateInterface.getStateInterface();
         let projectObject = ProjectsModel.getProjectFromId(state.selectedProject);
         projectObject = ProjectsModel.modfiyProjectObjectByName(projectObject, updatedName);
         const index = ProjectsModel.findIndexFromProject(projectObject, projects);
@@ -45,7 +45,7 @@ const ProjectsInterface = (function() {
 
     function updateProjectTodosInterface(newTodoId) {
         const projects = ProjectsModel.getProjects();        
-        const state = InterfaceState.getStateInterface();
+        const state = StateInterface.getStateInterface();
         let projectObject = ProjectsModel.getProjectFromId(state.selectedProject);
         projectObject.todos.push(newTodoId);
         const index = ProjectsModel.findIndexFromProject(projectObject, projects);
@@ -80,14 +80,14 @@ const ProjectsInterface = (function() {
             ProjectsView.viewProjects(projects);
         } else if (projectActionIndex === '5') {
             const selectedProjectName = projectObject.name
-            InterfaceState.setStateInterface({ selectedProject: selectedProjectName });
+            StateInterface.setStateInterface({ selectedProject: selectedProjectName });
         } else {
             console.error('invalid input at project manager interface');
         }
     }
 
     function getNewProjectState(projectId) { 
-        InterfaceState.setStateInterface({ selectedProject: projectId });
+        StateInterface.setStateInterface({ selectedProject: projectId });
     }
 
     function refreshDefaultProjectsInterface(defaultProjects) {

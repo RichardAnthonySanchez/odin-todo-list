@@ -1,6 +1,6 @@
 import StateModel from "../models/model-state";
 
-const InterfaceState = (function() {
+const StateInterface = (function() {
 
     return {
 
@@ -16,4 +16,4 @@ const InterfaceState = (function() {
     
 })();
 
-export default InterfaceState;
+export default StateInterface;
