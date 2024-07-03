@@ -1,10 +1,10 @@
 import ProjectsInterface from "./interface-projects";
-import createProjectTitle from "../models/model-projects";
+import ProjectsModel from "../models/model-projects"; 
 import TodosModel from "../models/model-todos";
 import TodosView from "../views/view-todos";
 import TodosController from "../controllers/controller-todos";
 
-const todosInterface = (function() {
+const TodosInterface = (function() {
 
     function displayCurrentTasks(){
         let currentTasks = TodosModel.currentTasks();
@@ -145,15 +145,15 @@ const todosInterface = (function() {
         const selectedProject = state.selectedProject;
 
         // remove the selected todo index from the project array
-        const splicedProject = createProjectTitle.removeTodoFromProject(selectedTodo, selectedProject); //debug every thing under this within the method
-        const projects = createProjectTitle.updateProject(splicedProject); //this is making a dupe project object
-        createProjectTitle.saveProjects(projects);
+        const splicedProject = ProjectsModel.removeTodoFromProject(selectedTodo, selectedProject); //debug every thing under this within the method
+        const projects = ProjectsModel.updateProject(splicedProject); //this is making a dupe project object
+        ProjectsModel.saveProjects(projects);
         
         
         // add the selected todo to the selected project
-        const updatedProject = createProjectTitle.addTodoToProject(selectedTodo, newProjectName);
-        const updatedProjects = createProjectTitle.updateProject(updatedProject); //this is making a dupe project object
-        createProjectTitle.saveProjects(updatedProjects);
+        const updatedProject = ProjectsModel.addTodoToProject(selectedTodo, newProjectName);
+        const updatedProjects = ProjectsModel.updateProject(updatedProject); //this is making a dupe project object
+        ProjectsModel.saveProjects(updatedProjects);
 
         // view the current and completed tasks 
         displayCurrentTasks();
@@ -187,4 +187,4 @@ const todosInterface = (function() {
     }
 })()
 
-export default todosInterface;
+export default TodosInterface;

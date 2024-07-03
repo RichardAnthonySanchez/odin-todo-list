@@ -2,7 +2,7 @@ import './styles/style.css';
 import _ from 'lodash';
 import defaultTodos from './data/default-todos.json'
 import defaultProjects from './data/default-projects.json'
-import todosInterface from './interfaces/interface-todos';
+import TodosInterface from './interfaces/interface-todos';
 import ProjectsInterface from './interfaces/interface-projects';
 import StateInterface from './interfaces/interface-state';
 import StateModel from './models/model-state';
@@ -14,15 +14,15 @@ function component() {
     let selectedProject = state.selectedProject;
 
     ProjectsInterface.checkForStoredProjectsInterface(defaultProjects);
-    todosInterface.checkForStoredTodosInterface(defaultTodos);
+    TodosInterface.checkForStoredTodosInterface(defaultTodos);
 
     ProjectsInterface.displayProjectTitle(selectedProject);
 
-    todosInterface.displayCurrentTasks();
-    todosInterface.displayCompletedTasks();
+    TodosInterface.displayCurrentTasks();
+    TodosInterface.displayCompletedTasks();
 
-    StateModel.subscribe(todosInterface.displayCurrentTasks);
-    StateModel.subscribe(todosInterface.displayCompletedTasks);
+    StateModel.subscribe(TodosInterface.displayCurrentTasks);
+    StateModel.subscribe(TodosInterface.displayCompletedTasks);
     StateModel.subscribe(() => {
         let state = StateInterface.getStateInterface();
         let selectedProject = state.selectedProject;
@@ -32,7 +32,7 @@ function component() {
     document.addEventListener('keydown', function (e) {
         if (e.key === 'Enter' && e.target.id === 'add-task-input') {
             const inputValue = e.target.value;
-            todosInterface.addTaskInterface(inputValue);
+            TodosInterface.addTaskInterface(inputValue);
             e.target.value = '';
             e.target.blur();
         } else if (e.key === 'Enter' && e.target.id === 'add-project-input') {
@@ -48,15 +48,15 @@ function component() {
             let inputValue = e.target.innerText;
             const state = StateInterface.getStateInterface();
             const selectedTodoId = state.selectedTodo;
-            const selectedTodo = todosInterface.getTodoFromIdInterface(selectedTodoId);
-            todosInterface.updateTodoDescription(selectedTodo, inputValue);
+            const selectedTodo = TodosInterface.getTodoFromIdInterface(selectedTodoId);
+            TodosInterface.updateTodoDescription(selectedTodo, inputValue);
             e.target.blur();
         }
     });
 
     document.addEventListener('click', function (e) {
         if (e.target.id === 'refresh-todos') {
-            todosInterface.refreshDefaultTodosInterface(defaultTodos);
+            TodosInterface.refreshDefaultTodosInterface(defaultTodos);
             ProjectsInterface.refreshDefaultProjectsInterface(defaultProjects);
         } else if (e.target.classList.contains('task-checkbox')) {
             handleTaskCheckboxClick(e.target);
@@ -76,42 +76,42 @@ function component() {
             const projectId = projectElement.getAttribute('data-project-id');
             ProjectsInterface.deleteProject(projectId);
         } else if (e.target.id === 'important-content') {
-            todosInterface.viewTodoPriorityOptionsInterface();
+            TodosInterface.viewTodoPriorityOptionsInterface();
         } else if (e.target.matches('.menu-option.low')) {
             const newPriorityValue = 'Low';
-            todosInterface.changeTodoPropertyInterface(newPriorityValue);
-            todosInterface.displaySelectedPriorityInterface(newPriorityValue);
-            todosInterface.viewTodoPriorityOptionsInterface();
+            TodosInterface.changeTodoPropertyInterface(newPriorityValue);
+            TodosInterface.displaySelectedPriorityInterface(newPriorityValue);
+            TodosInterface.viewTodoPriorityOptionsInterface();
         } else if (e.target.matches('.menu-option.medium')) {
             const newPriorityValue = 'Medium';
-            todosInterface.changeTodoPropertyInterface(newPriorityValue);
-            todosInterface.displaySelectedPriorityInterface(newPriorityValue);
-            todosInterface.viewTodoPriorityOptionsInterface();
+            TodosInterface.changeTodoPropertyInterface(newPriorityValue);
+            TodosInterface.displaySelectedPriorityInterface(newPriorityValue);
+            TodosInterface.viewTodoPriorityOptionsInterface();
         } else if (e.target.matches('.menu-option.high')) {
             const newPriorityValue = 'High';
-            todosInterface.changeTodoPropertyInterface(newPriorityValue);
-            todosInterface.displaySelectedPriorityInterface(newPriorityValue);
-            todosInterface.viewTodoPriorityOptionsInterface();
+            TodosInterface.changeTodoPropertyInterface(newPriorityValue);
+            TodosInterface.displaySelectedPriorityInterface(newPriorityValue);
+            TodosInterface.viewTodoPriorityOptionsInterface();
         } else if (e.target.id === 'due-content') {
-            todosInterface.viewDueDateOptionsInterface();
+            TodosInterface.viewDueDateOptionsInterface();
         } else if (e.target.matches('.menu-option.tomorrow')) {
             const dueDateIndex = '1'
-            todosInterface.changeTodoDueDateInterface(dueDateIndex);
-            todosInterface.viewDueDateOptionsInterface();
+            TodosInterface.changeTodoDueDateInterface(dueDateIndex);
+            TodosInterface.viewDueDateOptionsInterface();
         } else if (e.target.matches('.menu-option.week')) {
             const dueDateIndex = '2'
-            todosInterface.changeTodoDueDateInterface(dueDateIndex);
-            todosInterface.viewDueDateOptionsInterface();
+            TodosInterface.changeTodoDueDateInterface(dueDateIndex);
+            TodosInterface.viewDueDateOptionsInterface();
         } else if (e.target.matches('.menu-option.month')) {
             const dueDateIndex = '3'
-            todosInterface.changeTodoDueDateInterface(dueDateIndex);
-            todosInterface.viewDueDateOptionsInterface();
+            TodosInterface.changeTodoDueDateInterface(dueDateIndex);
+            TodosInterface.viewDueDateOptionsInterface();
         } else if (e.target.matches('.my-project')) {
-            todosInterface.viewSelectableProjectsInterface();
+            TodosInterface.viewSelectableProjectsInterface();
         } else if (e.target.matches('.menu-option.project')) {
             const projectElement = e.target.querySelector('span');
             const projectName = projectElement.className;
-            todosInterface.changeTodoProjectInterface(projectName);
+            TodosInterface.changeTodoProjectInterface(projectName);
         }
 
     });
@@ -124,27 +124,27 @@ function component() {
 
         if (taskElement) {
             const todoContent = taskElement.querySelector('.task-content').textContent;
-            let todoObject = todosInterface.findSelectedTodoInterface(todoContent);
+            let todoObject = TodosInterface.findSelectedTodoInterface(todoContent);
             if (todoObject) {
-                todosInterface.switchTaskCompletionStatusInterface(todoObject);
+                TodosInterface.switchTaskCompletionStatusInterface(todoObject);
             }
         }
     }
 
     function handleTaskClick(taskElement) {
         const todoContent = taskElement.querySelector('.task-content').textContent;
-        let todoObject = todosInterface.findSelectedTodoInterface(todoContent);
+        let todoObject = TodosInterface.findSelectedTodoInterface(todoContent);
         const state = StateInterface.getStateInterface();
         StateInterface.setStateInterface({ selectedTodo: todoObject.id });
         const todoTitle = todoObject.title;
         const selectedProjectId = state.selectedProject;
         const selectedProject = ProjectsInterface.getProjectFromIdInterface(selectedProjectId);
 
-        todosInterface.displaySelectedTitleInterface(todoTitle);
-        todosInterface.displaySelectedDescriptionInterface(todoObject.description);
-        todosInterface.displaySelectedPriorityInterface(todoObject.priority);
-        todosInterface.displaySelectedDueDateInterface(todoObject.due_date);
-        todosInterface.displaySelectedTodosProjectInterface(selectedProject.name);
+        TodosInterface.displaySelectedTitleInterface(todoTitle);
+        TodosInterface.displaySelectedDescriptionInterface(todoObject.description);
+        TodosInterface.displaySelectedPriorityInterface(todoObject.priority);
+        TodosInterface.displaySelectedDueDateInterface(todoObject.due_date);
+        TodosInterface.displaySelectedTodosProjectInterface(selectedProject.name);
 
         const taskModal = document.getElementById('task');
         taskModal.classList.add('active');
