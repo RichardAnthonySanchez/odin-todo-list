@@ -3,7 +3,7 @@ import ProjectsModel from '../models/model-projects';
 import ProjectsView from '../views/view-projects';
 import ProjectsController from '../controllers/controller-projects';
 
-const projectInterface = (function() {
+const ProjectsInterface = (function() {
 
     function displayProjectTitle(selectedProject) {
         const { title, subTitle } = ProjectsModel.getProjectTitle(selectedProject);
@@ -110,4 +110,4 @@ const projectInterface = (function() {
 
 })()
 
-export default projectInterface;
+export default ProjectsInterface;

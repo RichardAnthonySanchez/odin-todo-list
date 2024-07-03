@@ -3,7 +3,7 @@ import _ from 'lodash';
 import defaultTodos from './data/default-todos.json'
 import defaultProjects from './data/default-projects.json'
 import todosInterface from './interfaces/interface-todos';
-import projectInterface from './interfaces/interface-projects';
+import ProjectsInterface from './interfaces/interface-projects';
 import InterfaceState from './interfaces/interface-state';
 import StateModel from './models/model-state';
 
@@ -13,10 +13,10 @@ function component() {
     let state = InterfaceState.getStateInterface();
     let selectedProject = state.selectedProject;
 
-    projectInterface.checkForStoredProjectsInterface(defaultProjects);
+    ProjectsInterface.checkForStoredProjectsInterface(defaultProjects);
     todosInterface.checkForStoredTodosInterface(defaultTodos);
 
-    projectInterface.displayProjectTitle(selectedProject);
+    ProjectsInterface.displayProjectTitle(selectedProject);
 
     todosInterface.displayCurrentTasks();
     todosInterface.displayCompletedTasks();
@@ -26,7 +26,7 @@ function component() {
     StateModel.subscribe(() => {
         let state = InterfaceState.getStateInterface();
         let selectedProject = state.selectedProject;
-        projectInterface.displayProjectTitle(selectedProject);
+        ProjectsInterface.displayProjectTitle(selectedProject);
     });
 
     document.addEventListener('keydown', function (e) {
@@ -37,11 +37,11 @@ function component() {
             e.target.blur();
         } else if (e.key === 'Enter' && e.target.id === 'add-project-input') {
             const inputValue = e.target.value;
-            projectInterface.createNewProject(inputValue);
+            ProjectsInterface.createNewProject(inputValue);
         } else if (e.key === 'Enter' && e.target.id === 'project-title-1') {
             e.preventDefault();
             let inputValue = e.target.innerText;
-            projectInterface.updateProjectNameInterface(inputValue);
+            ProjectsInterface.updateProjectNameInterface(inputValue);
             e.target.blur();
         } else if (e.key === 'Enter' && e.target.id === 'task-note') {
             e.preventDefault();
@@ -57,24 +57,24 @@ function component() {
     document.addEventListener('click', function (e) {
         if (e.target.id === 'refresh-todos') {
             todosInterface.refreshDefaultTodosInterface(defaultTodos);
-            projectInterface.refreshDefaultProjectsInterface(defaultProjects);
+            ProjectsInterface.refreshDefaultProjectsInterface(defaultProjects);
         } else if (e.target.classList.contains('task-checkbox')) {
             handleTaskCheckboxClick(e.target);
         } else if (e.target.classList.contains('task')) {
             handleTaskClick(e.target);
         } else if (e.target.id === 'nav-open') {
-            projectInterface.getProjectsInterface();
+            ProjectsInterface.getProjectsInterface();
             nav.classList.add('active');
         } else if (e.target.id === 'nav-close' || (!nav.contains(e.target) && nav.classList.contains('active'))) {
             nav.classList.remove('active');
         } else if (e.target.classList.contains('nav-item')) {
             const projectElement = e.target.closest('.nav-item');
             const projectId = projectElement.getAttribute('data-project-id');
-            projectInterface.getNewProjectState(projectId);
+            ProjectsInterface.getNewProjectState(projectId);
         } else if (e.target.classList.contains('project-delete')) {
             const projectElement = e.target.closest('.nav-item');
             const projectId = projectElement.getAttribute('data-project-id');
-            projectInterface.deleteProject(projectId);
+            ProjectsInterface.deleteProject(projectId);
         } else if (e.target.id === 'important-content') {
             todosInterface.viewTodoPriorityOptionsInterface();
         } else if (e.target.matches('.menu-option.low')) {
@@ -138,7 +138,7 @@ function component() {
         InterfaceState.setStateInterface({ selectedTodo: todoObject.id });
         const todoTitle = todoObject.title;
         const selectedProjectId = state.selectedProject;
-        const selectedProject = projectInterface.getProjectFromIdInterface(selectedProjectId);
+        const selectedProject = ProjectsInterface.getProjectFromIdInterface(selectedProjectId);
 
         todosInterface.displaySelectedTitleInterface(todoTitle);
         todosInterface.displaySelectedDescriptionInterface(todoObject.description);

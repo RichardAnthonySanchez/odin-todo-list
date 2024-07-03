@@ -1,4 +1,4 @@
-import projectInterface from "./interface-projects";
+import ProjectsInterface from "./interface-projects";
 import createProjectTitle from "../models/model-projects";
 import TodosModel from "../models/model-todos";
 import TodosView from "../views/view-todos";
@@ -21,7 +21,7 @@ const todosInterface = (function() {
         let newTask = TodosModel.createTaskObject(usersNewTaskTitle);
         TodosModel.addTodo(newTask);
         const newTasksId = newTask.id;
-        projectInterface.updateProjectTodosInterface(newTasksId);
+        ProjectsInterface.updateProjectTodosInterface(newTasksId);
         displayCurrentTasks();
     }
 
@@ -88,7 +88,7 @@ const todosInterface = (function() {
     }
 
     function viewSelectableProjectsInterface() {
-        const projects = projectInterface.getProjectsInterface();
+        const projects = ProjectsInterface.getProjectsInterface();
         TodosView.viewSelectableProjects(projects);
     }
 
