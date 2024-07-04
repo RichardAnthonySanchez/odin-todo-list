@@ -112,8 +112,12 @@ function component() {
             const projectElement = e.target.querySelector('span');
             const projectName = projectElement.className;
             TodosInterface.changeTodoProjectInterface(projectName);
+        } else if (e.target.id === 'task-checkbox') {
+            const state = StateInterface.getStateInterface();
+            const selectedTodoId = state.selectedTodo;
+            const selectedTodo = TodosInterface.getTodoFromIdInterface(selectedTodoId);
+            handleSelectedTaskCheckbox(selectedTodo);
         }
-
     });
 
     function handleTaskCheckboxClick(checkbox) {
@@ -129,6 +133,11 @@ function component() {
                 TodosInterface.switchTaskCompletionStatusInterface(todoObject);
             }
         }
+    }
+
+
+    function handleSelectedTaskCheckbox(todoObject) {
+        TodosInterface.switchTaskCompletionStatusInterface(todoObject);
     }
 
     function handleTaskClick(taskElement) {
