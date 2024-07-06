@@ -10,11 +10,13 @@
 :root {
     --background-color: #171717;
     --font-color: #CBCBCB;
+    --grey-font-color: #9e9e9e;
     --orange-color: #D07B69;
     --transparent: rgba(0, 0, 0, 0);
     --purple-med: #8E5463;
     --background-hover: #ca7d91;
     --modal-option-hover: #4d4d4d;
+    --modal-background-color: #272727;
 }
 
 html, body {
@@ -29,6 +31,8 @@ p {
 
 span {
     color: var(--font-color);
+    font-weight: 600;
+    font-family: "Roboto";
 }
 
 #container {
@@ -132,6 +136,16 @@ h3 {
     background-color: var(--modal-option-hover);
 }
 
+#nav-close {
+    padding: 8px;
+    border-radius: 8px;
+}
+
+#nav-close:hover {
+    background-color: var(--modal-option-hover);
+    cursor: pointer;
+}
+
 #content {
     grid-area: content;
 }
@@ -156,6 +170,39 @@ h3 {
         font-size: 20px;
         margin-top: -12px;
     }
+}
+
+#add-project {
+    padding: 16px;
+    border-radius: 8px;
+
+    padding-left: 32px;
+    padding-right: 16px;
+
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+}
+
+#add-project:hover {
+    background-color: var(--modal-option-hover);
+}
+
+#add-project-input {
+    color: var(--font-color);
+    border: var(--transparent);
+    background-color: var(--transparent);
+    font-size: 20px;
+    font-weight: 600;
+}
+
+#add-project-input::placeholder {
+    color: var(--grey-font-color);
+}
+
+#add-project-input:focus {
+    border-color: var(--transparent);
+    outline: none; 
 }
 
 #add-task {
@@ -251,9 +298,11 @@ h3 {
     left: 0%;
     height: 100vh;
     min-height: 100vh;
-    width: 375px;
+    width: 425px;
+    height: 100vh;
+
     color: var(--font-color);
-    background-color: var(--background-color);
+    background-color: var(--modal-background-color);
     box-shadow: 0 4px 8px 0 rgba(0, 0, 0, 0.4), 0 6px 20px 0 rgba(0, 0, 0, 0.4);
     animation: nav-slide-in .2s ease;
 }
@@ -294,7 +343,7 @@ h3 {
 
         border-radius: 50%;
         color: white;
-        background-color: var(--body-bg-gradient-top);
+        background-color: var(--background-color);
         font-size: 1.17em;
         font-weight: 400;
 
@@ -316,6 +365,7 @@ h3 {
 
     .project-delete {
         display: block;
+        cursor: pointer;
     }
 }
 
