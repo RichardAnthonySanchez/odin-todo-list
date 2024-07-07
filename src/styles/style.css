@@ -17,6 +17,7 @@
     --background-hover: #ca7d91;
     --modal-option-hover: #4d4d4d;
     --modal-background-color: #272727;
+    --modal-background-medium: #313131;
 }
 
 html, body {
@@ -276,6 +277,15 @@ h3 {
     color: var(--background-color);
 }
 
+.todo-title {
+    display: flex;
+    align-items: center;
+    gap: 16px;
+    background-color: var(--modal-background-medium);
+    padding: 8px;
+    border-radius: 8px;
+}
+
 .task-checkbox {
     grid-area: checkbox;
     justify-self: center;
@@ -393,7 +403,7 @@ h3 {
     height: 100vh;
     width: 425px;
     color: var(--font-color);
-    background-color: var(--background-color);
+    background-color: var(--modal-background-color);
     box-shadow: 0 4px 8px 0 rgba(0, 0, 0, 0.4), 0 6px 20px 0 rgba(0, 0, 0, 0.4);
     animation: task-slide-in 0.2s ease;
 }
@@ -413,6 +423,7 @@ h3 {
     font-size: 32px;
     cursor: pointer;
     transition: background-color 0.2s ease;
+    border-radius: 8px;
 }
 
 #task-close:hover {
@@ -424,13 +435,13 @@ h3 {
     height: calc(100vh - 144px);
     padding: 0 24px;
 }
-/*
-.task-content {
+
+.task-content-scroll > .task-content {
     display: grid;
     grid-template-rows: max-content max-content minmax(120px, max-content);
     gap: 24px;
 }
-*/
+
 .title {
     display: grid;
     grid-template-columns: 44px 1fr;
@@ -484,15 +495,31 @@ h3 {
     display: flex;
     align-items: center;
     justify-content: space-between;
-    padding: 8px;
+    padding: 16px;
     border-radius: 8px;
-    background-color: var(--modal-bg);
+    background-color: var(--modal-background-medium);
     cursor: pointer;
+
+    > #add-my-project, #add-important, #add-due {
+        display: flex;
+        align-items: center;
+        justify-content: space-between;
+        gap: 16px;
+        pointer-events: none;
+    }
 }
 
 .options > div > span {
     font-size: 24px;
+    padding-left: 32px;
+    padding-right: 16px;
+    border-radius: 8px;
+
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
 }
+
 
 .menu-option {
     padding: 8px;
@@ -537,16 +564,19 @@ h3 {
 .note {
     padding: 8px;
     border-radius: 8px;
-    background-color: var(--modal-bg);
+    background-color: var(--modal-background-medium);
 }
 
 #task-note {
+    font-family: 'Roboto';
     height: 100%;
     width: 100%;
     font-size: 18px;
     font-weight: 300;
     color: var(--font-color);
     white-space: pre-wrap;
+    padding: 8px;
+    border-radius: 8px;
 }
 
 #task-note.placeholder:empty::before {
