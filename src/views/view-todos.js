@@ -174,7 +174,8 @@ const TodosView = (function(todos) {
     }
 
     function viewSelectableProjects(projects) {
-        const projectMenuContainer = document.getElementById('project-menu');
+        let projectMenuContainer = document.getElementById('project-menu');
+        projectMenuContainer.innerHTML = '';
     
         if (projectMenuContainer.classList.contains('hidden')) {
             projectMenuContainer.classList.remove('hidden');

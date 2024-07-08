@@ -36,8 +36,11 @@ function component() {
             e.target.value = '';
             e.target.blur();
         } else if (e.key === 'Enter' && e.target.id === 'add-project-input') {
+            e.preventDefault();
             const inputValue = e.target.value;
             ProjectsInterface.createNewProject(inputValue);
+            e.target.value = '';
+            e.target.blur();
         } else if (e.key === 'Enter' && e.target.id === 'project-title-1') {
             e.preventDefault();
             let inputValue = e.target.innerText;
