@@ -108,7 +108,6 @@ const TodosView = (function(todos) {
     }
 
     function viewTodoPriorityOptions() {
-        // there's a bug here where the text content displays multiple times  the user continues to change the priority
         let importantMenuContainer = document.getElementById('important-menu');
         
         if (importantMenuContainer.classList.contains('hidden')) {
@@ -120,6 +119,10 @@ const TodosView = (function(todos) {
         const lowContainer = document.querySelector('.menu-option.low');
         const mediumContainer = document.querySelector('.menu-option.medium');
         const highContainer = document.querySelector('.menu-option.high');
+
+        lowContainer.innerHTML = '';
+        mediumContainer.innerHTML = '';
+        highContainer.innerHTML = '';
 
         const lowContent = document.createElement('span');
         lowContent.innerHTML = 'low';

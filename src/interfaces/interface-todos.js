@@ -53,7 +53,7 @@ const TodosInterface = (function() {
         let updatedTodo;
 
         if (todoProperty == '1') {
-            updatedTodo = TodosModel.updateTodoTitle(todo, newPropertyValue);
+            updatedTodo = TodosModel.updateTodoTitle(todo, newPropertyValue); //use this method in a new function where we can process the state's selected todo and process user input
         } else if (todoProperty == '2') {
             updatedTodo = TodosModel.updateTodoPriority(todo, newPropertyValue);
         } else if (todoProperty == '3') {
