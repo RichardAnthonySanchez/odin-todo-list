@@ -144,8 +144,6 @@ const TodosView = (function(todos) {
     }
 
     function viewDueDateOptions() {
-        // same duplicate problem
-        // we might have to make a element selector and have a conditional check before creating span elements
         const dueMenuContainer = document.getElementById('due-menu');
 
         if (dueMenuContainer.classList.contains('hidden')) {
@@ -157,6 +155,10 @@ const TodosView = (function(todos) {
         const tomorrowContainer = document.querySelector('.menu-option.tomorrow');
         const weekContainer = document.querySelector('.menu-option.week');
         const monthContainer = document.querySelector('.menu-option.month');
+        
+        tomorrowContainer.innerHTML = '';
+        weekContainer.innerHTML = '';
+        monthContainer.innerHTML = '';
 
         const tomorrowContent = document.createElement('span');
         tomorrowContent.innerHTML = 'Tomorrow';
