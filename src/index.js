@@ -54,6 +54,14 @@ function component() {
             const selectedTodo = TodosInterface.getTodoFromIdInterface(selectedTodoId);
             TodosInterface.updateTodoDescription(selectedTodo, inputValue);
             e.target.blur();
+        } else if (e.key === 'Enter' && e.target.id === 'task-title') {
+            e.preventDefault();
+            const inputValue = e.target.innerText;
+            TodosInterface.updateTodoTitleInterface(inputValue);
+            e.target.value = '';
+            e.target.blur();
+            TodosInterface.displayCurrentTasks();
+            TodosInterface.displayCompletedTasks();
         }
     });
 

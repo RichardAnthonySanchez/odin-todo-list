@@ -53,7 +53,7 @@ const TodosInterface = (function() {
         let updatedTodo;
 
         if (todoProperty == '1') {
-            updatedTodo = TodosModel.updateTodoTitle(todo, newPropertyValue); //use this method in a new function where we can process the state's selected todo and process user input
+            updatedTodo = TodosModel.updateTodoTitle(todo, newPropertyValue);
         } else if (todoProperty == '2') {
             updatedTodo = TodosModel.updateTodoPriority(todo, newPropertyValue);
         } else if (todoProperty == '3') {
@@ -68,6 +68,13 @@ const TodosInterface = (function() {
         displayCurrentTasks();
         displayCompletedTasks();
         TodosView.viewSelectedTodoProperty(newPropertyValue);
+    }
+
+    function updateTodoTitleInterface(newPropertyValue) {
+        console.log(newPropertyValue);
+        const todo = getStatesTodoObject();
+        const updatedTodo = TodosModel.updateTodoTitle(todo, newPropertyValue);
+        TodosModel.updateTodo(updatedTodo);
     }
 
     function updateTodoDescription(todo, newPropertyValue) {
@@ -118,6 +125,14 @@ const TodosInterface = (function() {
 
     function viewDueDateOptionsInterface() {
         TodosView.viewDueDateOptions();
+    }
+
+    function getStatesTodoObject() {
+        const state = TodosModel.getState();
+        const selectedTodoIndex = state.selectedTodo;
+        const todos = TodosModel.getTodos();
+        const todoObject = TodosModel.getTodoFromId(selectedTodoIndex, todos);
+        return todoObject;
     }
 
     function changeTodoPropertyInterface(newPriorityValue) { // this method should  be named priority not property
@@ -184,6 +199,7 @@ const TodosInterface = (function() {
         displaySelectedTodosProjectInterface,
         viewSelectableProjectsInterface,
         changeTodoProjectInterface,
+        updateTodoTitleInterface,
     }
 })()
 
