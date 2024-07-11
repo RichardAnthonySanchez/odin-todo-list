@@ -77,8 +77,10 @@ function component() {
         } else if (e.target.id === 'nav-open') {
             ProjectsInterface.getProjectsInterface();
             nav.classList.add('active');
+            document.getElementById('nav').showModal();
         } else if (e.target.id === 'nav-close' || (!nav.contains(e.target) && nav.classList.contains('active'))) {
             nav.classList.remove('active');
+            document.getElementById('nav').close();
         } else if (e.target.classList.contains('nav-item')) {
             const projectElement = e.target.closest('.nav-item');
             const projectId = projectElement.getAttribute('data-project-id');
@@ -169,11 +171,13 @@ function component() {
 
         const taskModal = document.getElementById('task');
         taskModal.classList.add('active');
+        taskModal.showModal();
     }
 
     function closeModal() {
         const taskModal = document.getElementById('task');
         taskModal.classList.remove('active');
+        taskModal.close();
         const state = StateInterface.getStateInterface();
         StateInterface.setStateInterface({ selectedTodo: null });
     }
