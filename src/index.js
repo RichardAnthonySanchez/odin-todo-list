@@ -38,7 +38,8 @@ function component() {
         } else if (e.key === 'Enter' && e.target.id === 'add-project-input') {
             e.preventDefault();
             const inputValue = e.target.value;
-            ProjectsInterface.createNewProject(inputValue);
+            const projectObject = ProjectsInterface.createNewProject(inputValue);
+            ProjectsInterface.updateStateFromProject(projectObject);
             e.target.value = '';
             e.target.blur();
         } else if (e.key === 'Enter' && e.target.id === 'project-title-1') {

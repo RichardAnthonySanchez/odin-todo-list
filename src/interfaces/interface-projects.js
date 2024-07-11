@@ -26,6 +26,7 @@ const ProjectsInterface = (function() {
         ProjectsModel.addProject(projectObject);
         console.log('new project added!')
         getProjectsInterface();
+        return projectObject;
     }
 
     function deleteProject(selectedProjectId) {
@@ -90,6 +91,12 @@ const ProjectsInterface = (function() {
         StateInterface.setStateInterface({ selectedProject: projectId });
     }
 
+    function updateStateFromProject(projectObject) {
+        let state = StateInterface.getStateInterface();
+        const projectId = projectObject.id;
+        getNewProjectState(projectId);
+    }
+
     function refreshDefaultProjectsInterface(defaultProjects) {
         ProjectsModel.refreshDefaultProjects(defaultProjects);
     }
@@ -106,6 +113,7 @@ const ProjectsInterface = (function() {
         updateProjectNameInterface,
         updateProjectTodosInterface,
         getProjectFromIdInterface,
+        updateStateFromProject,
     }
 
 })()
