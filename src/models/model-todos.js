@@ -146,6 +146,20 @@ const TodosModel = (function () {
         saveTodos(todos);
     }
 
+    function removeTodo(selectedTodo) {
+        const todos = getTodos();
+        console.log(selectedTodo);
+
+        const index = todos.findIndex(todo => todo.id === selectedTodo);
+        console.log(index);
+
+        if (index !== -1) {
+            todos.splice(index, 1);
+        }
+
+        saveTodos(todos);
+    }
+
     function updateTodo(updatedTodo) {
         let todos = getTodos();
         const index = todos.findIndex(todo => todo.id === updatedTodo.id);
@@ -221,6 +235,7 @@ const TodosModel = (function () {
         getTodos,
         getState,
         updateSelectedTodoDueDate,
+        removeTodo,
     }
 
 })();

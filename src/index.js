@@ -131,6 +131,12 @@ function component() {
             const selectedTodoId = state.selectedTodo;
             const selectedTodo = TodosInterface.getTodoFromIdInterface(selectedTodoId);
             handleSelectedTaskCheckbox(selectedTodo);
+        } else if (e.target.id === 'task-delete') {
+            TodosInterface.removeTaskInterface();
+            TodosInterface.displayCurrentTasks();
+            TodosInterface.displayCompletedTasks();
+            closeModal();
+
         }
     });
 

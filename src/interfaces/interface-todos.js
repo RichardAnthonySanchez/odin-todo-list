@@ -25,6 +25,13 @@ const TodosInterface = (function() {
         displayCurrentTasks();
     }
 
+    function removeTaskInterface() {
+        const state = TodosModel.getState();
+        const selectedTodo = state.selectedTodo;
+
+        TodosModel.removeTodo(selectedTodo);
+    }
+
     function checkForStoredTodosInterface(defaultTodos) {
         TodosModel.checkForStoredTodos(defaultTodos);
     }
@@ -200,6 +207,7 @@ const TodosInterface = (function() {
         viewSelectableProjectsInterface,
         changeTodoProjectInterface,
         updateTodoTitleInterface,
+        removeTaskInterface,
     }
 })()
 
