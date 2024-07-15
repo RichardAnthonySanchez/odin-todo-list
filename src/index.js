@@ -85,6 +85,9 @@ function component() {
             const projectElement = e.target.closest('.nav-item');
             const projectId = projectElement.getAttribute('data-project-id');
             ProjectsInterface.getNewProjectState(projectId);
+            const navModal = document.getElementById('nav');
+            navModal.classList.remove('active');
+            navModal.close();
         } else if (e.target.classList.contains('project-delete')) {
             const projectElement = e.target.closest('.nav-item');
             const projectId = projectElement.getAttribute('data-project-id');
