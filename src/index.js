@@ -68,6 +68,7 @@ function component() {
 
     document.addEventListener('click', function (e) {
         if (e.target.id === 'refresh-todos') {
+            StateInterface.setStateInterface({ selectedProject: '1' });
             TodosInterface.refreshDefaultTodosInterface(defaultTodos);
             ProjectsInterface.refreshDefaultProjectsInterface(defaultProjects);
         } else if (e.target.classList.contains('task-checkbox')) {
