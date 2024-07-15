@@ -42,6 +42,9 @@ function component() {
             ProjectsInterface.updateStateFromProject(projectObject);
             e.target.value = '';
             e.target.blur();
+            const navModal = document.getElementById('nav');
+            navModal.classList.remove('active');
+            navModal.close();
         } else if (e.key === 'Enter' && e.target.id === 'project-title-1') {
             e.preventDefault();
             let inputValue = e.target.innerText;
