@@ -20,6 +20,17 @@
     --modal-background-medium: #313131;
 }
 
+.light-mode {
+    --background-color: #CBCBCB;
+    --font-color: #171717;
+    --purple-med: #7d95ca;
+    --background-hover: #96b3f1;
+    --modal-background-color: #CBCBCB;
+    --modal-background-medium: #c2c1c1;
+    --grey-font-color: #727272;
+    --modal-option-hover: #dbdbdb;
+}
+
 html, body {
     height: 100%;
     margin: 0;

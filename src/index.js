@@ -143,7 +143,11 @@ function component() {
             TodosInterface.displayCurrentTasks();
             TodosInterface.displayCompletedTasks();
             closeModal();
-
+        } else if (e.target.id === 'theme-toggle') {
+            if (!document.body.classList.contains('light-mode')) {
+                document.body.classList.add('light-mode');
+            } else 
+                document.body.classList.remove('light-mode');
         }
     });
 
