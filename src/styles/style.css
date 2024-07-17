@@ -1,17 +1,26 @@
 @font-face {
     font-family: 'Josefin Slab Bold';
     src: url('../fonts/JosefinSlab-Bold.ttf') format('truetype');
+  }
+
+  @font-face {
     font-family: 'Roboto';
     src: url('../fonts/Roboto-Bold.ttf') format('truetype');
     font-weight: 600;
     font-style: normal;
   }
 
+  @font-face {
+    font-family: 'Bevan';
+    src: url('../fonts/Bevan-Italic.ttf') format('truetype');
+    font-style: italic;
+  }
+
 :root {
     --background-color: #171717;
     --font-color: #CBCBCB;
     --grey-font-color: #9e9e9e;
-    --orange-color: #D07B69;
+    --orange-color: #e67159;
     --transparent: rgba(0, 0, 0, 0);
     --purple-med: #8E5463;
     --background-hover: #ca7d91;
@@ -93,10 +102,10 @@ h3 {
     align-items: center;    
 
     h1 {
-        font-family: 'Josefin Slab Bold';
-        color: var(--font-color);
+        font-family: 'Bevan';
+        color: var(--orange-color);
         font-size: 40px;
-        text-shadow: 1px 1px 15px rgba(0, 0, 0, 0.76);
+        text-shadow: 1px 1px 3px rgba(0, 0, 0, 0.76);
     }
 }
 
