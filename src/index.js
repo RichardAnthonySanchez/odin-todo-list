@@ -1,4 +1,5 @@
 import './styles/style.css';
+import './styles/task.css';
 import _ from 'lodash';
 import defaultTodos from './data/default-todos.json'
 import defaultProjects from './data/default-projects.json'
