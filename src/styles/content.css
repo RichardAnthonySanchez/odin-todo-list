@@ -1,0 +1,115 @@
+#content {
+    grid-area: content;
+}
+
+#content {
+    background-color: var(--transparent);
+    max-width: auto;
+    padding: 24px;
+    color: var(--font-color);
+}
+
+#project-title {
+    font-family: 'Roboto';
+    h1 {
+        font-size: 40px;
+    }
+    h3 {
+        font-size: 20px;
+        margin-top: -12px;
+    }
+}
+
+#add-task {
+    height: 60px;
+    padding: 8px;
+    border-radius: 8px;
+    background-color: var(--purple-med);
+    box-shadow: var(var(--background-color));
+
+    display: grid;
+    grid-template-columns: 44px 1fr;
+    gap: 8px;
+    margin-top: 0.5rem;
+}
+
+#add-task:hover {
+    background-color: var(--background-hover);
+}
+
+#add-task > * {
+    height: 100%;
+    background-color: transparent;
+}
+
+#add-task span {
+    font-size: 32px;
+    font-weight: 300;
+    color: var(--background-color);
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+#add-task-input {
+    font-size: 20px;
+    font-weight: 600;
+    color: var(--background-color);
+    border: var(--transparent);
+}
+
+#add-task-input::placeholder {
+    font-size: 18px;
+    color: var(--background-color)
+}
+
+#add-task-input:focus {
+    border-color: var(--transparent);
+    outline: none; 
+}
+
+.task {
+    padding: 8px;
+    border-radius: 8px;
+    background-color: var(--purple-med);
+    user-select: text;
+
+    display: grid;
+    grid-template-columns: 44px 1fr;
+    grid-template-areas:
+        "checkbox description"
+        "checkbox info";
+    column-gap: 8px;
+    margin-top: 0.5rem;
+}
+
+.task:hover {
+    background-color: var(--background-hover);
+}
+
+.task-content {
+    color: var(--background-color);
+}
+
+.todo-title {
+    display: flex;
+    align-items: center;
+    gap: 16px;
+    background-color: var(--modal-background-medium);
+    padding: 8px;
+    border-radius: 8px;
+}
+
+.task-checkbox {
+    grid-area: checkbox;
+    justify-self: center;
+    height: 24px;
+    width: 24px;
+    margin-top: 6px;
+    border-radius: 50%;
+    border: 2px solid grey;
+    background-color: white;
+    appearance: none;
+    -webkit-appearance: none;
+    cursor: pointer;
+}
