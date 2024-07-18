@@ -89,36 +89,3 @@ dialog::backdrop {
 #footer {
     grid-area: footer;
 }
-
-#add-project {
-    padding: 16px;
-    border-radius: 8px;
-
-    padding-left: 32px;
-    padding-right: 16px;
-
-    display: flex;
-    align-items: center;
-    justify-content: space-between;
-}
-
-#add-project:hover {
-    background-color: var(--modal-option-hover);
-}
-
-#add-project-input {
-    color: var(--font-color);
-    border: var(--transparent);
-    background-color: var(--transparent);
-    font-size: 20px;
-    font-weight: 600;
-}
-
-#add-project-input::placeholder {
-    color: var(--grey-font-color);
-}
-
-#add-project-input:focus {
-    border-color: var(--transparent);
-    outline: none; 
-}
