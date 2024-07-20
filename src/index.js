@@ -148,11 +148,16 @@ function component() {
             TodosInterface.displayCompletedTasks();
             closeModal();
         } else if (e.target.id === 'theme-toggle') {
+            const themeToggleButton = document.getElementById('theme-toggle');
+
+            themeToggleButton.classList.toggle('light-mode');
+
             if (!document.body.classList.contains('light-mode')) {
                 document.body.classList.add('light-mode');
             } else 
-                document.body.classList.remove('light-mode');
+                document.body.classList.toggle('light-mode');
         }
+        
     });
 
     function handleTaskCheckboxClick(checkbox) {
