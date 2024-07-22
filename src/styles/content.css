@@ -113,3 +113,16 @@
     -webkit-appearance: none;
     cursor: pointer;
 }
+
+#project-display-scroll {
+    height: 450px;
+    overflow-y: auto;
+}
+
+#project-display-scroll::-webkit-scrollbar {
+    width: 8px;
+}
+
+#project-display-scroll::-webkit-scrollbar-thumb {
+    background-color: var(--font-color);
+}
