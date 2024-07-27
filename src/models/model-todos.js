@@ -9,21 +9,46 @@ const TodosModel = (function () {
     }
 
     function getCurrentProjectName() {  
+        const state = getState();
         const projects = getProjects();
-        let selectedProjectIndex = getStateIndex(projects);
-        let currentProjectObject = getProjectFromId(selectedProjectIndex, projects);
-        let currentProjectName = currentProjectObject.name;
+        let currentProjectName;
+
+        if (!projects) {
+            throw new Error('cannot find projects');
+        } else {
+            if (!state.selectedProject) {
+                throw new Error ('cannot find the current state of the application');
+            } else {
+                let selectedProjectIndex = getStateIndex(projects);
+                let currentProjectObject = getProjectFromId(selectedProjectIndex, projects);
+                currentProjectName = currentProjectObject.name;
+            }
+        }
+
         return currentProjectName;
     }
 
-    function getStateIndex(projects) {
+    function getStateIndex() {
         let state = getState();
-        let selectedProjectIndex = state.selectedProject;
+        let selectedProjectIndex;
+        if (!state) {
+            throw new Error('error unreadable state');
+        } else {
+            selectedProjectIndex = state.selectedProject;
+        }
         return selectedProjectIndex;
     }
 
     function getProjectFromId(selectedProjectIndex, projects) {
-        let currentProjectObject = _.find(projects, { 'id': selectedProjectIndex });
+        let currentProjectObject;
+
+        if (!currentProjectObject) {
+            const firstProjectId = projects[0].id;
+            currentProjectObject = _.find(projects, { 'id': firstProjectId });
+        } else {
+            currentProjectObject = _.find(projects, { 'id': selectedProjectIndex });
+        }
+
         return currentProjectObject;
     }
     
@@ -56,10 +81,11 @@ const TodosModel = (function () {
         const projects = getProjects();
         let currentProjectName = getCurrentProjectName();
         const currentProjectObject = _.find(projects, { 'name': currentProjectName });
-            if (!currentProjectObject) {
-            console.error("Project not found.");
-            return;
-            }
+            
+        if (!currentProjectObject) {
+            throw new Error("Project not found.");
+        }
+
         return currentProjectObject
     } 
 
@@ -148,10 +174,8 @@ const TodosModel = (function () {
 
     function removeTodo(selectedTodo) {
         const todos = getTodos();
-        console.log(selectedTodo);
 
         const index = todos.findIndex(todo => todo.id === selectedTodo);
-        console.log(index);
 
         if (index !== -1) {
             todos.splice(index, 1);

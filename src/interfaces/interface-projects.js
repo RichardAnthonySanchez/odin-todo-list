@@ -91,6 +91,12 @@ const ProjectsInterface = (function() {
         StateInterface.setStateInterface({ selectedProject: projectId });
     }
 
+    function setStateFromProjects() {
+        const projects = getProjectsInterface();
+        console.log(JSON.stringify(projects));
+        StateInterface.setStateInterface ({ projects: projects});
+    }
+
     function updateStateFromProject(projectObject) {
         let state = StateInterface.getStateInterface();
         const projectId = projectObject.id;
@@ -114,6 +120,7 @@ const ProjectsInterface = (function() {
         updateProjectTodosInterface,
         getProjectFromIdInterface,
         updateStateFromProject,
+        setStateFromProjects,
     }
 
 })()

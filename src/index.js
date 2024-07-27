@@ -12,7 +12,6 @@ import StateInterface from './interfaces/interface-state';
 import StateModel from './models/model-state';
 
 function component() {
-
     StateInterface.setStateInterface({ selectedProject: '1' });
     let state = StateInterface.getStateInterface();
     let selectedProject = state.selectedProject;
