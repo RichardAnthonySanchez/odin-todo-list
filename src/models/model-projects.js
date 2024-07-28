@@ -113,7 +113,6 @@ const ProjectsModel = (function() {
     }
 
     function removeProject(selectedProjectId, projects) {
-        console.log('removeProject method is reading ' + selectedProjectId + ' as the project Id and ' + projects + ' as the full projects')
         const index = projects.findIndex(project => project.id === selectedProjectId);
         if (index !== -1) {
             projects.splice(index, 1);

@@ -2,8 +2,9 @@ import StateInterface from './interface-state';
 import ProjectsModel from '../models/model-projects';
 import ProjectsView from '../views/view-projects';
 import ProjectsController from '../controllers/controller-projects';
+import TodosInterface from './interface-todos';
 
-const ProjectsInterface = (function() {
+const ProjectsInterface = (function () {
 
     function displayProjectTitle(selectedProject) {
         const { title, subTitle } = ProjectsModel.getProjectTitle(selectedProject);
@@ -21,7 +22,7 @@ const ProjectsInterface = (function() {
     }
 
     function createNewProject(newProjectName) {
-        const projects = ProjectsModel.getProjects();        
+        const projects = ProjectsModel.getProjects();
         const projectObject = ProjectsModel.createProjectObject(newProjectName, projects);
         ProjectsModel.addProject(projectObject);
         console.log('new project added!')
@@ -29,14 +30,24 @@ const ProjectsInterface = (function() {
         return projectObject;
     }
 
-    function deleteProject(selectedProjectId) {
-        const projects = ProjectsModel.getProjects();        
-        ProjectsModel.removeProject(selectedProjectId, projects);
-        ProjectsView.viewProjects(projects);
+    function deleteProject(selectedProjectId) { 
+        let projects = ProjectsModel.getProjects();
+        let state = StateInterface.getStateInterface();
+        
+        if (selectedProjectId === state.selectedProject) {
+            ProjectsModel.removeProject(selectedProjectId, projects);
+            projects = ProjectsModel.getProjects();
+            const firstProjectId = projects[0].id;
+            StateInterface.setStateInterface({ selectedProject: firstProjectId });
+            state = StateInterface.getStateInterface();
+        } else {
+            ProjectsModel.removeProject(selectedProjectId, projects);
+            ProjectsView.viewProjects(projects);
+        }
     }
 
-    function updateProjectNameInterface(updatedName){
-        const projects = ProjectsModel.getProjects();        
+    function updateProjectNameInterface(updatedName) {
+        const projects = ProjectsModel.getProjects();
         const state = StateInterface.getStateInterface();
         let projectObject = ProjectsModel.getProjectFromId(state.selectedProject);
         projectObject = ProjectsModel.modfiyProjectObjectByName(projectObject, updatedName);
@@ -45,7 +56,7 @@ const ProjectsInterface = (function() {
     }
 
     function updateProjectTodosInterface(newTodoId) {
-        const projects = ProjectsModel.getProjects();        
+        const projects = ProjectsModel.getProjects();
         const state = StateInterface.getStateInterface();
         let projectObject = ProjectsModel.getProjectFromId(state.selectedProject);
         projectObject.todos.push(newTodoId);
@@ -87,14 +98,13 @@ const ProjectsInterface = (function() {
         }
     }
 
-    function getNewProjectState(projectId) { 
+    function getNewProjectState(projectId) {
         StateInterface.setStateInterface({ selectedProject: projectId });
     }
 
     function setStateFromProjects() {
         const projects = getProjectsInterface();
-        console.log(JSON.stringify(projects));
-        StateInterface.setStateInterface ({ projects: projects});
+        StateInterface.setStateInterface({ projects: projects });
     }
 
     function updateStateFromProject(projectObject) {
@@ -106,7 +116,7 @@ const ProjectsInterface = (function() {
     function refreshDefaultProjectsInterface(defaultProjects) {
         ProjectsModel.refreshDefaultProjects(defaultProjects);
     }
-    
+
     return {
         displayProjectTitle,
         checkForStoredProjectsInterface,
