@@ -2,12 +2,12 @@ import StateInterface from './interface-state';
 import ProjectsModel from '../models/model-projects';
 import ProjectsView from '../views/view-projects';
 import ProjectsController from '../controllers/controller-projects';
-import TodosInterface from './interface-todos';
 
 const ProjectsInterface = (function () {
 
     function displayProjectTitle(selectedProject) {
         const { title, subTitle } = ProjectsModel.getProjectTitle(selectedProject);
+
         ProjectsView.viewProjectTitle(title, subTitle);
     }
 

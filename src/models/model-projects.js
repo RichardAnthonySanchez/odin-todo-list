@@ -124,17 +124,15 @@ const ProjectsModel = (function() {
 
     function getProjectFromId(projectId) {
         const projects = getProjects();
-        let projectObject;
-
+        let projectObject = _.find(projects, { id: projectId });
+    
         if (!projectObject) {
             const firstProjectId = projects[0].id;
             projectObject = _.find(projects, { id: firstProjectId });
-        } else {
-            projectObject = _.find(projects, { id: projectId });
         }
         
-        return projectObject
-    }
+        return projectObject;
+    }    
 
     function getProjectFromName(projectName) {
         const projects = getProjects();
