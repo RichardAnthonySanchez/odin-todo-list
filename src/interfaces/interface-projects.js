@@ -2,13 +2,21 @@ import StateInterface from './interface-state';
 import ProjectsModel from '../models/model-projects';
 import ProjectsView from '../views/view-projects';
 import ProjectsController from '../controllers/controller-projects';
+import defaultProjects from '../data/default-projects.json'
+
 
 const ProjectsInterface = (function () {
 
     function displayProjectTitle(selectedProject) {
-        const { title, subTitle } = ProjectsModel.getProjectTitle(selectedProject);
+        const projects = getProjectsInterface();
 
-        ProjectsView.viewProjectTitle(title, subTitle);
+        if (projects.length === 0) {
+            console.log('You have no projects. Refreshing defaults...');
+            refreshDefaultProjectsInterface(defaultProjects);
+        } else {
+            const { title, subTitle } = ProjectsModel.getProjectTitle(selectedProject);
+            ProjectsView.viewProjectTitle(title, subTitle);
+        }
     }
 
     function checkForStoredProjectsInterface(projects) {
@@ -33,13 +41,22 @@ const ProjectsInterface = (function () {
     function deleteProject(selectedProjectId) { 
         let projects = ProjectsModel.getProjects();
         let state = StateInterface.getStateInterface();
+        let firstProjectId = projects[0].id;
+
         
         if (selectedProjectId === state.selectedProject) {
             ProjectsModel.removeProject(selectedProjectId, projects);
             projects = ProjectsModel.getProjects();
-            const firstProjectId = projects[0].id;
-            StateInterface.setStateInterface({ selectedProject: firstProjectId });
-            state = StateInterface.getStateInterface();
+            if (projects.length === 0) {
+                refreshDefaultProjectsInterface(defaultProjects);
+                console.log('You deleted your last project. Refreshing defaults...');
+                projects = getProjectsInterface();
+                ProjectsView.viewProjects(projects);
+            } else {
+                firstProjectId = projects[0].id;
+                StateInterface.setStateInterface({ selectedProject: firstProjectId });
+                state = StateInterface.getStateInterface();
+            }
         } else {
             ProjectsModel.removeProject(selectedProjectId, projects);
             ProjectsView.viewProjects(projects);

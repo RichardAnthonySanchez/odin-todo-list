@@ -39,7 +39,7 @@ const TodosModel = (function () {
         return selectedProjectIndex;
     }
 
-    function getProjectFromId(selectedProjectIndex, projects) {
+    function getProjectFromId(selectedProjectIndex, projects) { //update this so that if there are no projects, we can prevent a crash
         let currentProjectObject;
 
         if (!currentProjectObject) {

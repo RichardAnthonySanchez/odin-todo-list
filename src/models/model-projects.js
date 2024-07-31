@@ -24,11 +24,16 @@ const ProjectsModel = (function() {
     }
 
     function getProjectTitle(selectedProjectId) {
-        const projectObject =  getProjectFromId(selectedProjectId);
-        const selectedProject = projectObject.name;
-        let title = createTitle(selectedProject);
-        let subTitle = createSubtitle(selectedProject);
-        return { title, subTitle }
+        const projects = getProjects();
+        if (projects.length === 0) {
+            console.log('no projects. please add a project');
+        } else {
+            const projectObject =  getProjectFromId(selectedProjectId);
+            const selectedProject = projectObject.name;
+            let title = createTitle(selectedProject);
+            let subTitle = createSubtitle(selectedProject);
+            return { title, subTitle }
+        }
     }
 
     function saveProjects(projects) {
@@ -127,8 +132,12 @@ const ProjectsModel = (function() {
         let projectObject = _.find(projects, { id: projectId });
     
         if (!projectObject) {
-            const firstProjectId = projects[0].id;
-            projectObject = _.find(projects, { id: firstProjectId });
+            if (projects.length === 0) {
+                console.log('you have no projects.  please add a project.');
+            } else {
+                const firstProjectId = projects[0].id;
+                projectObject = _.find(projects, { id: firstProjectId });
+            }
         }
         
         return projectObject;
