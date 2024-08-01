@@ -1,8 +1,8 @@
 [
     {
       "id": "1",
-      "title": "Buy Groceries",
-      "description": "Purchase milk, eggs, and bread from the local supermarket.",
+      "title": "Open that cool new app",
+      "description": "You opened and used that cool new todos list. Give yourself a pat on the back!",
       "due_date": null,
       "priority": "High",
       "completed": true
@@ -17,16 +17,16 @@
     },
     {
       "id": "3",
-      "title": "Clean Living Room",
-      "description": "Vacuum the living room and tidy up the furniture.",
+      "title": "This is a todo list application!",
+      "description": "This is an application where you can organize your tasks.",
       "due_date": null,
       "priority": "Medium",
       "completed": false
     },
     {
       "id": "4",
-      "title": "Send Client Emails",
-      "description": "Reach out to clients regarding project updates and follow-ups.",
+      "title": "Click me to edit my data!",
+      "description": "All todo data can be managed here. How convienient!",
       "due_date": null,
       "priority": "High",
       "completed": false
