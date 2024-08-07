@@ -24,7 +24,11 @@ function component() {
     TodosInterface.displayCurrentTasks();
     TodosInterface.displayCompletedTasks();
 
-    StateModel.subscribe(TodosInterface.displayCurrentTasks);
+    StateModel.subscribe(() => {
+        let state = StateInterface.getStateInterface();
+        TodosInterface.displayCurrentTasks();
+        console.log(JSON.stringify(state))
+    });
     StateModel.subscribe(TodosInterface.displayCompletedTasks);
     StateModel.subscribe(() => {
         let state = StateInterface.getStateInterface();

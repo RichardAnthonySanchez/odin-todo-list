@@ -14,6 +14,7 @@ const TodosInterface = (function() {
     function displayCompletedTasks() {
         let completedTasks = TodosModel.getCompletedTasks();
         TodosView.viewCompletedTodos(completedTasks);
+        console.log(JSON.stringify(completedTasks));
     }
 
     function addTaskInterface(usersNewTaskTitle) {

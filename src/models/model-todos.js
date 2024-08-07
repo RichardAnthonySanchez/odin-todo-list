@@ -40,13 +40,14 @@ const TodosModel = (function () {
     }
 
     function getProjectFromId(selectedProjectIndex, projects) { //update this so that if there are no projects, we can prevent a crash
-        let currentProjectObject;
+        let currentProjectObject = _.find(projects, { 'id': selectedProjectIndex });
+
 
         if (!currentProjectObject) {
             const firstProjectId = projects[0].id;
             currentProjectObject = _.find(projects, { 'id': firstProjectId });
         } else {
-            currentProjectObject = _.find(projects, { 'id': selectedProjectIndex });
+            currentProjectObject = currentProjectObject;
         }
 
         return currentProjectObject;
@@ -84,9 +85,9 @@ const TodosModel = (function () {
             
         if (!currentProjectObject) {
             throw new Error("Project not found.");
+        } else {
+            return currentProjectObject
         }
-
-        return currentProjectObject
     } 
 
     function getCurrentProjectIds(currentProject) {

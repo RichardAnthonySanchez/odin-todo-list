@@ -138,8 +138,10 @@ const ProjectsModel = (function() {
                 const firstProjectId = projects[0].id;
                 projectObject = _.find(projects, { id: firstProjectId });
             }
+        } else {
+            projectObject = projectObject;
         }
-        
+                
         return projectObject;
     }    
 
