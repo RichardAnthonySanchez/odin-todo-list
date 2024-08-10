@@ -28,6 +28,8 @@
   },
   "dependencies": {
     "date-fns": "^3.6.0",
-    "lodash": "^4.17.21"
+    "lodash": "^4.17.21",
+    "save-dev": "^0.0.1-security",
+    "webpack-merge": "^6.0.1"
   }
 }
