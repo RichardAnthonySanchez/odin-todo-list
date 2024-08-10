@@ -11,6 +11,10 @@ import ProjectsInterface from './interfaces/interface-projects';
 import StateInterface from './interfaces/interface-state';
 import StateModel from './models/model-state';
 
+if (process.env.NODE_ENV !== 'prodiction') {
+    console.log('We are in development mode!');
+}
+
 function component() {
     StateInterface.setStateInterface({ selectedProject: '1' });
     let state = StateInterface.getStateInterface();
