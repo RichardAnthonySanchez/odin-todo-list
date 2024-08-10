@@ -11,8 +11,10 @@ import ProjectsInterface from './interfaces/interface-projects';
 import StateInterface from './interfaces/interface-state';
 import StateModel from './models/model-state';
 
-if (process.env.NODE_ENV !== 'prodiction') {
-    console.log('We are in development mode!');
+if (process.env.NODE_ENV !== 'production') {
+    //create a button for refreshing default projects and todos
+    //view refresh default data
+    TodosInterface.viewDefaultDataButtonInterface();
 }
 
 function component() {

@@ -183,6 +183,10 @@ const TodosInterface = (function() {
         displaySelectedTodosProjectInterface(updatedProject.name);
     }
 
+    function viewDefaultDataButtonInterface() {
+        TodosView.viewDefaultDataButton();
+    }
+
     return {
         displayCurrentTasks,
         displayCompletedTasks,
@@ -208,6 +212,7 @@ const TodosInterface = (function() {
         changeTodoProjectInterface,
         updateTodoTitleInterface,
         removeTaskInterface,
+        viewDefaultDataButtonInterface,
     }
 })()
 

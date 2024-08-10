@@ -204,6 +204,16 @@ const TodosView = (function(todos) {
         }
     }
     
+    function viewDefaultDataButton() {
+        const containerElement = document.getElementById('container');
+
+        const buttonElement = document.createElement('button');
+        buttonElement.setAttribute('id', 'refresh-todos');
+
+        buttonElement.innerHTML = 'refresh todos to default';
+
+        containerElement.appendChild(buttonElement);
+    }
     
     return {
         viewCurrentTodos,
@@ -217,6 +227,7 @@ const TodosView = (function(todos) {
         viewDueDateOptions,
         viewSelectedTodosProject,
         viewSelectableProjects,
+        viewDefaultDataButton,
     }
     
 })()
