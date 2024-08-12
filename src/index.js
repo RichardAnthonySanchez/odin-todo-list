@@ -30,9 +30,9 @@ function component() {
     TodosInterface.displayCurrentTasks();
     TodosInterface.displayCompletedTasks();
 
-    StateModel.subscribe(TodosInterface.displayCurrentTasks);
-    StateModel.subscribe(TodosInterface.displayCompletedTasks);
-    StateModel.subscribe(() => {
+    StateInterface.subscribeStateInterface(TodosInterface.displayCurrentTasks);
+    StateInterface.subscribeStateInterface(TodosInterface.displayCompletedTasks);
+    StateInterface.subscribeStateInterface(() => {
         let state = StateInterface.getStateInterface();
         let selectedProject = state.selectedProject;
         ProjectsInterface.displayProjectTitle(selectedProject);

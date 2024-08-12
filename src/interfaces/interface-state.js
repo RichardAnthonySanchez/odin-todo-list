@@ -14,7 +14,7 @@ const StateInterface = (function() {
         },
 
         subscribeStateInterface: function(callback){
-            StateInterface.subscribe(callbakc);
+            StateModel.subscribe(callback);
         },
     }
     
