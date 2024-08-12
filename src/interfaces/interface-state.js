@@ -12,6 +12,10 @@ const StateInterface = (function() {
         setStateInterface: function(newState) {
             StateModel.setState(newState);
         },
+
+        subscribeStateInterface: function(callback){
+            StateInterface.subscribe(callbakc);
+        },
     }
     
 })();
