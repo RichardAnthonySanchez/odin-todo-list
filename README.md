@@ -13,8 +13,8 @@ Explore the live version of Todos List: [Todos List Live](https://richardanthony
 Here are some images to guide you through the onboarding process and give you an idea of what to expect from the app:
 
 - **This is the content section of the homepage. This is where we display all tasks grouped in the current project** ![homepage for productify](./img/img-todoslist-homepage.png)
-- **To change the current project, click the hamburger icon on the top left of the page. This is what the modal looks like after clicked** [the project manager modal](./img/img-todoslist-projectmanager.png)
-- **When you want to modify properties of a task, click on the name of the task in the content section. This will open the task manager modal and this area is where you can edit task data** [the task manager modal](./img/img-todoslist-taskmanager.png)
+- **To change the current project, click the hamburger icon on the top left of the page. This is what the [the project manager modal](./img/img-todoslist-projectmanager.png) looks like after clicked** 
+- **When you want to modify properties of a task, click on the name of the task in the content section. This will open [the task manager modal](./img/img-todoslist-taskmanager.png) and this area is where you can edit task data** 
 
 ## Installation Instructions
 If you'd like to install the Todos List project locally, follow these steps:
