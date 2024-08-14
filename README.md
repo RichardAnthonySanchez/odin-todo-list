@@ -13,21 +13,20 @@ Explore the live version of Todos List: [Todos List Live](https://richardanthony
 Here are some images to guide you through the onboarding process and give you an idea of what to expect from the app:
 
 - **This is the content section of the homepage. This is where we display all tasks grouped in the current project** ![homepage for productify](./img/img-todoslist-homepage.png)
-- **To change the current project, click the hamburger icon on the top left of the page. This is what the modal looks like after clicked** ![the project manager modal](./img/img-todoslist-projectmanager.png)
-- **When you want to modify properties of a task, click on the name of the task in the content section. This will open the task manager modal and this area is where you can edit task data** ![the task manager modal](./img/img-todoslist-taskmanager.png)
+- **To change the current project, click the hamburger icon on the top left of the page. This is what the modal looks like after clicked** [the project manager modal](./img/img-todoslist-projectmanager.png)
+- **When you want to modify properties of a task, click on the name of the task in the content section. This will open the task manager modal and this area is where you can edit task data** [the task manager modal](./img/img-todoslist-taskmanager.png)
 
 ## Installation Instructions
 If you'd like to install the Todos List project locally, follow these steps:
 
 1. **Clone the Repository:**
    ```bash
-   git clone https://github.com/username/repository-name.git
+   git clone https://github.com/RichardAnthonySanchez/odin-todo-list.git
    ```
-   Replace `username` and `repository-name` with the appropriate values.
 
 2. **Navigate to the Project Directory:**
    ```bash
-   cd repository-name
+   cd odin-todo-list
    ```
 
 3. **Install Dependencies:**
@@ -39,7 +38,7 @@ If you'd like to install the Todos List project locally, follow these steps:
    ```bash
    npm start
    ```
-   Visit `http://localhost:3000` in your browser to access the app.
+   Visit `http://localhost:8080` in your browser to access the app.
 
-## Link to The Odin Project Lesson (Optional)
+## Link to The Odin Project Lesson
 This project is part of a larger curriculum offered by The Odin Project. You can find the related lesson here: [The Odin Project - JavaScript Todo List](https://www.theodinproject.com/lessons/node-path-javascript-todo-list)
