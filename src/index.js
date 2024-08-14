@@ -9,7 +9,6 @@ import defaultProjects from './data/default-projects.json'
 import TodosInterface from './interfaces/interface-todos';
 import ProjectsInterface from './interfaces/interface-projects';
 import StateInterface from './interfaces/interface-state';
-import StateModel from './models/model-state';
 
 if (process.env.NODE_ENV !== 'production') {
     //create a button for refreshing default projects and todos
@@ -139,9 +138,11 @@ function component() {
         } else if (e.target.matches('.my-project')) {
             TodosInterface.viewSelectableProjectsInterface();
         } else if (e.target.matches('.menu-option.project')) {
+            const projectMenu = document.getElementById('project-menu');
             const projectElement = e.target.querySelector('span');
             const projectName = projectElement.className;
             TodosInterface.changeTodoProjectInterface(projectName);
+            projectMenu.classList.add('hidden');
         } else if (e.target.id === 'task-checkbox') {
             const state = StateInterface.getStateInterface();
             const selectedTodoId = state.selectedTodo;
