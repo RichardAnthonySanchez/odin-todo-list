@@ -23,6 +23,8 @@ h3 {
 .title {
     display: flex;
     align-items: center;    
+    margin-right: 20px;
+    margin-left: 20px;
 
     h1 {
         font-family: 'Bevan';
