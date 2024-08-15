@@ -24,6 +24,13 @@
     --modal-background-medium: #313131;
 }
 
+html, body {
+    height: 100%;
+    margin: 0;
+    padding: 0;
+}
+
+
 .light-mode {
     --background-color: #CBCBCB;
     --font-color: #171717;
@@ -41,6 +48,21 @@ html, body {
     padding: 0;
 }
 
+body {
+    background-color: var(--background-color);
+    background-image: linear-gradient(
+        to bottom,
+        var(--background-color) 0%,
+        var(--background-color) 60%,
+        var(--orange-color) 400%
+    );
+    background-repeat: no-repeat;
+    background-attachment: fixed;
+    background-size: cover;
+    min-height: 100vh;
+}
+
+
 p {
     font-family: 'Roboto';
 }
@@ -57,12 +79,6 @@ span {
     padding: 0 48px;
     height: 100vh;
     width: auto;
-    background-image: linear-gradient(
-        to bottom,
-        var(--background-color) 0%,
-        var(--background-color) 60%,
-        var(--orange-color) 400%
-    );
     display: grid;
     grid-template-rows: auto 1fr auto;
     grid-template-areas: 
