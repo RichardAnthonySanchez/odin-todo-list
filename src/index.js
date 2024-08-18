@@ -104,7 +104,7 @@ function component() {
             const projectElement = e.target.closest('.nav-item');
             const projectId = projectElement.getAttribute('data-project-id');
             ProjectsInterface.deleteProject(projectId);
-        } else if (e.target.id === 'important-content') {
+        } else if (e.target.matches('.important')) {
             TodosInterface.viewTodoPriorityOptionsInterface();
         } else if (e.target.matches('.menu-option.low')) {
             const newPriorityValue = 'Low';
