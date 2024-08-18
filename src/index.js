@@ -121,7 +121,7 @@ function component() {
             TodosInterface.changeTodoPropertyInterface(newPriorityValue);
             TodosInterface.displaySelectedPriorityInterface(newPriorityValue);
             TodosInterface.viewTodoPriorityOptionsInterface();
-        } else if (e.target.id === 'due-content') {
+        } else if (e.target.matches('.due-date')) {
             TodosInterface.viewDueDateOptionsInterface();
         } else if (e.target.matches('.menu-option.tomorrow')) {
             const dueDateIndex = '1'
