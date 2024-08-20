@@ -1,6 +1,4 @@
-import _ from 'lodash';
-
-const TodosView = (function(todos) {
+const TodosView = (function() {
 
     function viewCurrentTodos(currentTodos) {
         const activeTasksContainer = document.getElementById('active-tasks');
@@ -93,8 +91,6 @@ const TodosView = (function(todos) {
     }
 
     function viewSelectedTodosProject(todosProject) {
-        // if there is a project display it
-        const myDayContainer = document.getElementById('my-project');
         const projectContentElement = document.getElementById('project-content');
        
         if (todosProject) {
