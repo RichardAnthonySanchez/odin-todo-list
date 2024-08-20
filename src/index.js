@@ -3,7 +3,7 @@ import './styles/task.css';
 import './styles/nav.css';
 import './styles/header.css';
 import './styles/content.css';
-import _ from 'lodash';
+//import _ from 'lodash';
 import defaultTodos from './data/default-todos.json'
 import defaultProjects from './data/default-projects.json'
 import TodosInterface from './interfaces/interface-todos';
@@ -88,10 +88,10 @@ function component() {
             handleTaskClick(e.target);
         } else if (e.target.id === 'nav-open') {
             ProjectsInterface.getProjectsInterface();
-            nav.classList.add('active');
+            //nav.classList.add('active');
             document.getElementById('nav').showModal();
-        } else if (e.target.id === 'nav-close' || (!nav.contains(e.target) && nav.classList.contains('active'))) {
-            nav.classList.remove('active');
+        } else if (e.target.id === 'nav-close' /* || (!nav.contains(e.target) && nav.classList.contains('active'))*/) {
+            //nav.classList.remove('active');
             document.getElementById('nav').close();
         } else if (e.target.classList.contains('nav-item')) {
             const projectElement = e.target.closest('.nav-item');
@@ -210,7 +210,7 @@ function component() {
         const taskModal = document.getElementById('task');
         taskModal.classList.remove('active');
         taskModal.close();
-        const state = StateInterface.getStateInterface();
+        //const state = StateInterface.getStateInterface();
         StateInterface.setStateInterface({ selectedTodo: null });
     }
 
