@@ -88,10 +88,10 @@ function component() {
             handleTaskClick(e.target);
         } else if (e.target.id === 'nav-open') {
             ProjectsInterface.getProjectsInterface();
-            //nav.classList.add('active');
+            nav.classList.add('active');
             document.getElementById('nav').showModal();
-        } else if (e.target.id === 'nav-close' /* || (!nav.contains(e.target) && nav.classList.contains('active'))*/) {
-            //nav.classList.remove('active');
+        } else if (e.target.id === 'nav-close' || (!nav.contains(e.target) && nav.classList.contains('active'))) {
+            nav.classList.remove('active');
             document.getElementById('nav').close();
         } else if (e.target.classList.contains('nav-item')) {
             const projectElement = e.target.closest('.nav-item');
@@ -210,7 +210,6 @@ function component() {
         const taskModal = document.getElementById('task');
         taskModal.classList.remove('active');
         taskModal.close();
-        //const state = StateInterface.getStateInterface();
         StateInterface.setStateInterface({ selectedTodo: null });
     }
 
