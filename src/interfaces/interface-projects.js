@@ -125,7 +125,6 @@ const ProjectsInterface = (function () {
     }
 
     function updateStateFromProject(projectObject) {
-        let state = StateInterface.getStateInterface();
         const projectId = projectObject.id;
         getNewProjectState(projectId);
     }
