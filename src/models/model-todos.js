@@ -47,7 +47,7 @@ const TodosModel = (function () {
             const firstProjectId = projects[0].id;
             currentProjectObject = _.find(projects, { 'id': firstProjectId });
         } else {
-            currentProjectObject = currentProjectObject;
+            // keep the original value of the project object
         }
 
         return currentProjectObject;
@@ -71,6 +71,7 @@ const TodosModel = (function () {
                 projects = JSON.parse(storedProjects);
             } catch (error) {
                 projects = [];
+                console.log('get projects recived the following error: ' + error); 
             }
         } else {
             projects = [];

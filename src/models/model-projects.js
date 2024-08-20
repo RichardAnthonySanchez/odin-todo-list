@@ -59,6 +59,7 @@ const ProjectsModel = (function() {
                 projects = JSON.parse(storedProjects);
             } catch (error) {
                 projects = [];
+                console.log('get projects recived the following error: ' + error);
             }
         } else {
             projects = [];
@@ -139,7 +140,7 @@ const ProjectsModel = (function() {
                 projectObject = _.find(projects, { id: firstProjectId });
             }
         } else {
-            projectObject = projectObject;
+            // keep the original value of the project object
         }
                 
         return projectObject;
