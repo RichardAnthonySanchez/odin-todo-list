@@ -6,9 +6,9 @@ export default [
     languageOptions: {
       globals: {
         ...globals.browser, // Browser globals
-        ...globals.node     // Node.js globals
-      }
-    }
+        ...globals.node, // Node.js globals
+      },
+    },
   },
   pluginJs.configs.recommended,
 ];

@@ -1,102 +1,102 @@
-  @font-face {
-    font-family: 'Roboto';
-    src: url('../fonts/Roboto-Bold.ttf') format('truetype');
-    font-weight: 600;
-    font-style: normal;
-  }
+@font-face {
+  font-family: "Roboto";
+  src: url("../fonts/Roboto-Bold.ttf") format("truetype");
+  font-weight: 600;
+  font-style: normal;
+}
 
-  @font-face {
-    font-family: 'Bevan';
-    src: url('../fonts/Bevan-Italic.ttf') format('truetype');
-    font-style: italic;
-  }
+@font-face {
+  font-family: "Bevan";
+  src: url("../fonts/Bevan-Italic.ttf") format("truetype");
+  font-style: italic;
+}
 
 :root {
-    --background-color: #171717;
-    --font-color: #CBCBCB;
-    --grey-font-color: #9e9e9e;
-    --orange-color: #e67159;
-    --transparent: rgba(0, 0, 0, 0);
-    --purple-med: #8E5463;
-    --background-hover: #ca7d91;
-    --modal-option-hover: #4d4d4d;
-    --modal-background-color: #272727;
-    --modal-background-medium: #313131;
+  --background-color: #171717;
+  --font-color: #cbcbcb;
+  --grey-font-color: #9e9e9e;
+  --orange-color: #e67159;
+  --transparent: rgba(0, 0, 0, 0);
+  --purple-med: #8e5463;
+  --background-hover: #ca7d91;
+  --modal-option-hover: #4d4d4d;
+  --modal-background-color: #272727;
+  --modal-background-medium: #313131;
 }
 
-html, body {
-    height: 100%;
-    margin: 0;
-    padding: 0;
+html,
+body {
+  height: 100%;
+  margin: 0;
+  padding: 0;
 }
-
 
 .light-mode {
-    --background-color: #CBCBCB;
-    --font-color: #171717;
-    --purple-med: #7d95ca;
-    --background-hover: #96b3f1;
-    --modal-background-color: #CBCBCB;
-    --modal-background-medium: #c2c1c1;
-    --grey-font-color: #727272;
-    --modal-option-hover: #dbdbdb;
+  --background-color: #cbcbcb;
+  --font-color: #171717;
+  --purple-med: #7d95ca;
+  --background-hover: #96b3f1;
+  --modal-background-color: #cbcbcb;
+  --modal-background-medium: #c2c1c1;
+  --grey-font-color: #727272;
+  --modal-option-hover: #dbdbdb;
 }
 
-html, body {
-    height: 100%;
-    margin: 0;
-    padding: 0;
+html,
+body {
+  height: 100%;
+  margin: 0;
+  padding: 0;
 }
 
 body {
-    background-color: var(--background-color);
-    background-image: linear-gradient(
-        to bottom,
-        var(--background-color) 0%,
-        var(--background-color) 60%,
-        var(--orange-color) 400%
-    );
-    background-repeat: no-repeat;
-    background-attachment: fixed;
-    background-size: cover;
-    min-height: 100vh;
+  background-color: var(--background-color);
+  background-image: linear-gradient(
+    to bottom,
+    var(--background-color) 0%,
+    var(--background-color) 60%,
+    var(--orange-color) 400%
+  );
+  background-repeat: no-repeat;
+  background-attachment: fixed;
+  background-size: cover;
+  min-height: 100vh;
 }
 
-
 p {
-    font-family: 'Roboto';
+  font-family: "Roboto";
 }
 
 span {
-    color: var(--font-color);
-    font-weight: 600;
-    font-family: "Roboto";
+  color: var(--font-color);
+  font-weight: 600;
+  font-family: "Roboto";
 }
 
 #container {
-    min-height: 100%;
-    min-width: 370px;
-    padding: 0 48px;
-    height: 100vh;
-    width: auto;
-    display: grid;
-    grid-template-rows: auto 1fr auto;
-    grid-template-areas: 
-        "header"
-        "content"
-        "footer";
+  min-height: 100%;
+  min-width: 370px;
+  padding: 0 48px;
+  height: 100vh;
+  width: auto;
+  display: grid;
+  grid-template-rows: auto 1fr auto;
+  grid-template-areas:
+    "header"
+    "content"
+    "footer";
 }
 
 @media only screen and (min-width: 1400px) {
-    #container {
-        padding: 0 400px;
-    }
+  #container {
+    padding: 0 400px;
+  }
 }
 
 dialog::backdrop {
-    background-color: rgba(0, 0, 0, 0.4);
+  background-color: rgba(0, 0, 0, 0.4);
 }
 
 #footer {
-    grid-area: footer;
+  grid-area: footer;
 }

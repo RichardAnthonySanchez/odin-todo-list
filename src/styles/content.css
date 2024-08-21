@@ -1,128 +1,128 @@
 #content {
-    grid-area: content;
+  grid-area: content;
 }
 
 #content {
-    background-color: var(--transparent);
-    max-width: auto;
-    padding: 24px;
-    color: var(--font-color);
+  background-color: var(--transparent);
+  max-width: auto;
+  padding: 24px;
+  color: var(--font-color);
 }
 
 #project-title {
-    font-family: 'Roboto';
-    h1 {
-        font-size: 40px;
-    }
-    h3 {
-        font-size: 20px;
-        margin-top: -12px;
-    }
+  font-family: "Roboto";
+  h1 {
+    font-size: 40px;
+  }
+  h3 {
+    font-size: 20px;
+    margin-top: -12px;
+  }
 }
 
 #add-task {
-    height: 60px;
-    padding: 8px;
-    border-radius: 8px;
-    background-color: var(--purple-med);
-    box-shadow: var(var(--background-color));
+  height: 60px;
+  padding: 8px;
+  border-radius: 8px;
+  background-color: var(--purple-med);
+  box-shadow: var(var(--background-color));
 
-    display: grid;
-    grid-template-columns: 44px 1fr;
-    gap: 8px;
-    margin-top: 0.5rem;
+  display: grid;
+  grid-template-columns: 44px 1fr;
+  gap: 8px;
+  margin-top: 0.5rem;
 }
 
 #add-task:hover {
-    background-color: var(--background-hover);
+  background-color: var(--background-hover);
 }
 
 #add-task > * {
-    height: 100%;
-    background-color: transparent;
+  height: 100%;
+  background-color: transparent;
 }
 
 #add-task span {
-    font-size: 32px;
-    font-weight: 300;
-    color: var(--background-color);
-    display: flex;
-    justify-content: center;
-    align-items: center;
+  font-size: 32px;
+  font-weight: 300;
+  color: var(--background-color);
+  display: flex;
+  justify-content: center;
+  align-items: center;
 }
 
 #add-task-input {
-    font-size: 20px;
-    font-weight: 600;
-    color: var(--background-color);
-    border: var(--transparent);
+  font-size: 20px;
+  font-weight: 600;
+  color: var(--background-color);
+  border: var(--transparent);
 }
 
 #add-task-input::placeholder {
-    font-size: 18px;
-    color: var(--background-color)
+  font-size: 18px;
+  color: var(--background-color);
 }
 
 #add-task-input:focus {
-    border-color: var(--transparent);
-    outline: none; 
+  border-color: var(--transparent);
+  outline: none;
 }
 
 .task {
-    padding: 8px;
-    border-radius: 8px;
-    background-color: var(--purple-med);
-    user-select: text;
+  padding: 8px;
+  border-radius: 8px;
+  background-color: var(--purple-med);
+  user-select: text;
 
-    display: grid;
-    grid-template-columns: 44px 1fr;
-    grid-template-areas:
-        "checkbox description"
-        "checkbox info";
-    column-gap: 8px;
-    margin-top: 0.5rem;
+  display: grid;
+  grid-template-columns: 44px 1fr;
+  grid-template-areas:
+    "checkbox description"
+    "checkbox info";
+  column-gap: 8px;
+  margin-top: 0.5rem;
 }
 
 .task:hover {
-    background-color: var(--background-hover);
+  background-color: var(--background-hover);
 }
 
 .task-content {
-    color: var(--background-color);
+  color: var(--background-color);
 }
 
 .todo-title {
-    display: flex;
-    align-items: center;
-    gap: 16px;
-    background-color: var(--modal-background-medium);
-    padding: 8px;
-    border-radius: 8px;
+  display: flex;
+  align-items: center;
+  gap: 16px;
+  background-color: var(--modal-background-medium);
+  padding: 8px;
+  border-radius: 8px;
 }
 
 .task-checkbox {
-    grid-area: checkbox;
-    justify-self: center;
-    height: 24px;
-    width: 24px;
-    margin-top: 6px;
-    border-radius: 50%;
-    border: 2px solid grey;
-    background-color: white;
-    appearance: none;
-    -webkit-appearance: none;
-    cursor: pointer;
+  grid-area: checkbox;
+  justify-self: center;
+  height: 24px;
+  width: 24px;
+  margin-top: 6px;
+  border-radius: 50%;
+  border: 2px solid grey;
+  background-color: white;
+  appearance: none;
+  -webkit-appearance: none;
+  cursor: pointer;
 }
 
 #project-display-scroll {
-    height: 450px;
-    overflow-y: auto;
+  height: 450px;
+  overflow-y: auto;
 }
 
 #project-display-scroll::-webkit-scrollbar {
-    width: 8px;
+  width: 8px;
 }
 
 #project-display-scroll::-webkit-scrollbar-thumb {
-    background-color: var(--font-color);
+  background-color: var(--font-color);
 }

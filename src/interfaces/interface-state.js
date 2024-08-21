@@ -1,23 +1,20 @@
 import StateModel from "../models/model-state";
 
-const StateInterface = (function() {
+const StateInterface = (function () {
+  return {
+    getStateInterface: function () {
+      const state = StateModel.getState();
+      return state;
+    },
 
-    return {
+    setStateInterface: function (newState) {
+      StateModel.setState(newState);
+    },
 
-        getStateInterface: function() {
-            const state = StateModel.getState();
-            return state;
-        },
-
-        setStateInterface: function(newState) {
-            StateModel.setState(newState);
-        },
-
-        subscribeStateInterface: function(callback){
-            StateModel.subscribe(callback);
-        },
-    }
-    
+    subscribeStateInterface: function (callback) {
+      StateModel.subscribe(callback);
+    },
+  };
 })();
 
 export default StateInterface;
