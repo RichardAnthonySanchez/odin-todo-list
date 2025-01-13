@@ -76,7 +76,7 @@ span {
 #container {
   min-height: 100%;
   min-width: 370px;
-  padding: 0 48px;
+  padding: 0px;
   height: 100vh;
   width: auto;
   display: grid;
